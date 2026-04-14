@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aethera — Yoga Retreats</title>
+
+<!-- Open Graph -->
+<meta property="og:title" content="Aethera — Yoga Retreats">
+<meta property="og:description" content="Transformative yoga retreats in sacred landscapes. Costa Rica, Nepal & India.">
+<meta property="og:image" content="images/og-cover.jpg">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+
+<!-- Shared stylesheet -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ── Navigation ──────────────────────────────────────── -->
+<nav id="navbar">
+  <span class="nav-logo">Aethera</span>
+  <ul class="nav-links">
+    <li><a href="retreats.html">Retreats</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="community.html">Community</a></li>
+    <li><a href="mailto:contact@aetherayoga.com?subject=Aethera%20Yoga%2%20Inquiry">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── Hero (video) ────────────────────────────────────── -->
+<section class="hero">
+  <!--
+    Place your hero video at: videos/hero.mp4
+    The placeholder gradient shows until a valid src is present.
+  -->
+  <video class="hero-video" id="heroVideo"
+         src="videos/hero.mp4"
+         autoplay muted loop playsinline
+         poster="images/hero-poster.jpg">
+  </video>
+  <div class="hero-video-placeholder" id="video-placeholder"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Retreats · Costa Rica · Nepal · India</p>
+    <h1 class="hero-title">Move.<br>Breathe.<br>Arrive.</h1>
+    <p class="hero-subtitle">Transformative yoga retreats in sacred landscapes</p>
+    <a href="#retreats" class="hero-cta">Explore Retreats</a>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ── Intro ───────────────────────────────────────────── -->
+<section class="intro" id="about">
+  <div class="intro-left">
+    <p class="section-label">Who We Are</p>
+    <h2 class="intro-title">Practice rooted in place</h2>
+    <p class="intro-body">
+      Aethera was born from a simple belief: that the most profound transformations happen when movement meets meaning. We bring small groups to places of extraordinary energy: the cloud forests of Costa Rica, the Himalayan highlands of Nepal, the sacred river valleys of India.
+    </p>
+  </div>
+  <div class="intro-right">
+    <div class="intro-stat-grid">
+      <div class="stat-box">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Retreat Destinations</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Retreats per Year</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">18</div>
+        <div class="stat-label">Max Group Size</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Days of Immersion</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Carousel ────────────────────────────────────────── -->
+<section class="carousel-section" id="retreats">
+  <div class="carousel-header">
+    <p class="section-label">Our Offerings</p>
+    <h2 class="carousel-title">Where will you go next?</h2>
+  </div>
+  <div class="carousel-track-wrapper">
+    <div class="carousel-track" id="carouselTrack">
+
+      <!-- Costa Rica — links to its own page -->
+      <div class="carousel-card">
+        <!--
+          To use a real image:
+          <div class="card-bg costa-rica" style="background-image:url('images/card-costa-rica.jpg'); background-size:cover; background-position:center;"></div>
+        -->
+        <div class="card-bg costa-rica">🌿</div>
+        <div class="card-bg costa-rica" style="background-image:url('images/card-costa-rica.jpg'); background-size:cover; background-position:center;"></div>
+          <span class="card-tag">Costa Rica · 2026</span>
+          <h3 class="card-title">Jungle &amp; Flow</h3>
+          <p class="card-desc">Vinyasa, breathwork, and cacao ceremony in the Osa Peninsula rainforest. Morning mist, howler monkeys, and total immersion.</p>
+          <a href="costa-rica.html" class="card-link">Learn more →</a>
+        </div>
+      </div>
+
+      <!-- Nepal -->
+      <div class="carousel-card">
+        <div class="card-bg nepal">🏔</div>
+        <div class="card-bg nepal" style="background-image:url('images/card-nepal.jpg'); background-size:cover; background-position:center;"></div>
+          <span class="card-tag">Nepal · Coming 2026</span>
+          <h3 class="card-title">Himalayan Stillness</h3>
+          <p class="card-desc">Yin yoga and meditation at altitude. Trekking through monasteries, guided by the rhythm of prayer flags in the mountain wind.</p>
+          <a href="#contact" class="card-link">Register interest →</a>
+        </div>
+      </div>
+
+      <!-- India -->
+      <div class="carousel-card">
+        <div class="card-bg india">🪷</div>
+        <div class="card-bg india" style="background-image:url('images/card-india.jpg'); background-size:cover; background-position:center;"></div>
+          <span class="card-tag">India · Coming 2026</span>
+          <h3 class="card-title">Roots of the Practice</h3>
+          <p class="card-desc">Return to the source — Mysore Ashtanga, Vedic chanting, and Ayurvedic ritual in the birthplace of yoga.</p>
+          <a href="#contact" class="card-link">Register interest →</a>
+        </div>
+      </div>
+
+      <!-- Brand update -->
+      <div class="carousel-card">
+        <div class="card-bg community">✦</div>
+        <div class="card-overlay">
+          <span class="card-tag">Brand Update</span>
+          <h3 class="card-title">Aethera is Growing</h3>
+          <p class="card-desc">From one retreat to a global community — three continents, one lineage. Join the newsletter to stay first in the loop.</p>
+          <a href="#contact" class="card-link">Stay connected →</a>
+        </div>
+      </div>
+
+      <!-- Philosophy -->
+      <div class="carousel-card">
+        <div class="card-bg practice">☽</div>
+        <div class="card-overlay">
+          <span class="card-tag">Our Practice</span>
+          <h3 class="card-title">Small Groups, Deep Work</h3>
+          <p class="card-desc">We cap every retreat at 8 guests. No performance, no comparison — only the quiet work of returning to yourself.</p>
+          <a href="#about" class="card-link">Our philosophy →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="carousel-controls">
+    <button class="carousel-btn" id="prevBtn">←</button>
+    <div class="carousel-dots" id="dots"></div>
+    <button class="carousel-btn" id="nextBtn">→</button>
+  </div>
+</section>
+
+<!-- ── Philosophy ──────────────────────────────────────── -->
+<section class="philosophy">
+  <span class="section-label">Our Philosophy</span>
+  <blockquote class="philosophy-quote">
+    "."
+  </blockquote>
+  <p class="philosophy-attr">— The Aethera Way</p>
+</section>
+
+<!-- ── Footer / CTA ────────────────────────────────────── -->
+<footer class="footer" id="contact">
+  <div class="footer-cta">
+    <p class="footer-cta-eyebrow">Three continents await</p>
+    <h2 class="footer-cta-title">Ready to begin<br>your journey?</h2>
+    <div class="footer-cta-actions">
+      <a href="mailto:contact@aetherayoga.com" class="btn-primary">Apply for a Retreat</a>
+      <a href="#community" class="btn-outline">Join the Community</a>
+    </div>
+  </div>
+
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="nav-logo">Aethera</span>
+      <p>Transformative yoga retreats in sacred landscapes. Costa Rica, Nepal &amp; India — small groups, deep practice, lasting change.</p>
+      <div class="social-links">
+        <a href="https://instagram.com" class="social-link" target="_blank" rel="noopener">IG</a>
+        <a href="https://youtube.com"   class="social-link" target="_blank" rel="noopener">YT</a>
+        <a href="https://facebook.com"  class="social-link" target="_blank" rel="noopener">FB</a>
+        <a href="https://tiktok.com"    class="social-link" target="_blank" rel="noopener">TK</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Retreats</h4>
+      <ul>
+        <li><a href="costa-rica.html">Costa Rica 2026</a></li>
+        <li><a href="#">Nepal 2026</a></li>
+        <li><a href="#">India 2026</a></li>
+        <li><a href="#">Private Bookings</a></li>
+        <li><a href="#">Gift a Retreat</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Aethera</h4>
+      <ul>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Our Teachers</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col" id="community">
+      <h4>Stay in touch</h4>
+      <div class="contact-item">
+        <strong>Email</strong>
+        hello@aetherayoga.com
+      </div>
+      <div class="contact-item">
+        <strong>WhatsApp</strong>
+        +1 (555) 000-0000
+      </div>
+      <div class="newsletter-row" style="margin-top:1.2rem">
+        <input class="newsletter-input" type="email" placeholder="Your email">
+        <button class="newsletter-btn">Join</button>
+      </div>
+      <p class="newsletter-note">Monthly drops. No noise. Unsubscribe anytime.</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Aethera Yoga. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="#">Terms &amp; Conditions</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Sticky nav ──────────────────────────────────────── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+/* ── Video / placeholder toggle ─────────────────────── */
+const video = document.getElementById('heroVideo');
+const placeholder = document.getElementById('video-placeholder');
+// Hide placeholder if video loads; hide video if it errors (no file yet)
+video.addEventListener('canplay', () => { placeholder.style.display = 'none'; });
+video.addEventListener('error',   () => { video.style.display = 'none'; });
+// If src is empty or file doesn't exist yet, show placeholder
+if (!video.src || video.src === window.location.href) {
+  video.style.display = 'none';
+}
+
+/* ── Carousel ────────────────────────────────────────── */
+const track        = document.getElementById('carouselTrack');
+const dotsContainer = document.getElementById('dots');
+const cards        = track.querySelectorAll('.carousel-card');
+const total        = cards.length;
+let current        = 0;
+
+for (let i = 0; i < total; i++) {
+  const dot = document.createElement('div');
+  dot.className = 'dot' + (i === 0 ? ' active' : '');
+  dot.addEventListener('click', () => goTo(i));
+  dotsContainer.appendChild(dot);
+}
+
+function goTo(index) {
+  current = (index + total) % total;
+  const cardWidth = cards[0].offsetWidth + 24; // card width + gap
+  track.style.transform = `translateX(-${current * cardWidth}px)`;
+  dotsContainer.querySelectorAll('.dot').forEach((d, i) => {
+    d.classList.toggle('active', i === current);
+  });
+}
+
+document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
+document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
+
+let autoSlide = setInterval(() => goTo(current + 1), 5000);
+track.addEventListener('mouseenter', () => clearInterval(autoSlide));
+track.addEventListener('mouseleave', () => {
+  autoSlide = setInterval(() => goTo(current + 1), 5000);
+});
+</script>
+</body>
+</html>
