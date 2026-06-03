@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roots of the Practice — India Retreat · Aethera Yoga</title>
+  <meta property="og:title" content="Aethera India Retreat — Roots of the Practice">
+  <meta property="og:description" content="Mysore Ashtanga, Vedic chanting and Ayurvedic ritual in the birthplace of yoga.">
+  <meta property="og:image" content="images/card-india.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Josefin+Sans:wght@200;300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --in-dark:  #5a0a28;
+      --in-mid:   #8B1A3C;
+      --in-vivid: #be1062;
+      --in-gold:  #c9902a;
+      --in-pale:  rgba(139,26,60,0.08);
+      --in-cream: #fdf6f0;
+    }
+    body { background: var(--in-cream); }
+
+    /* Nav */
+    #navbar { position:fixed; top:0; left:0; width:100%; z-index:100;
+      padding:0 56px; height:80px; display:flex; align-items:center;
+      justify-content:space-between; transition:background .3s, box-shadow .3s; }
+    #navbar.scrolled { background:var(--in-cream); box-shadow:0 2px 24px rgba(90,10,40,0.08); }
+    .nav-logo { font-family:var(--serif); font-size:38px; font-weight:400;
+      color:white; text-decoration:none; letter-spacing:-0.5px; transition:color .3s; }
+    #navbar.scrolled .nav-logo { color:var(--in-dark); }
+    .nav-sub { font-family:var(--sans); font-size:10px; letter-spacing:3px;
+      text-transform:uppercase; color:rgba(255,255,255,0.5);
+      display:block; margin-top:-4px; transition:color .3s; }
+    #navbar.scrolled .nav-sub { color:var(--in-mid); }
+    .nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
+    .nav-links a { font-family:var(--sans); font-size:11px; letter-spacing:2.5px;
+      text-transform:uppercase; font-weight:600; color:rgba(255,255,255,0.85);
+      text-decoration:none; transition:color .2s; }
+    .nav-links a:hover { color:var(--in-gold); }
+    #navbar.scrolled .nav-links a { color:var(--in-dark); }
+    .nav-cta { display:inline-block; padding:12px 28px 10px;
+      background:var(--in-mid); border-radius:999px; font-family:var(--sans);
+      font-size:10px; letter-spacing:2.5px; text-transform:uppercase;
+      font-weight:600; color:white !important; text-decoration:none; }
+    .nav-cta:hover { background:var(--in-dark) !important; }
+
+    /* Hero */
+    .hero { position:relative; min-height:100vh; display:flex;
+      align-items:flex-end; overflow:hidden; }
+    .hero-bg { position:absolute; inset:0;
+      background:url('images/india-hero.jpg') center 30%/cover no-repeat;
+      background-color:#3a0a1a; }
+    .hero-overlay { position:absolute; inset:0;
+      background:linear-gradient(to top, rgba(90,10,40,0.88) 0%, rgba(90,10,40,0.3) 55%, transparent 100%); }
+    .hero-content { position:relative; z-index:2; max-width:1200px;
+      margin:0 auto; padding:0 56px 100px; width:100%; }
+    .hero-eyebrow { font-family:var(--sans); font-size:11px; letter-spacing:4px;
+      text-transform:uppercase; color:var(--in-gold); font-weight:600; margin-bottom:20px; }
+    .hero-subtitle { font-family:var(--sans); font-size:13px; letter-spacing:3px;
+      text-transform:uppercase; color:rgba(255,255,255,0.6); font-weight:300; margin-bottom:16px; }
+    .hero-title { font-family:var(--serif); font-size:clamp(60px,10vw,140px);
+      font-weight:400; line-height:0.9; letter-spacing:-3px; color:white; margin-bottom:24px; }
+    .hero-body { font-family:var(--sans); font-size:15px; font-weight:300;
+      line-height:1.7; color:rgba(255,255,255,0.72); max-width:520px; margin-bottom:36px; }
+    .btn-in { display:inline-block; padding:18px 36px 15px;
+      background:var(--in-mid); border-radius:999px; font-family:var(--sans);
+      font-size:11px; letter-spacing:3px; text-transform:uppercase; font-weight:600;
+      color:white; text-decoration:none; transition:all .3s; }
+    .btn-in:hover { background:var(--in-dark); transform:translateY(-2px); }
+
+    /* Ritual strip */
+    .ritual-strip { background:var(--in-mid); padding:48px 56px; }
+    .ritual-inner { max-width:1200px; margin:0 auto;
+      display:grid; grid-template-columns:repeat(4,1fr); gap:32px; }
+    .ritual-item { text-align:center; padding-right:32px;
+      border-right:1px solid rgba(255,255,255,0.15); }
+    .ritual-item:last-child { border-right:none; padding-right:0; }
+    .ritual-icon { font-size:28px; margin-bottom:12px; opacity:.8; }
+    .ritual-name { font-family:var(--sans); font-size:11px; letter-spacing:3px;
+      text-transform:uppercase; font-weight:600; color:rgba(255,255,255,0.7);
+      margin-bottom:8px; }
+    .ritual-desc { font-family:var(--sans); font-size:13px; font-weight:300;
+      color:rgba(255,255,255,0.55); line-height:1.5; }
+
+    /* Overview section */
+    .overview { background:var(--in-cream); padding:80px 56px; }
+    .overview-inner { max-width:1200px; margin:0 auto;
+      display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
+    .section-eyebrow { font-family:var(--sans); font-size:11px; letter-spacing:4px;
+      text-transform:uppercase; color:var(--in-vivid); font-weight:600;
+      display:block; margin-bottom:12px; }
+    .overview h2 { font-family:var(--serif); font-size:clamp(44px,5vw,72px);
+      font-weight:400; letter-spacing:-2px; color:var(--in-dark); margin-bottom:24px; }
+    .overview-tagline { font-family:var(--serif); font-style:italic;
+      font-size:28px; color:var(--in-mid); margin-bottom:20px; }
+    .overview p { font-family:var(--sans); font-size:15px; font-weight:300;
+      line-height:1.75; color:rgba(90,10,40,0.65); margin-bottom:28px; }
+    .overview-details { display:grid; gap:0; border:1px solid rgba(139,26,60,0.12);
+      border-radius:16px; overflow:hidden; margin-bottom:28px; }
+    .detail-row { display:flex; align-items:center; gap:16px;
+      padding:14px 20px; border-bottom:1px solid rgba(139,26,60,0.1);
+      font-family:var(--sans); font-size:13px; font-weight:300;
+      color:rgba(90,10,40,0.7); }
+    .detail-row:last-child { border-bottom:none; }
+    .detail-row strong { font-size:10px; letter-spacing:2px; text-transform:uppercase;
+      font-weight:600; color:var(--in-vivid); min-width:140px; }
+    .experiences-list { display:grid; gap:16px; }
+    .exp-item { display:flex; gap:16px; align-items:flex-start;
+      padding:20px; background:white; border-radius:16px;
+      border:1px solid rgba(139,26,60,0.08); }
+    .exp-icon { width:44px; height:44px; border-radius:12px;
+      background:var(--in-pale); display:flex; align-items:center;
+      justify-content:center; font-size:20px; flex-shrink:0; }
+    .exp-item h4 { font-family:var(--sans); font-size:11px; letter-spacing:2px;
+      text-transform:uppercase; font-weight:600; color:var(--in-mid);
+      margin-bottom:4px; }
+    .exp-item p { font-family:var(--sans); font-size:13px; font-weight:300;
+      color:rgba(90,10,40,0.6); line-height:1.5; }
+
+    /* Schedule */
+    .schedule { background:white; padding:80px 56px; }
+    .schedule-inner { max-width:1200px; margin:0 auto;
+      display:grid; grid-template-columns:1fr 1fr; gap:60px; }
+    .schedule h2 { font-family:var(--serif); font-size:clamp(36px,4vw,56px);
+      font-weight:400; letter-spacing:-1.5px; color:var(--in-dark); margin-bottom:28px; }
+    .sched-list { display:grid; gap:0; }
+    .sched-row { display:grid; grid-template-columns:80px 1fr;
+      gap:16px; padding:12px 0; border-bottom:1px solid rgba(139,26,60,0.08);
+      align-items:center; }
+    .sched-row:last-child { border-bottom:none; }
+    .sched-time { font-family:var(--sans); font-size:11px; letter-spacing:1.5px;
+      font-weight:600; color:var(--in-vivid); }
+    .sched-act { font-family:var(--sans); font-size:13px; font-weight:300;
+      color:rgba(90,10,40,0.75); line-height:1.4; }
+    .schedule-right { display:flex; align-items:center; justify-content:center; }
+    .lakshmi-graphic { text-align:center; opacity:.15; }
+    .lakshmi-graphic svg { width:300px; }
+
+    /* Accommodation */
+    .accommodation { background:var(--in-cream); padding:80px 56px; }
+    .accommodation h2 { font-family:var(--serif); font-size:clamp(36px,4vw,56px);
+      font-weight:400; letter-spacing:-1.5px; color:var(--in-dark);
+      margin-bottom:8px; }
+    .acc-eyebrow { font-family:var(--sans); font-size:11px; letter-spacing:4px;
+      text-transform:uppercase; color:var(--in-vivid); font-weight:600;
+      display:block; margin-bottom:12px; }
+    .acc-grid { max-width:1200px; margin:0 auto;
+      display:grid; grid-template-columns:1fr 1fr 1fr 0.8fr; gap:24px;
+      align-items:start; margin-top:40px; }
+    .acc-card { background:white; border-radius:20px; overflow:hidden;
+      border:1px solid rgba(139,26,60,0.08); }
+    .acc-img { height:200px; background:rgba(139,26,60,0.08); position:relative; overflow:hidden; }
+    .acc-img img { width:100%; height:100%; object-fit:cover; }
+    .acc-img-fallback { width:100%; height:100%;
+      background:linear-gradient(135deg, var(--in-mid) 0%, var(--in-vivid) 100%); opacity:.3; }
+    .acc-content { padding:20px; }
+    .acc-name { font-family:var(--sans); font-size:11px; letter-spacing:2.5px;
+      text-transform:uppercase; font-weight:600; color:var(--in-dark);
+      margin-bottom:6px; }
+    .acc-desc { font-family:var(--sans); font-size:12px; font-weight:300;
+      color:rgba(90,10,40,0.6); line-height:1.5; margin-bottom:10px; }
+    .acc-price { font-family:var(--sans); font-size:11px; letter-spacing:1.5px;
+      text-transform:uppercase; font-weight:700; color:var(--in-vivid); }
+    .india-quote { background:var(--in-pale); border-radius:20px; padding:36px;
+      display:flex; flex-direction:column; justify-content:center; }
+    .india-quote blockquote { font-family:var(--serif); font-size:22px;
+      font-weight:400; font-style:italic; color:var(--in-dark); line-height:1.5; }
+    .india-quote cite { font-family:var(--sans); font-size:10px; letter-spacing:2px;
+      text-transform:uppercase; color:var(--in-vivid); font-weight:600;
+      margin-top:16px; display:block; }
+
+    /* Teachers */
+    .teachers-section { background:white; padding:80px 56px; }
+    .teachers-inner { max-width:1200px; margin:0 auto; }
+    .teachers-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:48px; }
+    .teacher-card { text-align:center; }
+    .teacher-photo { width:100%; aspect-ratio:3/4; border-radius:20px;
+      overflow:hidden; background:var(--in-pale); margin-bottom:16px; position:relative; }
+    .teacher-photo img { width:100%; height:100%; object-fit:cover; }
+    .teacher-name { font-family:var(--serif); font-size:28px;
+      color:var(--in-dark); margin-bottom:4px; }
+    .teacher-ig { display:inline-flex; align-items:center; gap:6px;
+      font-family:var(--sans); font-size:12px; color:var(--in-vivid);
+      text-decoration:none; }
+    .teacher-ig:hover { color:var(--in-dark); }
+
+    /* CTA */
+    .in-cta { padding:90px 56px;
+      background:var(--in-mid);
+      position:relative; overflow:hidden; }
+    .in-cta::before { content:''; position:absolute; inset:0;
+      background:url('images/india-cta.jpg') center/cover; opacity:.15; }
+    .in-cta-inner { position:relative; z-index:2; max-width:1200px; margin:0 auto;
+      display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+    .in-cta h2 { font-family:var(--serif); font-size:clamp(52px,7vw,100px);
+      font-weight:400; color:white; letter-spacing:-3px; line-height:0.9; }
+    .in-cta p { font-family:var(--sans); font-size:15px; font-weight:300;
+      color:rgba(255,255,255,0.75); margin-bottom:32px; line-height:1.7; }
+    .btn-in-white { display:inline-block; padding:18px 36px 15px;
+      background:white; border-radius:999px; font-family:var(--sans);
+      font-size:11px; letter-spacing:3px; text-transform:uppercase;
+      font-weight:600; color:var(--in-dark); text-decoration:none;
+      margin-right:14px; transition:all .3s; }
+    .btn-in-white:hover { background:var(--in-dark); color:white; }
+    .btn-in-ghost { display:inline-block; padding:18px 36px 15px;
+      background:transparent; border:1px solid rgba(255,255,255,0.45);
+      border-radius:999px; font-family:var(--sans); font-size:11px;
+      letter-spacing:3px; text-transform:uppercase; font-weight:600;
+      color:white; text-decoration:none; transition:all .3s; }
+    .btn-in-ghost:hover { background:rgba(255,255,255,0.1); }
+    .stamp { width:80px; opacity:.5; margin-top:24px; }
+
+    /* Footer */
+    .in-footer { background:var(--in-dark); padding:56px; }
+    .in-footer-inner { max-width:1200px; margin:0 auto;
+      display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:24px; }
+    .in-footer .nav-logo { color:white; font-size:38px; }
+    .in-footer-links { display:flex; gap:36px; flex-wrap:wrap; }
+    .in-footer-links a { font-family:var(--sans); font-size:12px; letter-spacing:2px;
+      text-transform:uppercase; color:rgba(255,255,255,0.4); text-decoration:none;
+      transition:color .2s; font-weight:600; }
+    .in-footer-links a:hover { color:rgba(201,144,42,0.8); }
+    .in-footer-bottom { max-width:1200px; margin:28px auto 0;
+      padding-top:24px; border-top:1px solid rgba(255,255,255,0.06);
+      font-family:var(--sans); font-size:11px; color:rgba(255,255,255,0.22); text-align:center; }
+
+    @media(max-width:1024px){
+      #navbar,.hero-content,.ritual-strip,.overview,.schedule,.accommodation,
+      .teachers-section,.in-cta,.in-footer{padding-left:32px;padding-right:32px;}
+      .acc-grid{grid-template-columns:1fr 1fr;}
+      .in-cta-inner{grid-template-columns:1fr;}
+    }
+    @media(max-width:720px){
+      #navbar,.hero-content,.ritual-strip,.overview,.schedule,.accommodation,
+      .teachers-section,.in-cta,.in-footer{padding-left:20px;padding-right:20px;}
+      .overview-inner,.schedule-inner{grid-template-columns:1fr;}
+      .ritual-inner{grid-template-columns:1fr 1fr;}
+      .ritual-item{border-right:none;padding-right:0;border-bottom:1px solid rgba(255,255,255,0.12);padding-bottom:20px;}
+      .acc-grid{grid-template-columns:1fr;}
+      .teachers-grid{grid-template-columns:1fr;}
+      .hero-title{font-size:64px;letter-spacing:-2px;}
+      .nav-links{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div>
+    <a href="index.html" class="nav-logo">Aethera</a>
+    <span class="nav-sub">India Retreat</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#experiences">Experiences</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#accommodation">Accommodation</a></li>
+    <li><a href="index.html#retreats">All Retreats</a></li>
+    <li><a href="mailto:contact@aetherayoga.com?subject=India%20Retreat%20Interest" class="nav-cta">Book Your Retreat</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-subtitle">A transformational journey into yoga, heritage &amp; inner wisdom</div>
+    <h1 class="hero-title">Roots of<br>the Practice</h1>
+    <p class="hero-body">Immerse in the birthplace of timeless traditions. Daily Ashtanga Yoga, Vedic chanting, Ayurveda and soulful exploration in the heart of India.</p>
+    <a href="mailto:contact@aetherayoga.com?subject=India%20Retreat%20Interest" class="btn-in">Book Your Retreat</a>
+  </div>
+</section>
+
+<!-- Ritual strip -->
+<div class="ritual-strip">
+  <div class="ritual-inner">
+    <div class="ritual-item">
+      <div class="ritual-icon">🏛</div>
+      <div class="ritual-name">Mysore Ashtanga</div>
+      <p class="ritual-desc">Deepen your practice with authentic guidance</p>
+    </div>
+    <div class="ritual-item">
+      <div class="ritual-icon">🎵</div>
+      <div class="ritual-name">Vedic Chanting</div>
+      <p class="ritual-desc">Connect with sacred sound &amp; tradition</p>
+    </div>
+    <div class="ritual-item">
+      <div class="ritual-icon">🌿</div>
+      <div class="ritual-name">Ayurveda</div>
+      <p class="ritual-desc">Nourish &amp; restore with ancient wisdom</p>
+    </div>
+    <div class="ritual-item">
+      <div class="ritual-icon">🦋</div>
+      <div class="ritual-name">Transformational Travel</div>
+      <p class="ritual-desc">Explore, reflect &amp; return renewed</p>
+    </div>
+  </div>
+</div>
+
+<!-- Overview + Experiences -->
+<section class="overview" id="overview">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="overview-inner">
+      <div>
+        <span class="section-eyebrow">Retreat Overview</span>
+        <h2>Rooted.<br>Refined.<br>Real.</h2>
+        <p class="overview-tagline">Set in the spiritual heart of South India, this retreat is an invitation to slow down and reconnect.</p>
+        <p>Through daily practice, sacred rituals and local experiences, you'll return home grounded, inspired and renewed.</p>
+        <div class="overview-details">
+          <div class="detail-row"><strong>Duration</strong>7 Nights / 8 Days</div>
+          <div class="detail-row"><strong>Location</strong>Mysore, India</div>
+          <div class="detail-row"><strong>Level</strong>All Levels Welcome</div>
+          <div class="detail-row"><strong>Group</strong>Small, Intimate Groups</div>
+          <div class="detail-row"><strong>Food</strong>Plant-Based Ayurvedic Cuisine</div>
+        </div>
+        <a href="mailto:contact@aetherayoga.com?subject=India%20Retreat%20Interest" class="btn-in">View Dates &amp; Pricing</a>
+      </div>
+      <div id="experiences">
+        <span class="section-eyebrow" style="margin-bottom:24px;">Key Experiences</span>
+        <div class="experiences-list">
+          <div class="exp-item">
+            <div class="exp-icon">🧘</div>
+            <div>
+              <h4>Daily Ashtanga Yoga</h4>
+              <p>Mysore-style practice in a traditional shala with experienced teachers.</p>
+            </div>
+          </div>
+          <div class="exp-item">
+            <div class="exp-icon">🔥</div>
+            <div>
+              <h4>Vedic Chanting &amp; Rituals</h4>
+              <p>Morning chants, temple visits and fire ceremonies to uplift and purify.</p>
+            </div>
+          </div>
+          <div class="exp-item">
+            <div class="exp-icon">🌿</div>
+            <div>
+              <h4>Ayurveda &amp; Wellness</h4>
+              <p>Dosha balancing meals, consultations and therapies tailored to you.</p>
+            </div>
+          </div>
+          <div class="exp-item">
+            <div class="exp-icon">🐘</div>
+            <div>
+              <h4>Culture &amp; Exploration</h4>
+              <p>Heritage walks, local markets and time in nature to inspire and expand.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Schedule -->
+<section class="schedule" id="schedule">
+  <div class="schedule-inner">
+    <div>
+      <span class="section-eyebrow">Sample Daily Schedule</span>
+      <h2>A Day in<br>the Retreat</h2>
+      <div class="sched-list">
+        <div class="sched-row"><span class="sched-time">05:30</span><span class="sched-act">Morning Chanting &amp; Meditation</span></div>
+        <div class="sched-row"><span class="sched-time">06:00</span><span class="sched-act">Mysore Ashtanga Practice</span></div>
+        <div class="sched-row"><span class="sched-time">09:00</span><span class="sched-act">Breakfast &amp; Herbal Tea</span></div>
+        <div class="sched-row"><span class="sched-time">10:30</span><span class="sched-act">Ayurveda Session / Workshop</span></div>
+        <div class="sched-row"><span class="sched-time">13:00</span><span class="sched-act">Lunch &amp; Rest</span></div>
+        <div class="sched-row"><span class="sched-time">16:00</span><span class="sched-act">Philosophy Talk / Journaling</span></div>
+        <div class="sched-row"><span class="sched-time">17:30</span><span class="sched-act">Restorative Yoga or Pranayama</span></div>
+        <div class="sched-row"><span class="sched-time">19:00</span><span class="sched-act">Dinner</span></div>
+        <div class="sched-row"><span class="sched-time">20:00</span><span class="sched-act">Kirtan or Silent Reflection</span></div>
+      </div>
+    </div>
+    <div class="schedule-right">
+      <div class="lakshmi-graphic">
+        <svg viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="100" cy="60" rx="40" ry="50" stroke="#8B1A3C" stroke-width="1.5"/>
+          <circle cx="100" cy="40" r="18" stroke="#8B1A3C" stroke-width="1"/>
+          <path d="M60 110 Q100 90 140 110 Q120 180 100 200 Q80 180 60 110Z" stroke="#8B1A3C" stroke-width="1.5" fill="none"/>
+          <path d="M50 120 Q30 150 40 180" stroke="#be1062" stroke-width="1" opacity=".6"/>
+          <path d="M150 120 Q170 150 160 180" stroke="#be1062" stroke-width="1" opacity=".6"/>
+          <path d="M80 200 Q100 240 120 200" stroke="#8B1A3C" stroke-width="1"/>
+          <path d="M60 70 Q40 60 35 80 Q40 100 60 95" stroke="#c9902a" stroke-width="1" opacity=".7"/>
+          <path d="M140 70 Q160 60 165 80 Q160 100 140 95" stroke="#c9902a" stroke-width="1" opacity=".7"/>
+          <circle cx="100" cy="60" r="4" fill="#c9902a" opacity=".5"/>
+        </svg>
+        <div style="font-family:var(--sans);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--in-mid);margin-top:12px;opacity:.6;">Lakshmi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Accommodation -->
+<section class="accommodation" id="accommodation">
+  <div style="max-width:1200px;margin:0 auto;">
+    <span class="acc-eyebrow">Accommodation</span>
+    <h2>Your Sanctuary<br>in India</h2>
+    <div class="acc-grid">
+      <div class="acc-card">
+        <div class="acc-img">
+          <img src="images/india-heritage.jpg" alt="Heritage Suites" onerror="this.outerHTML='<div class=\'acc-img-fallback\'></div>'">
+        </div>
+        <div class="acc-content">
+          <div class="acc-name">Heritage Suites</div>
+          <p class="acc-desc">Elegant rooms in restored heritage homes with modern comforts.</p>
+          <div class="acc-price">From $2,299</div>
+        </div>
+      </div>
+      <div class="acc-card">
+        <div class="acc-img">
+          <img src="images/india-garden.jpg" alt="Garden Rooms" onerror="this.outerHTML='<div class=\'acc-img-fallback\'></div>'">
+        </div>
+        <div class="acc-content">
+          <div class="acc-name">Garden Rooms</div>
+          <p class="acc-desc">Peaceful rooms surrounded by lush gardens and serene views.</p>
+          <div class="acc-price">From $1,999</div>
+        </div>
+      </div>
+      <div class="acc-card">
+        <div class="acc-img">
+          <img src="images/india-private.jpg" alt="Single Occupancy" onerror="this.outerHTML='<div class=\'acc-img-fallback\'></div>'">
+        </div>
+        <div class="acc-content">
+          <div class="acc-name">Single Occupancy</div>
+          <p class="acc-desc">Private rooms for deep rest, reflection and personal space.</p>
+          <div class="acc-price">Add $600</div>
+        </div>
+      </div>
+      <div class="india-quote">
+        <blockquote>"India is not just a place you visit, it's a place that remembers you."</blockquote>
+        <cite>— Aethera</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teachers -->
+<section class="teachers-section">
+  <div class="teachers-inner">
+    <span class="section-eyebrow">Your Guides</span>
+    <h2 style="font-family:var(--serif);font-size:clamp(40px,4vw,60px);font-weight:400;letter-spacing:-1.5px;color:var(--in-dark);">Meet the Teachers</h2>
+    <div class="teachers-grid">
+      <div class="teacher-card">
+        <div class="teacher-photo">
+          <img src="images/teacher-lisa.jpg" alt="Lisa" onerror="this.style.display='none'">
+        </div>
+        <div class="teacher-name">Lisa</div>
+        <a href="https://www.instagram.com/yogawithlisaai/" target="_blank" rel="noopener" class="teacher-ig">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          @yogawithlisaai
+        </a>
+      </div>
+      <div class="teacher-card">
+        <div class="teacher-photo">
+          <img src="images/teacher-sara.jpg" alt="Sara" onerror="this.style.display='none'">
+        </div>
+        <div class="teacher-name">Sara</div>
+        <a href="https://www.instagram.com/saraapelaaez/" target="_blank" rel="noopener" class="teacher-ig">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          @saraapelaaez
+        </a>
+      </div>
+      <div class="teacher-card">
+        <div class="teacher-photo">
+          <img src="images/teacher-sandra.jpg" alt="Sandra" onerror="this.style.display='none'">
+        </div>
+        <div class="teacher-name">Sandra</div>
+        <a href="https://www.instagram.com/naiasandy_yoga/" target="_blank" rel="noopener" class="teacher-ig">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          @naiasandy_yoga
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="in-cta">
+  <div class="in-cta-inner">
+    <h2>Begin Your<br>Journey Home</h2>
+    <div>
+      <p>Spaces are intentionally limited to keep our retreats personal and intimate. Reserve your spot today.</p>
+      <a href="mailto:contact@aetherayoga.com?subject=India%20Retreat%20Booking" class="btn-in-white">Book Your Retreat</a>
+      <a href="mailto:contact@aetherayoga.com?subject=India%20Retreat%20Enquiry" class="btn-in-ghost">Enquire Now →</a>
+      <div class="stamp" style="font-family:var(--sans);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:20px;border:1px solid rgba(255,255,255,0.2);display:inline-block;padding:8px 12px;border-radius:4px;">15 TP · INDIA</div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="in-footer">
+  <div class="in-footer-inner">
+    <a href="index.html" class="nav-logo">Aethera</a>
+    <nav class="in-footer-links">
+      <a href="index.html">Home</a>
+      <a href="costa-rica.html">Costa Rica</a>
+      <a href="bali.html">Bali</a>
+      <a href="nepal.html">Nepal</a>
+      <a href="teachers.html">Teachers</a>
+      <a href="mailto:contact@aetherayoga.com">Contact</a>
+    </nav>
+  </div>
+  <div class="in-footer-bottom">© 2026 Aethera Yoga. All rights reserved.</div>
+</footer>
+
+<script>
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+</script>
+</body>
+</html>

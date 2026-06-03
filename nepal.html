@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Himalayan Stillness — Nepal Retreat · Aethera Yoga</title>
+  <meta property="og:title" content="Aethera Nepal Retreat — Himalayan Stillness">
+  <meta property="og:description" content="A transformative retreat in the heart of Nepal. Pokhara, 1,750m altitude.">
+  <meta property="og:image" content="images/card-nepal.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Josefin+Sans:wght@200;300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --np-dark:  #0e2137;
+      --np-mid:   #1e3a5f;
+      --np-light: #6391bb;
+      --np-pale:  rgba(99,145,187,0.1);
+      --np-cream: #f4f6f8;
+    }
+    body { background: var(--np-cream); }
+
+    /* Nav */
+    #navbar { position: fixed; top:0; left:0; width:100%; z-index:100;
+      padding:0 56px; height:80px; display:flex; align-items:center;
+      justify-content:space-between; transition: background .3s, box-shadow .3s; }
+    #navbar.scrolled { background:var(--cream); box-shadow:0 2px 24px rgba(43,27,21,0.08); }
+    .nav-logo { font-family:var(--serif); font-size:38px; font-weight:400;
+      color:white; text-decoration:none; letter-spacing:-0.5px; transition:color .3s; }
+    #navbar.scrolled .nav-logo { color:var(--np-dark); }
+    .nav-sub { font-family:var(--sans); font-size:10px; letter-spacing:3px;
+      text-transform:uppercase; color:rgba(255,255,255,0.55);
+      display:block; margin-top:-4px; transition:color .3s; }
+    #navbar.scrolled .nav-sub { color:var(--np-light); }
+    .nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
+    .nav-links a { font-family:var(--sans); font-size:11px; letter-spacing:2.5px;
+      text-transform:uppercase; font-weight:600; color:rgba(255,255,255,0.85);
+      text-decoration:none; transition:color .2s; }
+    .nav-links a:hover { color:var(--np-light); }
+    #navbar.scrolled .nav-links a { color:var(--np-dark); }
+    .nav-cta { display:inline-block; padding:12px 28px 10px;
+      background:var(--np-mid); border-radius:999px; font-family:var(--sans);
+      font-size:10px; letter-spacing:2.5px; text-transform:uppercase;
+      font-weight:600; color:white !important; text-decoration:none; }
+    .nav-cta:hover { background:var(--np-dark) !important; }
+
+    /* Hero */
+    .hero { position:relative; min-height:100vh; display:flex;
+      align-items:flex-end; overflow:hidden; }
+    .hero-bg { position:absolute; inset:0;
+      background:url('images/nepal-hero.jpg') center top/cover no-repeat;
+      background-color:#0e2137; }
+    .hero-overlay { position:absolute; inset:0;
+      background:linear-gradient(to top, rgba(14,33,55,0.9) 0%, rgba(14,33,55,0.45) 50%, rgba(14,33,55,0.2) 100%); }
+    .hero-content { position:relative; z-index:2; max-width:1200px;
+      margin:0 auto; padding:0 56px 100px; width:100%; }
+    .hero-eyebrow { font-family:var(--sans); font-size:11px; letter-spacing:4px;
+      text-transform:uppercase; color:var(--np-light); font-weight:600; margin-bottom:20px; }
+    .hero-title { font-family:var(--serif); font-size:clamp(72px,11vw,160px);
+      font-weight:400; line-height:0.9; letter-spacing:-4px; color:white; margin-bottom:28px; }
+    .hero-sub { font-family:var(--sans); font-size:13px; letter-spacing:4px;
+      text-transform:uppercase; color:rgba(255,255,255,0.6); font-weight:300;
+      margin-bottom:40px; }
+    .hero-actions { display:flex; gap:16px; flex-wrap:wrap; }
+    .btn-np { display:inline-block; padding:18px 36px 15px; background:var(--np-mid);
+      border-radius:999px; font-family:var(--sans); font-size:11px; letter-spacing:3px;
+      text-transform:uppercase; font-weight:600; color:white; text-decoration:none;
+      transition:all .3s; }
+    .btn-np:hover { background:var(--np-dark); transform:translateY(-2px); }
+    .btn-np-outline { display:inline-block; padding:18px 36px 15px;
+      background:transparent; border:1px solid rgba(255,255,255,0.45);
+      border-radius:999px; font-family:var(--sans); font-size:11px; letter-spacing:3px;
+      text-transform:uppercase; font-weight:600; color:white; text-decoration:none;
+      transition:all .3s; display:flex; align-items:center; gap:10px; }
+    .btn-np-outline:hover { background:rgba(255,255,255,0.1); }
+
+    /* Come home strip */
+    .come-home { background:white; padding:72px 56px; }
+    .come-home-inner { max-width:1200px; margin:0 auto;
+      display:grid; grid-template-columns:1fr 1.4fr; gap:80px; align-items:center; }
+    .mountain-graphic { width:180px; opacity:.7; }
+    .come-home h2 { font-family:var(--serif); font-size:clamp(44px,5vw,72px);
+      font-weight:400; letter-spacing:-2px; color:var(--np-dark); line-height:0.95;
+      margin-bottom:20px; }
+    .come-home p { font-family:var(--sans); font-size:15px; font-weight:300;
+      line-height:1.75; color:rgba(14,33,55,0.65); max-width:500px; }
+    .come-home-tagline { font-family:var(--sans); font-size:11px; letter-spacing:3.5px;
+      text-transform:uppercase; color:var(--np-light); font-weight:600;
+      margin-top:20px; }
+
+    /* Stats strip */
+    .stats-strip { background:var(--np-cream); padding:56px; }
+    .stats-inner { max-width:1200px; margin:0 auto;
+      display:grid; grid-template-columns:repeat(5,1fr); gap:2px;
+      border-radius:20px; overflow:hidden; box-shadow:0 16px 50px rgba(14,33,55,0.08); }
+    .stat-cell { background:white; padding:36px 24px; text-align:center; }
+    .stat-icon { font-size:28px; margin-bottom:10px; opacity:.6; }
+    .stat-val { font-family:var(--serif); font-size:40px; font-weight:400;
+      color:var(--np-dark); line-height:1; letter-spacing:-1px; margin-bottom:6px; }
+    .stat-lbl { font-family:var(--sans); font-size:10px; letter-spacing:2.5px;
+      text-transform:uppercase; color:var(--np-light); font-weight:600;
+      margin-bottom:4px; }
+    .stat-sub { font-family:var(--sans); font-size:12px; font-weight:300;
+      color:rgba(14,33,55,0.5); }
+
+    /* What to expect */
+    .expect { background:var(--np-cream); padding:80px 56px; }
+    .section-eyebrow { font-family:var(--sans); font-size:11px; letter-spacing:4px;
+      text-transform:uppercase; color:var(--np-light); font-weight:600;
+      text-align:center; display:block; margin-bottom:56px; }
+    .expect-grid { max-width:1200px; margin:0 auto;
+      display:grid; grid-template-columns:repeat(5,1fr); gap:24px; }
+    .expect-card { background:white; border-radius:20px; padding:32px 24px;
+      text-align:center; border:1px solid rgba(14,33,55,0.06); }
+    .expect-icon { font-size:32px; margin-bottom:14px; opacity:.7; }
+    .expect-name { font-family:var(--sans); font-size:11px; letter-spacing:2.5px;
+      text-transform:uppercase; font-weight:600; color:var(--np-mid);
+      margin-bottom:10px; }
+    .expect-desc { font-family:var(--sans); font-size:13px; font-weight:300;
+      line-height:1.6; color:rgba(14,33,55,0.6); }
+
+    /* Horizontal daily schedule */
+    .schedule { background:var(--np-dark); padding:80px 56px; }
+    .schedule .section-eyebrow { color:var(--np-light); }
+    .schedule h2 { font-family:var(--serif); font-size:clamp(36px,4vw,56px);
+      font-weight:400; letter-spacing:-1.5px; color:white; text-align:center;
+      margin-bottom:60px; }
+    .timeline-h { max-width:1200px; margin:0 auto;
+      display:grid; grid-template-columns:repeat(7,1fr); gap:0;
+      position:relative; }
+    .timeline-h::before { content:''; position:absolute; top:28px; left:5%; right:5%;
+      height:1px; background:rgba(99,145,187,0.3); z-index:0; }
+    .tl-step { position:relative; z-index:1; text-align:center; padding:0 8px; }
+    .tl-dot { width:14px; height:14px; border-radius:50%;
+      background:var(--np-light); border:2px solid var(--np-dark);
+      margin:22px auto 20px; box-shadow:0 0 0 3px rgba(99,145,187,0.2); }
+    .tl-icon { font-size:22px; margin-bottom:12px; opacity:.8; }
+    .tl-time { font-family:var(--sans); font-size:10px; letter-spacing:2px;
+      text-transform:uppercase; color:var(--np-light); font-weight:600;
+      margin-bottom:6px; }
+    .tl-act { font-family:var(--serif); font-size:18px; font-weight:400;
+      color:white; margin-bottom:6px; }
+    .tl-note { font-family:var(--sans); font-size:11px; font-weight:300;
+      color:rgba(255,255,255,0.45); line-height:1.5; }
+    .schedule-tagline { text-align:center; font-family:var(--serif);
+      font-style:italic; font-size:20px; color:rgba(255,255,255,0.45);
+      margin-top:48px; }
+
+    /* Included split */
+    .included-section { background:white; padding:80px 56px; }
+    .included-inner { max-width:1200px; margin:0 auto;
+      display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+    .included-img { border-radius:24px; overflow:hidden; height:480px; position:relative; }
+    .included-img img { width:100%; height:100%; object-fit:cover; }
+    .included-img-fallback { width:100%; height:100%;
+      background:linear-gradient(135deg, var(--np-mid) 0%, var(--np-light) 100%); }
+    .included h2 { font-family:var(--serif); font-size:clamp(40px,4vw,60px);
+      font-weight:400; letter-spacing:-1.5px; color:var(--np-dark);
+      margin-bottom:32px; }
+    .included-list { list-style:none; padding:0; }
+    .included-list li { display:flex; align-items:center; gap:14px;
+      font-family:var(--sans); font-size:14px; font-weight:300;
+      color:rgba(14,33,55,0.75); padding:12px 0;
+      border-bottom:1px solid rgba(14,33,55,0.07); }
+    .included-list li:last-child { border-bottom:none; }
+    .check { width:22px; height:22px; border-radius:50%;
+      background:var(--np-pale); border:1px solid var(--np-light);
+      display:flex; align-items:center; justify-content:center;
+      flex-shrink:0; color:var(--np-mid); font-size:11px; font-weight:700; }
+
+    /* CTA */
+    .np-cta { padding:100px 56px;
+      background:linear-gradient(to bottom, var(--np-mid) 0%, var(--np-dark) 100%);
+      text-align:center; position:relative; overflow:hidden; }
+    .np-cta::before { content:''; position:absolute; inset:0;
+      background:url('images/nepal-mountains.jpg') center/cover no-repeat; opacity:.15; }
+    .np-cta-inner { position:relative; z-index:2; }
+    .np-cta h2 { font-family:var(--serif); font-size:clamp(52px,7vw,100px);
+      font-weight:400; color:white; letter-spacing:-3px; line-height:0.9;
+      margin-bottom:16px; }
+    .np-cta p { font-family:var(--sans); font-size:11px; letter-spacing:4px;
+      text-transform:uppercase; color:rgba(255,255,255,0.5);
+      font-weight:600; margin-bottom:44px; }
+    .btn-np-cta { display:inline-block; padding:20px 52px 17px;
+      background:white; border-radius:999px; font-family:var(--sans);
+      font-size:12px; letter-spacing:3px; text-transform:uppercase;
+      font-weight:600; color:var(--np-dark); text-decoration:none;
+      transition:all .3s; }
+    .btn-np-cta:hover { background:var(--np-light); color:white; transform:translateY(-2px); }
+
+    /* Footer */
+    .np-footer { background:var(--np-dark); padding:56px; }
+    .np-footer-inner { max-width:1200px; margin:0 auto;
+      display:flex; justify-content:space-between; align-items:center;
+      flex-wrap:wrap; gap:24px; }
+    .np-footer .nav-logo { color:white; }
+    .np-footer-links { display:flex; gap:36px; flex-wrap:wrap; }
+    .np-footer-links a { font-family:var(--sans); font-size:12px; letter-spacing:2px;
+      text-transform:uppercase; color:rgba(255,255,255,0.45); text-decoration:none;
+      transition:color .2s; font-weight:600; }
+    .np-footer-links a:hover { color:var(--np-light); }
+    .np-footer-bottom { max-width:1200px; margin:28px auto 0;
+      padding-top:24px; border-top:1px solid rgba(255,255,255,0.08);
+      font-family:var(--sans); font-size:11px; color:rgba(255,255,255,0.25);
+      text-align:center; }
+
+    @media(max-width:1024px){
+      #navbar,.hero-content,.come-home,.stats-strip,.expect,.schedule,
+      .included-section,.np-cta,.np-footer{padding-left:32px;padding-right:32px;}
+      .stats-inner{grid-template-columns:repeat(3,1fr);}
+      .expect-grid{grid-template-columns:repeat(3,1fr);}
+      .timeline-h{grid-template-columns:repeat(4,1fr);gap:16px;}
+      .timeline-h::before{display:none;}
+    }
+    @media(max-width:720px){
+      #navbar,.hero-content,.come-home,.stats-strip,.expect,.schedule,
+      .included-section,.np-cta,.np-footer{padding-left:20px;padding-right:20px;}
+      .come-home-inner,.included-inner{grid-template-columns:1fr;}
+      .stats-inner{grid-template-columns:repeat(2,1fr);}
+      .expect-grid{grid-template-columns:1fr 1fr;}
+      .timeline-h{grid-template-columns:1fr 1fr;}
+      .hero-title{font-size:72px;letter-spacing:-2px;}
+      .nav-links{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div>
+    <a href="index.html" class="nav-logo">Aethera</a>
+    <span class="nav-sub">Nepal Retreat</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#included">What's Included</a></li>
+    <li><a href="index.html#retreats">All Retreats</a></li>
+    <li><a href="mailto:contact@aetherayoga.com?subject=Nepal%20Retreat%20Interest" class="nav-cta">Book Your Retreat</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Nepal Retreat · Pokhara · Coming 2026</div>
+    <h1 class="hero-title">Himalayan<br>Stillness</h1>
+    <p class="hero-sub">A transformative retreat in the heart of Nepal</p>
+    <div class="hero-actions">
+      <a href="mailto:contact@aetherayoga.com?subject=Nepal%20Retreat%20Interest" class="btn-np">View Upcoming Retreats</a>
+      <a href="#about" class="btn-np-outline">
+        <svg width="16" height="16" fill="white" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+        Watch Video
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Come home -->
+<section class="come-home" id="about">
+  <div class="come-home-inner">
+    <div>
+      <svg class="mountain-graphic" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 140 L80 40 L140 140" stroke="#1e3a5f" stroke-width="1.5" fill="none" opacity="0.5"/>
+        <path d="M70 140 L120 60 L170 140" stroke="#6391bb" stroke-width="1.5" fill="none" opacity="0.4"/>
+        <circle cx="100" cy="26" r="18" stroke="#6391bb" stroke-width="1" fill="none" opacity="0.3"/>
+        <path d="M85 22 Q100 10 115 22" stroke="#6391bb" stroke-width="1" fill="none" opacity="0.3"/>
+      </svg>
+    </div>
+    <div>
+      <h2>Come Home<br>to Yourself</h2>
+      <p>Aethera Nepal Retreat is a sanctuary for rest, renewal, and reconnection. Surrounded by the majestic Himalayas, immerse in ancient wisdom, mindful practices, and authentic Nepali hospitality.</p>
+      <p class="come-home-tagline">Breathe deep. Slow down. Awaken within.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-cell">
+      <div class="stat-icon">⛰</div>
+      <div class="stat-val">1,750m</div>
+      <div class="stat-lbl">Altitude</div>
+      <div class="stat-sub">Clean air. Clear mind.</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-icon">📍</div>
+      <div class="stat-val">Pokhara</div>
+      <div class="stat-lbl">Nepal</div>
+      <div class="stat-sub">Lakeside serenity.</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-icon">🌙</div>
+      <div class="stat-val">6 Nights</div>
+      <div class="stat-lbl">7 Days</div>
+      <div class="stat-sub">A week to reset and realign.</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-icon">🧘</div>
+      <div class="stat-val">12</div>
+      <div class="stat-lbl">Guests Max</div>
+      <div class="stat-sub">Intimate groups for deep connection.</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-icon">♡</div>
+      <div class="stat-val">100%</div>
+      <div class="stat-lbl">Presence</div>
+      <div class="stat-sub">Disconnect to reconnect.</div>
+    </div>
+  </div>
+</section>
+
+<!-- What to expect -->
+<section class="expect" id="experience">
+  <span class="section-eyebrow">What to Expect</span>
+  <div class="expect-grid">
+    <div class="expect-card">
+      <div class="expect-icon">🧘</div>
+      <div class="expect-name">Daily Yoga &amp; Meditation</div>
+      <p class="expect-desc">Nourish body, calm the mind.</p>
+    </div>
+    <div class="expect-card">
+      <div class="expect-icon">⛰</div>
+      <div class="expect-name">Himalayan Adventures</div>
+      <p class="expect-desc">Scenic hikes and soul-stirring views.</p>
+    </div>
+    <div class="expect-card">
+      <div class="expect-icon">🍲</div>
+      <div class="expect-name">Nourishing Cuisine</div>
+      <p class="expect-desc">Local, organic meals made with love.</p>
+    </div>
+    <div class="expect-card">
+      <div class="expect-icon">🏯</div>
+      <div class="expect-name">Cultural Immersion</div>
+      <p class="expect-desc">Temples, traditions &amp; meaningful connection.</p>
+    </div>
+    <div class="expect-card">
+      <div class="expect-icon">🕯</div>
+      <div class="expect-name">Rest &amp; Reflection</div>
+      <p class="expect-desc">Space to pause, journal and integrate.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Horizontal schedule -->
+<section class="schedule" id="schedule">
+  <span class="section-eyebrow">A Day in the Retreat</span>
+  <h2>Daily Rhythm</h2>
+  <div class="timeline-h">
+    <div class="tl-step">
+      <div class="tl-dot"></div>
+      <div class="tl-icon">☀️</div>
+      <div class="tl-time">6:30 AM</div>
+      <div class="tl-act">Sunrise Meditation</div>
+      <div class="tl-note">Greet the Himalayas in silence</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot"></div>
+      <div class="tl-icon">🧘</div>
+      <div class="tl-time">7:00 AM</div>
+      <div class="tl-act">Yoga Practice</div>
+      <div class="tl-note">Morning movement & pranayama</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot"></div>
+      <div class="tl-icon">🍲</div>
+      <div class="tl-time">8:30 AM</div>
+      <div class="tl-act">Breakfast</div>
+      <div class="tl-note">Fresh local, organic food</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot"></div>
+      <div class="tl-icon">⛰</div>
+      <div class="tl-time">10:00 AM</div>
+      <div class="tl-act">Excursion / Workshop</div>
+      <div class="tl-note">Trek, temple visit or workshop</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot"></div>
+      <div class="tl-icon">🍵</div>
+      <div class="tl-time">4:00 PM</div>
+      <div class="tl-act">Tea &amp; Reflection</div>
+      <div class="tl-note">Journaling &amp; integration</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot"></div>
+      <div class="tl-icon">🌅</div>
+      <div class="tl-time">6:30 PM</div>
+      <div class="tl-act">Sunset Yoga</div>
+      <div class="tl-note">Gentle yin &amp; restorative</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot"></div>
+      <div class="tl-icon">🌙</div>
+      <div class="tl-time">8:00 PM</div>
+      <div class="tl-act">Dinner &amp; Rest</div>
+      <div class="tl-note">Nourishing meal &amp; community</div>
+    </div>
+  </div>
+  <p class="schedule-tagline">A rhythm of stillness, movement and mindfulness.</p>
+</section>
+
+<!-- Included -->
+<section class="included-section" id="included">
+  <div class="included-inner">
+    <div class="included-img">
+      <img src="images/nepal-meditation.jpg" alt="Nepal retreat"
+           onerror="this.outerHTML='<div class=\'included-img-fallback\'></div>'">
+    </div>
+    <div class="included">
+      <h2>What's Included</h2>
+      <ul class="included-list">
+        <li><span class="check">✓</span>6 nights boutique accommodation</li>
+        <li><span class="check">✓</span>All meals (local &amp; organic)</li>
+        <li><span class="check">✓</span>Daily yoga &amp; meditation</li>
+        <li><span class="check">✓</span>Guided excursions &amp; workshops</li>
+        <li><span class="check">✓</span>Airport transfers</li>
+        <li><span class="check">✓</span>Retreat gift bag &amp; journal</li>
+        <li><span class="check">✓</span>Cultural immersion experiences</li>
+        <li><span class="check">✓</span>Small, intimate group (12 max)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Teachers -->
+<section style="background:var(--np-cream);padding:80px 56px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <span class="section-eyebrow">Your Guides</span>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:900px;margin:0 auto;">
+      <div style="text-align:center;">
+        <div style="width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;margin-bottom:16px;background:rgba(30,58,95,0.1);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:48px;color:var(--np-light);">
+          <img src="images/teacher-lisa.jpg" alt="Lisa" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+        </div>
+        <div style="font-family:var(--serif);font-size:24px;color:var(--np-dark);margin-bottom:4px;">Lisa</div>
+        <a href="https://www.instagram.com/yogawithlisaai/" target="_blank" rel="noopener" style="font-family:var(--sans);font-size:11px;color:var(--np-light);text-decoration:none;letter-spacing:1px;">@yogawithlisaai</a>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;margin-bottom:16px;background:rgba(30,58,95,0.1);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:48px;color:var(--np-light);">
+          <img src="images/teacher-sara.jpg" alt="Sara" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+        </div>
+        <div style="font-family:var(--serif);font-size:24px;color:var(--np-dark);margin-bottom:4px;">Sara</div>
+        <a href="https://www.instagram.com/saraapelaaez/" target="_blank" rel="noopener" style="font-family:var(--sans);font-size:11px;color:var(--np-light);text-decoration:none;letter-spacing:1px;">@saraapelaaez</a>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;margin-bottom:16px;background:rgba(30,58,95,0.1);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:48px;color:var(--np-light);">
+          <img src="images/teacher-sandra.jpg" alt="Sandra" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+        </div>
+        <div style="font-family:var(--serif);font-size:24px;color:var(--np-dark);margin-bottom:4px;">Sandra</div>
+        <a href="https://www.instagram.com/naiasandy_yoga/" target="_blank" rel="noopener" style="font-family:var(--sans);font-size:11px;color:var(--np-light);text-decoration:none;letter-spacing:1px;">@naiasandy_yoga</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="np-cta">
+  <div class="np-cta::before"></div>
+  <div class="np-cta-inner">
+    <h2>Your Journey<br>Awaits</h2>
+    <p>Step away. Go within. Return transformed.</p>
+    <a href="mailto:contact@aetherayoga.com?subject=Nepal%20Retreat%20Interest" class="btn-np-cta">Book Your Retreat</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="np-footer">
+  <div class="np-footer-inner">
+    <a href="index.html" class="nav-logo">Aethera</a>
+    <nav class="np-footer-links">
+      <a href="index.html">Home</a>
+      <a href="costa-rica.html">Costa Rica</a>
+      <a href="bali.html">Bali</a>
+      <a href="india.html">India</a>
+      <a href="teachers.html">Teachers</a>
+      <a href="mailto:contact@aetherayoga.com">Contact</a>
+    </nav>
+  </div>
+  <div class="np-footer-bottom">© 2026 Aethera Yoga. All rights reserved.</div>
+</footer>
+
+<script>
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+</script>
+</body>
+</html>

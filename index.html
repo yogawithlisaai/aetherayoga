@@ -4,43 +4,811 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aethera — Yoga Retreats</title>
-
-<!-- Open Graph -->
 <meta property="og:title" content="Aethera — Yoga Retreats">
-<meta property="og:description" content="Transformative yoga retreats in sacred landscapes. Costa Rica, Nepal & India.">
+<meta property="og:description" content="Transformative yoga retreats in sacred landscapes. Costa Rica, Bali, Nepal & India.">
 <meta property="og:image" content="images/og-cover.jpg">
-
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
-
-<!-- Shared stylesheet -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Josefin+Sans:wght@200;300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+/* ── Hero (video) ──────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--dark);
+}
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.hero-video-placeholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--dark) 0%, #3d1a2a 100%);
+  z-index: 0;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, rgba(43,27,21,0.78) 0%, rgba(43,27,21,0.28) 100%);
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 56px;
+  width: 100%;
+}
+.hero-eyebrow {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--pink);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(80px, 12vw, 180px);
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: -4px;
+  color: var(--cream);
+  margin-bottom: 32px;
+}
+.hero-subtitle {
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(236,234,235,0.78);
+  margin-bottom: 40px;
+  max-width: 380px;
+  letter-spacing: 0.5px;
+}
+.hero-cta {
+  display: inline-block;
+  padding: 18px 40px 15px;
+  background: transparent;
+  border: 1px solid rgba(236,234,235,0.6);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--cream);
+  transition: all 0.3s ease;
+}
+.hero-cta:hover {
+  background: var(--pink);
+  border-color: var(--pink);
+  transform: translateY(-2px);
+}
+.scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  left: 56px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(236,234,235,0.5);
+}
+.scroll-line {
+  width: 40px;
+  height: 1px;
+  background: rgba(236,234,235,0.4);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%,100% { width: 40px; opacity: 0.4; }
+  50% { width: 60px; opacity: 0.8; }
+}
+
+/* ── Ticker ────────────────────────────────────────── */
+.ticker-strip {
+  background: var(--pink);
+  padding: 14px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker-inner {
+  display: inline-block;
+  animation: ticker 28s linear infinite;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+}
+.ticker-inner span { margin: 0 32px; }
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Intro ─────────────────────────────────────────── */
+.intro {
+  background: var(--cream);
+  padding: 100px 56px;
+}
+.intro-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.intro .section-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--pink);
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: block;
+}
+.intro-title {
+  font-family: var(--serif);
+  font-size: clamp(48px, 5vw, 72px);
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -2px;
+  color: var(--dark);
+  margin-bottom: 24px;
+}
+.intro-body {
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(43,27,21,0.72);
+  max-width: 420px;
+}
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(43,27,21,0.1);
+}
+.stat-box {
+  background: white;
+  padding: 40px 32px;
+  text-align: center;
+}
+.stat-box:nth-child(1) { border-radius: 22px 0 0 0; }
+.stat-box:nth-child(2) { border-radius: 0 22px 0 0; }
+.stat-box:nth-child(3) { border-radius: 0 0 0 22px; }
+.stat-box:nth-child(4) { border-radius: 0 0 22px 0; }
+.stat-num {
+  font-family: var(--serif);
+  font-size: 62px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--dark);
+  letter-spacing: -2px;
+  margin-bottom: 8px;
+}
+.stat-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(43,27,21,0.5);
+  font-weight: 600;
+}
+
+/* ── Destinations ──────────────────────────────────── */
+.destinations {
+  background: var(--cream);
+  padding: 0 56px 100px;
+}
+.destinations-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 56px;
+}
+.destinations-header .section-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--pink);
+  font-weight: 600;
+  margin-bottom: 16px;
+  display: block;
+}
+.destinations-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(44px, 5vw, 68px);
+  font-weight: 400;
+  letter-spacing: -2px;
+  color: var(--dark);
+}
+.dest-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.dest-card {
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: flex-end;
+  text-decoration: none;
+  transition: transform 0.4s ease;
+}
+.dest-card:hover { transform: translateY(-6px); }
+.dest-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+.dest-card:hover .dest-card-bg { transform: scale(1.04); }
+.dest-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(43,27,21,0.88) 0%, rgba(43,27,21,0.1) 55%, transparent 100%);
+}
+.dest-card-content {
+  position: relative;
+  z-index: 2;
+  padding: 32px 28px;
+  color: white;
+  width: 100%;
+}
+.dest-tag {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+.dest-name {
+  font-family: var(--serif);
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.0;
+  margin-bottom: 10px;
+  letter-spacing: -1px;
+}
+.dest-desc {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.78);
+  margin-bottom: 18px;
+}
+.dest-link {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.dest-card.cr   .dest-tag { color: #a8d8a0; }
+.dest-card.bali .dest-tag { color: var(--soft-pink); }
+.dest-card.np   .dest-tag { color: #a8c8e8; }
+.dest-card.in   .dest-tag { color: #e8c8a0; }
+
+/* ── Philosophy banner ─────────────────────────────── */
+.philosophy-banner {
+  background: var(--dark);
+  padding: 100px 56px;
+  text-align: center;
+}
+.philosophy-banner blockquote {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--cream);
+  letter-spacing: -1px;
+  max-width: 800px;
+  margin: 0 auto 20px;
+  line-height: 1.3;
+}
+.philosophy-banner cite {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--pink);
+  font-weight: 600;
+}
+
+/* ── Teachers teaser ───────────────────────────────── */
+.teachers-section {
+  background: var(--cream);
+  padding: 100px 56px;
+}
+.teachers-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.teachers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 56px;
+}
+.teachers-header .section-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--pink);
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: block;
+}
+.teachers-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(44px,5vw,68px);
+  font-weight: 400;
+  letter-spacing: -2px;
+  color: var(--dark);
+}
+.teachers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.teacher-card {
+  text-align: center;
+  text-decoration: none;
+}
+.teacher-photo {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 20px;
+  background: rgba(43,27,21,0.08);
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+}
+.teacher-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.teacher-card:hover .teacher-photo img { transform: scale(1.04); }
+.teacher-photo-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 80px;
+  color: rgba(43,27,21,0.2);
+}
+.teacher-name {
+  font-family: var(--serif);
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--dark);
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+.teacher-role {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--pink);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.teacher-ig {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: rgba(43,27,21,0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.teacher-ig:hover { color: var(--pink); }
+
+/* ── Community CTA ─────────────────────────────────── */
+.community-cta {
+  background: linear-gradient(135deg, #f9f0f3 0%, var(--cream) 100%);
+  padding: 80px 56px;
+  border-top: 1px solid rgba(230,34,68,0.12);
+}
+.community-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.community-text .section-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--pink);
+  font-weight: 600;
+  margin-bottom: 16px;
+  display: block;
+}
+.community-text h2 {
+  font-family: var(--serif);
+  font-size: clamp(40px,4vw,58px);
+  font-weight: 400;
+  letter-spacing: -1.5px;
+  color: var(--dark);
+  margin-bottom: 16px;
+}
+.community-text p {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(43,27,21,0.68);
+}
+.newsletter-form {
+  display: flex;
+  gap: 0;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(43,27,21,0.15);
+  background: white;
+}
+.newsletter-form input {
+  flex: 1;
+  padding: 18px 24px;
+  border: none;
+  outline: none;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 300;
+  background: transparent;
+  color: var(--dark);
+}
+.newsletter-form button {
+  padding: 18px 32px;
+  background: var(--pink);
+  border: none;
+  color: white;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.newsletter-form button:hover { background: var(--dark); }
+.newsletter-note {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: rgba(43,27,21,0.4);
+  margin-top: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* ── Pink CTA band ─────────────────────────────────── */
+.cta-band {
+  background: var(--pink);
+  padding: 80px 56px;
+  text-align: center;
+}
+.cta-band h2 {
+  font-family: var(--serif);
+  font-size: clamp(44px,5vw,72px);
+  font-weight: 400;
+  color: white;
+  letter-spacing: -2px;
+  margin-bottom: 32px;
+}
+.cta-band-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn-white {
+  display: inline-block;
+  padding: 18px 36px 15px;
+  background: white;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--pink);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.btn-white:hover { background: var(--dark); color: white; }
+.btn-outline-white {
+  display: inline-block;
+  padding: 18px 36px 15px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.btn-outline-white:hover { background: white; color: var(--pink); }
+
+/* ── Footer ────────────────────────────────────────── */
+.site-footer {
+  background: var(--dark);
+  color: var(--cream);
+  padding: 80px 56px 40px;
+}
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.4fr;
+  gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(236,234,235,0.1);
+}
+.footer-brand .nav-logo {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 16px;
+}
+.footer-brand p {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(236,234,235,0.55);
+  margin-bottom: 24px;
+  max-width: 280px;
+}
+.social-links { display: flex; gap: 16px; }
+.social-link {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(236,234,235,0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.social-link:hover { color: var(--pink); }
+.footer-col h4 {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(236,234,235,0.4);
+  margin-bottom: 20px;
+}
+.footer-col ul { list-style: none; padding: 0; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(236,234,235,0.65);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-col ul li a:hover { color: var(--pink); }
+.contact-item {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(236,234,235,0.6);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.contact-item strong {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(236,234,235,0.35);
+  margin-bottom: 2px;
+}
+.footer-newsletter-row {
+  display: flex;
+  gap: 0;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(236,234,235,0.15);
+  margin-top: 20px;
+}
+.footer-newsletter-row input {
+  flex: 1;
+  padding: 14px 18px;
+  background: rgba(236,234,235,0.06);
+  border: none;
+  outline: none;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--cream);
+}
+.footer-newsletter-row input::placeholder { color: rgba(236,234,235,0.3); }
+.footer-newsletter-row button {
+  padding: 14px 22px;
+  background: var(--pink);
+  border: none;
+  color: white;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+}
+.footer-bottom {
+  max-width: 1200px;
+  margin: 32px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: rgba(236,234,235,0.3);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-legal { display: flex; gap: 28px; }
+.footer-legal a {
+  color: rgba(236,234,235,0.3);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-legal a:hover { color: var(--pink); }
+
+/* ── Nav ───────────────────────────────────────────── */
+#navbar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 0 56px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+#navbar.scrolled {
+  background: var(--cream);
+  box-shadow: 0 2px 24px rgba(43,27,21,0.08);
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 38px;
+  font-weight: 400;
+  color: white;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  transition: color 0.3s;
+}
+#navbar.scrolled .nav-logo { color: var(--dark); }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--pink); }
+#navbar.scrolled .nav-links a { color: var(--dark); }
+#navbar.scrolled .nav-links a:hover { color: var(--pink); }
+.nav-cta {
+  display: inline-block;
+  padding: 12px 28px 10px;
+  background: var(--pink);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: white !important;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.nav-cta:hover { background: var(--dark) !important; transform: translateY(-1px); }
+
+@media (max-width: 1024px) {
+  #navbar, .hero-content, .intro, .destinations, .philosophy-banner,
+  .teachers-section, .community-cta, .cta-band, .site-footer { padding-left: 32px; padding-right: 32px; }
+  .dest-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 720px) {
+  #navbar, .hero-content, .intro, .destinations, .philosophy-banner,
+  .teachers-section, .community-cta, .cta-band, .site-footer { padding-left: 20px; padding-right: 20px; }
+  .intro-inner, .community-inner { grid-template-columns: 1fr; gap: 44px; }
+  .dest-grid { grid-template-columns: 1fr; }
+  .teachers-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .hero-title { font-size: 72px; letter-spacing: -2px; }
+  .nav-links { display: none; }
+}
+</style>
 </head>
 <body>
 
 <!-- ── Navigation ──────────────────────────────────────── -->
 <nav id="navbar">
-  <span class="nav-logo">Aethera</span>
+  <a href="index.html" class="nav-logo">Aethera</a>
   <ul class="nav-links">
     <li><a href="#retreats">Retreats</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="teachers.html">Meet the Teachers</a></li>
     <li><a href="#community">Community</a></li>
-    <li><a href="mailto:contact@aetherayoga.com?subject=Aethera%20Yoga%20Inquiry">Contact</a></li>
+    <li><a href="mailto:contact@aetherayoga.com">Contact</a></li>
+    <li><a href="mailto:contact@aetherayoga.com?subject=Retreat%20Application" class="nav-cta">Apply Now</a></li>
   </ul>
 </nav>
 
-<!-- ── Hero (video) ────────────────────────────────────── -->
+<!-- ── Hero ──────────────────────────────────────────── -->
 <section class="hero">
-  <video class="hero-video" id="heroVideo"
-         src="videos/hero.mp4"
-         autoplay muted loop playsinline
-         poster="images/hero-poster.jpg">
-  </video>
+  <video class="hero-video" id="heroVideo" src="videos/hero.mp4" autoplay muted loop playsinline poster="images/hero-poster.jpg"></video>
   <div class="hero-video-placeholder" id="video-placeholder"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <p class="hero-eyebrow">Retreats · Costa Rica · Nepal · India</p>
+    <p class="hero-eyebrow">Retreats · Costa Rica · Bali · Nepal · India</p>
     <h1 class="hero-title">Move.<br>Breathe.<br>Arrive.</h1>
     <p class="hero-subtitle">Transformative yoga retreats in sacred landscapes</p>
     <a href="#retreats" class="hero-cta">Explore Retreats</a>
@@ -51,143 +819,210 @@
   </div>
 </section>
 
-<!-- ── Intro ───────────────────────────────────────────── -->
+<!-- ── Ticker ─────────────────────────────────────────── -->
+<div class="ticker-strip">
+  <div class="ticker-inner">
+    <span>Move</span><span>·</span><span>Breathe</span><span>·</span>
+    <span>Costa Rica</span><span>·</span><span>Bali</span><span>·</span>
+    <span>Nepal</span><span>·</span><span>India</span><span>·</span>
+    <span>Reconnect</span><span>·</span><span>Renew</span><span>·</span>
+    <span>Move</span><span>·</span><span>Breathe</span><span>·</span>
+    <span>Costa Rica</span><span>·</span><span>Bali</span><span>·</span>
+    <span>Nepal</span><span>·</span><span>India</span><span>·</span>
+    <span>Reconnect</span><span>·</span><span>Renew</span><span>·</span>
+  </div>
+</div>
+
+<!-- ── Intro ──────────────────────────────────────────── -->
 <section class="intro" id="about">
-  <div class="intro-left">
-    <p class="section-label">Who We Are</p>
-    <h2 class="intro-title">Practice rooted in place</h2>
-    <p class="intro-body">
-      Aethera was born from a simple belief: that the most profound transformations happen when movement meets meaning. We bring small groups to places of extraordinary energy: the cloud forests of Costa Rica, the Himalayan highlands of Nepal, the sacred river valleys of India.
-    </p>
-  </div>
-  <div class="intro-right">
-    <div class="intro-stat-grid">
+  <div class="intro-inner">
+    <div>
+      <span class="section-label">Who We Are</span>
+      <h2 class="intro-title">Practice rooted in place</h2>
+      <p class="intro-body">
+        At Aethera, we believe transformation happens when you slow down and connect — to yourself, to nature, and to something greater. Our retreats are held in handpicked places that inspire presence, nurture growth, and awaken a deeper sense of belonging.
+      </p>
+    </div>
+    <div class="stat-grid">
       <div class="stat-box">
-        <div class="stat-num">3</div>
-        <div class="stat-label">Retreat Destinations</div>
+        <div class="stat-num">4</div>
+        <div class="stat-label">Destinations</div>
       </div>
       <div class="stat-box">
-        <div class="stat-num">3</div>
-        <div class="stat-label">Retreats per Year</div>
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Retreats Yearly</div>
       </div>
       <div class="stat-box">
-        <div class="stat-num">18</div>
-        <div class="stat-label">Max Group Size</div>
+        <div class="stat-num">2K+</div>
+        <div class="stat-label">Souls Welcomed</div>
       </div>
       <div class="stat-box">
-        <div class="stat-num">5+</div>
-        <div class="stat-label">Days of Immersion</div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Presence</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── Carousel ────────────────────────────────────────── -->
-<section class="carousel-section" id="retreats">
-  <div class="carousel-header">
-    <p class="section-label">Our Offerings</p>
-    <h2 class="carousel-title">Where will you go next?</h2>
+<!-- ── Destinations ───────────────────────────────────── -->
+<section class="destinations" id="retreats">
+  <div class="destinations-header">
+    <span class="section-label">Our Retreats</span>
+    <h2>Four sacred destinations</h2>
   </div>
-  <div class="carousel-track-wrapper">
-    <div class="carousel-track" id="carouselTrack">
+  <div class="dest-grid">
 
-      <!-- Costa Rica -->
-      <div class="carousel-card">
-        <div class="card-bg costa-rica" style="background-image:url('images/card-costa-rica.jpg'); background-size:cover; background-position:center;"></div>
-        <div class="card-overlay">
-          <span class="card-tag">Costa Rica · 2026</span>
-          <h3 class="card-title">Jungle &amp; Flow</h3>
-          <p class="card-desc">Vinyasa, breathwork, and cacao ceremony in the Osa Peninsula rainforest. Morning mist, howler monkeys, and total immersion.</p>
-          <a href="costa-rica.html" class="card-link">Learn more →</a>
+    <a href="costa-rica.html" class="dest-card cr">
+      <div class="dest-card-bg" style="background-image:url('images/card-costa-rica.jpg'); background-color:#1a3320;"></div>
+      <div class="dest-card-overlay"></div>
+      <div class="dest-card-content">
+        <span class="dest-tag">Costa Rica</span>
+        <h3 class="dest-name">Pura Vida Retreat</h3>
+        <p class="dest-desc">Lush jungles, wild beaches, and the spirit of adventure.</p>
+        <span class="dest-link">View Retreat →</span>
+      </div>
+    </a>
+
+    <a href="bali.html" class="dest-card bali">
+      <div class="dest-card-bg" style="background-image:url('images/card-bali.jpg'); background-color:#3a1a2a;"></div>
+      <div class="dest-card-overlay"></div>
+      <div class="dest-card-content">
+        <span class="dest-tag">Bali</span>
+        <h3 class="dest-name">Island Flow Retreat</h3>
+        <p class="dest-desc">Sacred temples, ocean breezes, and soulful connection.</p>
+        <span class="dest-link">View Retreat →</span>
+      </div>
+    </a>
+
+    <a href="nepal.html" class="dest-card np">
+      <div class="dest-card-bg" style="background-image:url('images/card-nepal.jpg'); background-color:#1a2a3a;"></div>
+      <div class="dest-card-overlay"></div>
+      <div class="dest-card-content">
+        <span class="dest-tag">Nepal</span>
+        <h3 class="dest-name">Himalayan Stillness</h3>
+        <p class="dest-desc">Majestic peaks, ancient wisdom, and inner stillness.</p>
+        <span class="dest-link">View Retreat →</span>
+      </div>
+    </a>
+
+    <a href="india.html" class="dest-card in">
+      <div class="dest-card-bg" style="background-image:url('images/card-india.jpg'); background-color:#3a1a1a;"></div>
+      <div class="dest-card-overlay"></div>
+      <div class="dest-card-content">
+        <span class="dest-tag">India</span>
+        <h3 class="dest-name">Sacred Path Retreat</h3>
+        <p class="dest-desc">Timeless traditions, spiritual depth, and profound clarity.</p>
+        <span class="dest-link">View Retreat →</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ── Philosophy ─────────────────────────────────────── -->
+<section class="philosophy-banner">
+  <blockquote>"The quieter you become,<br>the more you can hear."</blockquote>
+  <cite>— The Aethera Way</cite>
+</section>
+
+<!-- ── Teachers ───────────────────────────────────────── -->
+<section class="teachers-section">
+  <div class="teachers-inner">
+    <div class="teachers-header">
+      <div>
+        <span class="section-label">Meet the Teachers</span>
+        <h2>The guides<br>on your journey</h2>
+      </div>
+      <a href="teachers.html" class="hero-cta" style="color:var(--dark);border-color:rgba(43,27,21,0.3);">All Teachers →</a>
+    </div>
+    <div class="teachers-grid">
+
+      <div class="teacher-card">
+        <div class="teacher-photo">
+          <img src="images/teacher-lisa.jpg" alt="Lisa" onerror="this.style.display='none'">
+          <div class="teacher-photo-placeholder">L</div>
         </div>
+        <div class="teacher-name">Lisa</div>
+        <div class="teacher-role">Lead Teacher</div>
+        <a href="https://www.instagram.com/yogawithlisaai/" target="_blank" rel="noopener" class="teacher-ig">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          @yogawithlisaai
+        </a>
       </div>
 
-      <!-- Nepal -->
-      <div class="carousel-card">
-        <div class="card-bg nepal" style="background-image:url('images/card-nepal.jpg'); background-size:cover; background-position:center;"></div>
-        <div class="card-overlay">
-          <span class="card-tag">Nepal · Coming 2026</span>
-          <h3 class="card-title">Himalayan Stillness</h3>
-          <p class="card-desc">Yin yoga and meditation at altitude. Trekking through monasteries, guided by the rhythm of prayer flags in the mountain wind.</p>
-          <a href="mailto:contact@aetherayoga.com?subject=Nepal%20Retreat%20Interest" class="card-link">Register interest →</a>
+      <div class="teacher-card">
+        <div class="teacher-photo">
+          <img src="images/teacher-sara.jpg" alt="Sara" onerror="this.style.display='none'">
+          <div class="teacher-photo-placeholder">S</div>
         </div>
+        <div class="teacher-name">Sara</div>
+        <div class="teacher-role">Yoga Teacher</div>
+        <a href="https://www.instagram.com/saraapelaaez/" target="_blank" rel="noopener" class="teacher-ig">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          @saraapelaaez
+        </a>
       </div>
 
-      <!-- India -->
-      <div class="carousel-card">
-        <div class="card-bg india" style="background-image:url('images/card-india.jpg'); background-size:cover; background-position:center;"></div>
-        <div class="card-overlay">
-          <span class="card-tag">India · Coming 2026</span>
-          <h3 class="card-title">Roots of the Practice</h3>
-          <p class="card-desc">Return to the source — Mysore Ashtanga, Vedic chanting, and Ayurvedic ritual in the birthplace of yoga.</p>
-          <a href="mailto:contact@aetherayoga.com?subject=India%20Retreat%20Interest" class="card-link">Register interest →</a>
+      <div class="teacher-card">
+        <div class="teacher-photo">
+          <img src="images/teacher-sandra.jpg" alt="Sandra" onerror="this.style.display='none'">
+          <div class="teacher-photo-placeholder">S</div>
         </div>
-      </div>
-
-      <!-- Brand update -->
-      <div class="carousel-card">
-        <div class="card-bg brand" style="background-image:url('images/brand.jpg'); background-size:cover; background-position:center;"></div>
-        <div class="card-overlay">
-          <span class="card-tag">Brand Update</span>
-          <h3 class="card-title">Aethera is Growing</h3>
-          <p class="card-desc">From one retreat to a global community, three continents, one lineage. Join the newsletter to stay first in the loop.</p>
-          <a href="#contact" class="card-link">Stay connected →</a>
-        </div>
-      </div>
-
-      <!-- Philosophy -->
-      <div class="carousel-card">
-        <div class="card-bg philosophy" style="background-image:url('images/philosophy.jpg'); background-size:cover; background-position:center;"></div>
-        <div class="card-overlay">
-          <span class="card-tag">Our Practice</span>
-          <h3 class="card-title">Small Groups, Deep Work</h3>
-          <p class="card-desc">We cap every retreat at 18 guests. No performance, no comparison, only the quiet work of returning to yourself.</p>
-          <a href="#about" class="card-link">Our philosophy →</a>
-        </div>
+        <div class="teacher-name">Sandra</div>
+        <div class="teacher-role">Yoga Teacher</div>
+        <a href="https://www.instagram.com/naiasandy_yoga/" target="_blank" rel="noopener" class="teacher-ig">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          @naiasandy_yoga
+        </a>
       </div>
 
     </div>
   </div>
-  <div class="carousel-controls">
-    <button class="carousel-btn" id="prevBtn">←</button>
-    <div class="carousel-dots" id="dots"></div>
-    <button class="carousel-btn" id="nextBtn">→</button>
-  </div>
 </section>
 
-<!-- ── Philosophy ──────────────────────────────────────── -->
-<section class="philosophy">
-  <span class="section-label">Our Philosophy</span>
-  <blockquote class="philosophy-quote">
-    "The quieter you become, the more you can hear."
-  </blockquote>
-  <p class="philosophy-attr">— The Aethera Way</p>
-</section>
-
-<!-- ── Footer / CTA ────────────────────────────────────── -->
-<footer class="footer" id="contact">
-  <div class="footer-cta">
-    <p class="footer-cta-eyebrow">Three continents await</p>
-    <h2 class="footer-cta-title">Ready to begin<br>your journey?</h2>
-    <div class="footer-cta-actions">
-      <a href="mailto:contact@aetherayoga.com" class="btn-primary">Apply for a Retreat</a>
-      <a href="#community" class="btn-outline">Join the Community</a>
+<!-- ── Community ──────────────────────────────────────── -->
+<section class="community-cta" id="community">
+  <div class="community-inner">
+    <div class="community-text">
+      <span class="section-label">Join Our Community</span>
+      <h2>Stay inspired.<br>Stay connected.</h2>
+      <p>Receive soulful stories, retreat updates, and wellness insights to support your journey — wherever you are.</p>
+    </div>
+    <div>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Your email address">
+        <button>Join Aethera</button>
+      </div>
+      <p class="newsletter-note">Monthly drops. No noise. Unsubscribe anytime.</p>
     </div>
   </div>
+</section>
 
+<!-- ── Pink CTA ────────────────────────────────────────── -->
+<section class="cta-band">
+  <h2>Three continents await</h2>
+  <div class="cta-band-actions">
+    <a href="mailto:contact@aetherayoga.com?subject=Retreat%20Application" class="btn-white">Apply for a Retreat</a>
+    <a href="#community" class="btn-outline-white">Join the Community</a>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────────── -->
+<footer class="site-footer">
   <div class="footer-grid">
     <div class="footer-brand">
       <span class="nav-logo">Aethera</span>
-      <p>Transformative yoga retreats in sacred landscapes. Costa Rica, Nepal &amp; India: small groups, deep practice, lasting change.</p>
+      <p>Transformative yoga retreats in sacred landscapes. Costa Rica, Bali, Nepal &amp; India — small groups, deep practice, lasting change.</p>
       <div class="social-links">
         <a href="https://www.instagram.com/aetherayoga/" class="social-link" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://youtube.com"   class="social-link" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://youtube.com" class="social-link" target="_blank" rel="noopener">YouTube</a>
       </div>
     </div>
     <div class="footer-col">
       <h4>Retreats</h4>
       <ul>
-        <li><a href="costa-rica.html">Costa Rica 2026</a></li>
+        <li><a href="costa-rica.html">Costa Rica</a></li>
+        <li><a href="bali.html">Bali 2027</a></li>
         <li><a href="nepal.html">Nepal 2026</a></li>
         <li><a href="india.html">India 2026</a></li>
       </ul>
@@ -195,88 +1030,48 @@
     <div class="footer-col">
       <h4>Aethera</h4>
       <ul>
-        <li><a href="story.html">Our Story</a></li>
         <li><a href="teachers.html">Our Teachers</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="press.html">Press</a></li>
-        <li><a href="careers.html">Careers</a></li>
+        <li><a href="https://www.instagram.com/yogawithlisaai/" target="_blank">Lisa</a></li>
+        <li><a href="https://www.instagram.com/saraapelaaez/" target="_blank">Sara</a></li>
+        <li><a href="https://www.instagram.com/naiasandy_yoga/" target="_blank">Sandra</a></li>
       </ul>
     </div>
-    <div class="footer-col" id="community">
-      <h4>Stay in touch</h4>
+    <div class="footer-col" id="contact">
+      <h4>Stay in Touch</h4>
       <div class="contact-item">
-        <strong>Email</strong>
-        contact@aetherayoga.com
+        <strong>Email</strong>contact@aetherayoga.com
       </div>
       <div class="contact-item">
-        <strong>WhatsApp</strong>
-        +1 (858) 248-1198
+        <strong>WhatsApp</strong>+1 (858) 248-1198
       </div>
-      <div class="newsletter-row" style="margin-top:1.2rem">
-        <input class="newsletter-input" type="email" placeholder="Your email">
-        <button class="newsletter-btn">Join</button>
+      <div class="footer-newsletter-row">
+        <input type="email" placeholder="Your email">
+        <button>Join</button>
       </div>
-      <p class="newsletter-note">Monthly drops. No noise. Unsubscribe anytime.</p>
     </div>
   </div>
-
   <div class="footer-bottom">
     <p>© 2026 Aethera Yoga. All rights reserved.</p>
     <div class="footer-legal">
       <a href="terms.html">Terms &amp; Conditions</a>
       <a href="privacypolicy.html">Privacy Policy</a>
-      <a href="terms.html">Cookie Policy</a>
     </div>
   </div>
 </footer>
 
 <script>
-/* ── Sticky nav ──────────────────────────────────────── */
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
-
-/* ── Video / placeholder toggle ─────────────────────── */
 const video = document.getElementById('heroVideo');
 const placeholder = document.getElementById('video-placeholder');
-video.addEventListener('canplay', () => { placeholder.style.display = 'none'; });
-video.addEventListener('error',   () => { video.style.display = 'none'; });
-if (!video.src || video.src === window.location.href) {
+if (video.src && video.src !== window.location.href) {
+  video.addEventListener('canplay', () => { placeholder.style.display = 'none'; });
+  video.addEventListener('error', () => { video.style.display = 'none'; });
+} else {
   video.style.display = 'none';
 }
-
-/* ── Carousel ────────────────────────────────────────── */
-const track         = document.getElementById('carouselTrack');
-const dotsContainer = document.getElementById('dots');
-const cards         = track.querySelectorAll('.carousel-card');
-const total         = cards.length;
-let current         = 0;
-
-for (let i = 0; i < total; i++) {
-  const dot = document.createElement('div');
-  dot.className = 'dot' + (i === 0 ? ' active' : '');
-  dot.addEventListener('click', () => goTo(i));
-  dotsContainer.appendChild(dot);
-}
-
-function goTo(index) {
-  current = (index + total) % total;
-  const cardWidth = cards[0].offsetWidth + 24;
-  track.style.transform = `translateX(-${current * cardWidth}px)`;
-  dotsContainer.querySelectorAll('.dot').forEach((d, i) => {
-    d.classList.toggle('active', i === current);
-  });
-}
-
-document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
-document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
-
-let autoSlide = setInterval(() => goTo(current + 1), 5000);
-track.addEventListener('mouseenter', () => clearInterval(autoSlide));
-track.addEventListener('mouseleave', () => {
-  autoSlide = setInterval(() => goTo(current + 1), 5000);
-});
 </script>
 </body>
 </html>

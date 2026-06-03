@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet the Teachers — Aethera Yoga</title>
+  <meta property="og:title" content="Aethera — Meet the Teachers">
+  <meta property="og:description" content="Meet Lisa, Sara and Sandra — the teachers behind Aethera Yoga Retreats.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Page hero ─────────────────────────────────────────── */
+    .page-hero {
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: var(--dark);
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('images/teachers-hero.jpg') center / cover;
+      opacity: 0.28;
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 160px 52px 80px;
+      color: var(--white);
+    }
+    .page-hero-content .eyebrow { color: var(--pink-soft); }
+    .page-hero-content h1 {
+      font-family: var(--serif);
+      font-size: clamp(56px, 8vw, 112px);
+      font-weight: 500;
+      line-height: 0.95;
+      letter-spacing: -3px;
+      margin-bottom: 18px;
+      animation: fadeUp 0.8s 0.2s var(--ease) both;
+    }
+    .page-hero-content p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.72);
+      max-width: 520px;
+      margin: 0 auto;
+      animation: fadeUp 0.8s 0.35s var(--ease) both;
+    }
+
+    /* ── Teacher full profiles ─────────────────────────────── */
+    .teachers-full {
+      padding: 100px 52px;
+    }
+    .teacher-profile {
+      max-width: var(--max);
+      margin: 0 auto 100px;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .teacher-profile:nth-child(even) { direction: rtl; }
+    .teacher-profile:nth-child(even) > * { direction: ltr; }
+    .teacher-profile-photo {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+    }
+    .teacher-profile-photo img {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+    }
+    .teacher-photo-fallback {
+      width: 100%;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 80px;
+      color: rgba(255,255,255,0.6);
+    }
+    .teacher-photo-tag {
+      position: absolute;
+      bottom: 22px;
+      left: 22px;
+      background: var(--pink);
+      color: var(--white);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .teacher-profile-body {}
+    .teacher-profile-name {
+      font-family: var(--serif);
+      font-size: clamp(52px, 7vw, 92px);
+      font-weight: 500;
+      line-height: 0.95;
+      letter-spacing: -2px;
+      margin-bottom: 10px;
+    }
+    .teacher-profile-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 24px;
+    }
+    .teacher-profile-bio {
+      font-size: 16px;
+      color: rgba(43,27,21,0.72);
+      line-height: 1.85;
+      margin-bottom: 28px;
+    }
+    .teacher-profile-bio p + p { margin-top: 16px; }
+    .teacher-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .teacher-tag {
+      padding: 7px 16px;
+      background: var(--pink-pale);
+      border: 1px solid rgba(230,34,68,0.18);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--pink);
+    }
+    .teacher-ig-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 26px;
+      background: var(--dark);
+      color: var(--white);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .teacher-ig-btn:hover { background: var(--pink); transform: translateY(-2px); }
+    .teacher-ig-btn svg { width: 18px; height: 18px; fill: currentColor; }
+    .teacher-divider {
+      max-width: var(--max);
+      margin: 0 auto 100px;
+      height: 1px;
+      background: rgba(43,27,21,0.1);
+    }
+    .teacher-profile:last-child + .teacher-divider { display: none; }
+
+    /* ── Philosophy section ───────────────────────────────── */
+    .philosophy-section {
+      padding: 100px 52px;
+      background: var(--dark);
+      text-align: center;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .philosophy-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('images/teachers-philosophy.jpg') center / cover;
+      opacity: 0.12;
+    }
+    .philosophy-section blockquote {
+      position: relative;
+      font-family: var(--serif);
+      font-size: clamp(32px, 4.5vw, 60px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--white);
+      max-width: 800px;
+      margin: 0 auto 20px;
+      line-height: 1.25;
+    }
+    .philosophy-section p { position: relative; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--pink-soft); }
+
+    /* ── Work with us CTA ─────────────────────────────────── */
+    .work-cta {
+      padding: 100px 52px;
+      background: var(--cream-dark);
+      text-align: center;
+    }
+    .work-cta h2 { font-family: var(--serif); font-size: clamp(42px, 5vw, 72px); font-weight: 500; line-height: 1; letter-spacing: -2px; margin-bottom: 18px; }
+    .work-cta p { font-size: 16px; color: rgba(43,27,21,0.65); margin-bottom: 36px; max-width: 440px; margin-left: auto; margin-right: auto; }
+
+    @media (max-width: 1024px) {
+      .teacher-profile { grid-template-columns: 1fr; gap: 44px; }
+      .teacher-profile:nth-child(even) { direction: ltr; }
+      .teachers-full { padding: 72px 28px; }
+      .page-hero-content { padding: 140px 28px 60px; }
+      .philosophy-section, .work-cta { padding-left: 28px; padding-right: 28px; }
+    }
+    @media (max-width: 720px) {
+      .teacher-profile-photo img, .teacher-photo-fallback { height: 420px; }
+      .teacher-profile-name { font-size: 52px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">Aethera</a>
+  <ul class="nav-links">
+    <li><a href="index.html#destinations">Retreats</a></li>
+    <li><a href="teachers.html" style="color:var(--pink);">Teachers</a></li>
+    <li><a href="index.html#community">Community</a></li>
+    <li><a href="mailto:contact@aetherayoga.com">Contact</a></li>
+    <li><a href="mailto:contact@aetherayoga.com?subject=Retreat%20Application" class="nav-cta">Apply Now</a></li>
+  </ul>
+</nav>
+
+<!-- ── Page Hero ──────────────────────────────────────────── -->
+<section class="page-hero">
+  <div class="page-hero-content">
+    <span class="eyebrow">The Team</span>
+    <h1>Meet the<br>Teachers.</h1>
+    <p>Three teachers, three lineages, one shared vision — that transformation is possible when you truly slow down.</p>
+  </div>
+</section>
+
+<!-- ── Teacher Profiles ───────────────────────────────────── -->
+<section class="teachers-full">
+
+  <!-- Lisa -->
+  <div class="teacher-profile reveal">
+    <div class="teacher-profile-photo">
+      <img src="images/teacher-lisa.jpg" alt="Lisa — Ashtanga Vinyasa Teacher" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="teacher-photo-fallback" style="display:none;background:linear-gradient(135deg,#E62244,#83A533);">L</div>
+      <span class="teacher-photo-tag">Costa Rica · Bali · India</span>
+    </div>
+    <div class="teacher-profile-body">
+      <div class="teacher-profile-title">Lead Teacher · Ashtanga Vinyasa</div>
+      <div class="teacher-profile-name">Lisa</div>
+      <div class="teacher-tags">
+        <span class="teacher-tag">500-HR YTT</span>
+        <span class="teacher-tag">Ashtanga</span>
+        <span class="teacher-tag">Vinyasa</span>
+        <span class="teacher-tag">House of Om, Bali</span>
+        <span class="teacher-tag">San Francisco, CA</span>
+      </div>
+      <div class="teacher-profile-bio">
+        <p>I specialize in Ashtanga-style Vinyasa: precise, breath-led, and deeply personal. My classes meet students exactly where they are, weaving together strength, alignment, and stillness. Every practice is an invitation back to yourself.</p>
+        <p>My 500-hour training at House of Om in Bali transformed my relationship with yoga — and with myself. Since then, I've been devoted to creating experiences that do the same for others. This work is my dharma.</p>
+        <p>When I'm not on the mat, you'll find me exploring new cities, experimenting in the kitchen, or somewhere beautiful with my camera.</p>
+      </div>
+      <a href="https://www.instagram.com/yogawithlisaai/" target="_blank" rel="noopener" class="teacher-ig-btn">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @yogawithlisaai
+      </a>
+    </div>
+  </div>
+  <div class="teacher-divider"></div>
+
+  <!-- Sara -->
+  <div class="teacher-profile reveal">
+    <div class="teacher-profile-photo">
+      <img src="images/teacher-sara.jpg" alt="Sara — Kundalini Yoga Teacher" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="teacher-photo-fallback" style="display:none;background:linear-gradient(135deg,#F66F9E,#E62244);">S</div>
+      <span class="teacher-photo-tag">Costa Rica · Bali · Nepal</span>
+    </div>
+    <div class="teacher-profile-body">
+      <div class="teacher-profile-title">Teacher · Kundalini &amp; Energy Work</div>
+      <div class="teacher-profile-name">Sara</div>
+      <div class="teacher-tags">
+        <span class="teacher-tag">500-HR YTT</span>
+        <span class="teacher-tag">Kundalini Yoga</span>
+        <span class="teacher-tag">Energy Work</span>
+        <span class="teacher-tag">7 Years Practice</span>
+        <span class="teacher-tag">From Spain</span>
+      </div>
+      <div class="teacher-profile-bio">
+        <p>I've been deeply devoted to Kundalini yoga for seven years, exploring the powerful world of energy and inner transformation. I'm passionate about holding space for others — gently guiding them back to their light and their own innate wisdom.</p>
+        <p>My practice is rooted in the belief that we are all whole, that we all have everything we need within us. My role as a teacher is simply to help you remember what you've always known.</p>
+        <p>Beyond yoga, I love painting, surfing, traveling, and capturing beautiful moments. Let's go to Costa Rica! 🦋✨</p>
+      </div>
+      <a href="https://www.instagram.com/saraapelaaez/" target="_blank" rel="noopener" class="teacher-ig-btn">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @saraapelaaez
+      </a>
+    </div>
+  </div>
+  <div class="teacher-divider"></div>
+
+  <!-- Sandra -->
+  <div class="teacher-profile reveal">
+    <div class="teacher-profile-photo">
+      <img src="images/teacher-sandra.jpg" alt="Sandra — Somatic & Yin Yoga Teacher" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="teacher-photo-fallback" style="display:none;background:linear-gradient(135deg,#83A533,#2b1b15);">S</div>
+      <span class="teacher-photo-tag">Bali · Nepal · India</span>
+    </div>
+    <div class="teacher-profile-body">
+      <div class="teacher-profile-title">Teacher · Somatic &amp; Yin Yoga</div>
+      <div class="teacher-profile-name">Sandra</div>
+      <div class="teacher-tags">
+        <span class="teacher-tag">RYT-300</span>
+        <span class="teacher-tag">Somatic Movement</span>
+        <span class="teacher-tag">Yin Yoga</span>
+        <span class="teacher-tag">Breathwork</span>
+        <span class="teacher-tag">Restorative</span>
+      </div>
+      <div class="teacher-profile-bio">
+        <p>My teaching is rooted in the belief that healing and transformation happen when we come home to the body. Through somatic movement, yin yoga, and breathwork, I guide students back to presence — to the quiet intelligence that already lives within them.</p>
+        <p>I was drawn to yoga during a period of deep personal searching, and what I found on the mat changed everything. Not just a practice, but a way of being in the world: slower, softer, more alive.</p>
+        <p>It is my greatest joy to share this path with others, especially in places as sacred and alive as the ones Aethera travels to.</p>
+      </div>
+      <a href="https://www.instagram.com/naiasandy_yoga/" target="_blank" rel="noopener" class="teacher-ig-btn">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @naiasandy_yoga
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ── Philosophy ─────────────────────────────────────────── -->
+<section class="philosophy-section">
+  <blockquote class="reveal">"The quieter you become,<br>the more you can hear."</blockquote>
+  <p class="reveal">— The Aethera Way</p>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────────── -->
+<section class="work-cta">
+  <div class="reveal">
+    <span class="eyebrow">Come Practice With Us</span>
+    <h2>Ready to practice<br>together?</h2>
+    <p>Join Lisa, Sara and Sandra on one of our upcoming retreats. Spots are limited to 16 guests per retreat.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="index.html#destinations" class="btn btn-primary">View All Retreats</a>
+      <a href="mailto:contact@aetherayoga.com?subject=Retreat%20Application" class="btn btn-outline-dark">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ────────────────────────────────────────────── -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Aethera</div>
+      <p>Transformative yoga retreats in sacred landscapes. Costa Rica, Bali, Nepal &amp; India.</p>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/aetherayoga/" target="_blank" rel="noopener">Aethera</a>
+        <a href="https://www.instagram.com/yogawithlisaai/" target="_blank" rel="noopener">Lisa</a>
+        <a href="https://www.instagram.com/saraapelaaez/" target="_blank" rel="noopener">Sara</a>
+        <a href="https://www.instagram.com/naiasandy_yoga/" target="_blank" rel="noopener">Sandra</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Retreats</h4>
+      <ul>
+        <li><a href="costa-rica.html">Costa Rica 2025</a></li>
+        <li><a href="bali.html">Bali 2027</a></li>
+        <li><a href="nepal.html">Nepal 2026</a></li>
+        <li><a href="india.html">India 2026</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Aethera</h4>
+      <ul>
+        <li><a href="teachers.html">Meet the Teachers</a></li>
+        <li><a href="index.html#about">Our Story</a></li>
+        <li><a href="index.html#community">Community</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item"><strong>Email</strong>contact@aetherayoga.com</div>
+      <div class="footer-contact-item"><strong>WhatsApp</strong>+1 (858) 248-1198</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Aethera Yoga. All rights reserved.</p>
+    <div class="footer-legal"><a href="#">Terms</a><a href="#">Privacy Policy</a></div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const siblings = [...e.target.parentElement.querySelectorAll('.reveal:not(.visible)')];
+      const idx = siblings.indexOf(e.target);
+      e.target.style.transitionDelay = (idx * 0.12) + 's';
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

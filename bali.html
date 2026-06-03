@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bali Retreat 2027 — Aethera Yoga</title>
+  <meta property="og:title" content="Aethera Bali Retreat 2027 — Return to Your Essence">
+  <meta property="og:description" content="A soul-nourishing yoga retreat in Bali. May 24–31, 2027. Ubud, Indonesia.">
+  <meta property="og:image" content="images/bali-og.jpg">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Bali page accent overrides ──────────────────────── */
+    :root {
+      --accent: var(--pink);
+      --accent-soft: var(--pink-soft);
+    }
+
+    /* ── Hero ─────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('images/bali-hero.jpg') center center / cover no-repeat;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(43,27,21,0.22) 0%, rgba(230,34,68,0.08) 40%, rgba(43,27,21,0.88) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 52px 80px;
+      color: var(--white);
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--pink-soft);
+      margin-bottom: 18px;
+      animation: fadeUp 0.8s 0.1s var(--ease) both;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(64px, 9vw, 130px);
+      font-weight: 500;
+      line-height: 0.92;
+      letter-spacing: -4px;
+      margin-bottom: 24px;
+      animation: fadeUp 0.8s 0.25s var(--ease) both;
+    }
+    .hero-sub {
+      font-size: 18px;
+      max-width: 500px;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 36px;
+      animation: fadeUp 0.8s 0.4s var(--ease) both;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.8s 0.55s var(--ease) both;
+    }
+
+    /* ── Feature strip ─────────────────────────────────────── */
+    .feature-strip {
+      background: var(--pink);
+      padding: 22px 52px;
+      overflow-x: auto;
+    }
+    .feature-strip-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      gap: 48px;
+      align-items: center;
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      white-space: nowrap;
+      color: var(--white);
+    }
+    .feature-icon { font-size: 20px; }
+    .feature-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; opacity: 0.72; display: block; }
+    .feature-value { font-family: var(--serif); font-size: 18px; font-weight: 500; }
+
+    /* ── Overview section ─────────────────────────────────── */
+    .overview {
+      padding: 100px 52px;
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .overview-left {}
+    .overview-left .section-title { margin-bottom: 20px; }
+    .overview-left .lead { margin-bottom: 28px; }
+    .dates-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      background: var(--pink-pale);
+      border: 1px solid rgba(230,34,68,0.2);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--pink);
+      margin-bottom: 28px;
+    }
+    .overview-cards { display: grid; gap: 16px; }
+    .ov-card {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 20px;
+      padding: 24px;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(43,27,21,0.07);
+      transition: box-shadow 0.3s;
+    }
+    .ov-card:hover { box-shadow: 0 8px 32px rgba(43,27,21,0.1); }
+    .ov-icon {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: var(--pink-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    .ov-card h3 { font-family: var(--serif); font-size: 26px; font-weight: 500; margin-bottom: 4px; }
+    .ov-card p { font-size: 14px; color: rgba(43,27,21,0.65); }
+
+    /* ── Experience section ───────────────────────────────── */
+    .experience-section {
+      background: var(--dark);
+      color: var(--white);
+      padding: 100px 52px;
+      position: relative;
+      overflow: hidden;
+    }
+    .experience-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('images/bali-experience.jpg') center / cover;
+      opacity: 0.14;
+    }
+    .experience-section .container { position: relative; z-index: 2; max-width: var(--max); margin: 0 auto; }
+    .experience-section .section-title { color: var(--white); }
+    .pill-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 48px;
+    }
+    .exp-pill {
+      padding: 28px 20px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(10px);
+      transition: background 0.3s;
+    }
+    .exp-pill:hover { background: rgba(230,34,68,0.18); }
+    .exp-pill h3 { font-family: var(--serif); font-size: 28px; font-weight: 500; margin-bottom: 10px; color: var(--white); }
+    .exp-pill p { font-size: 13px; color: rgba(255,255,255,0.62); line-height: 1.6; }
+
+    /* ── Image band ───────────────────────────────────────── */
+    .img-band {
+      padding: 0 52px;
+      margin: 60px 0;
+    }
+    .img-band-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 1fr;
+      gap: 14px;
+    }
+    .img-band-inner img { border-radius: var(--radius-md); height: 380px; }
+    .img-band-inner img:nth-child(2) { margin-top: 44px; height: 320px; }
+
+    /* ── Itinerary ────────────────────────────────────────── */
+    .itinerary-section {
+      padding: 100px 52px;
+      background: var(--white);
+    }
+    .itinerary-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .timeline {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(43,27,21,0.1);
+    }
+    .time-row {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 20px;
+      padding: 22px 28px;
+      border-bottom: 1px solid rgba(43,27,21,0.08);
+      transition: background 0.2s;
+    }
+    .time-row:last-child { border-bottom: none; }
+    .time-row:hover { background: var(--pink-pale); }
+    .time { font-size: 12px; font-weight: 700; letter-spacing: 2px; color: var(--pink); padding-top: 4px; }
+    .activity h3 { font-family: var(--serif); font-size: 24px; font-weight: 500; margin-bottom: 2px; }
+    .activity p { font-size: 13px; color: rgba(43,27,21,0.62); }
+
+    /* ── Accommodation ────────────────────────────────────── */
+    .stays-section {
+      padding: 100px 52px;
+    }
+    .stays-inner { max-width: var(--max); margin: 0 auto; }
+    .stays-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 52px;
+    }
+    .stay-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid rgba(43,27,21,0.08);
+      box-shadow: 0 8px 32px rgba(43,27,21,0.06);
+      transition: transform 0.3s var(--ease);
+    }
+    .stay-card:hover { transform: translateY(-4px); }
+    .stay-card img { height: 240px; }
+    .stay-body { padding: 24px; }
+    .stay-body h3 { font-family: var(--serif); font-size: 28px; font-weight: 500; margin-bottom: 6px; }
+    .stay-body p { font-size: 14px; color: rgba(43,27,21,0.65); }
+    .stay-price { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--pink); margin-top: 16px; }
+
+    /* ── Teachers ─────────────────────────────────────────── */
+    .teachers-section {
+      padding: 100px 52px;
+      background: var(--cream-dark);
+    }
+    .teachers-inner { max-width: var(--max); margin: 0 auto; }
+
+    /* ── Pricing ──────────────────────────────────────────── */
+    .pricing-section {
+      padding: 100px 52px;
+      background: var(--white);
+    }
+    .pricing-inner { max-width: var(--max); margin: 0 auto; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 52px;
+      max-width: 640px;
+    }
+    .price-card {
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      border: 1px solid rgba(43,27,21,0.1);
+      position: relative;
+    }
+    .price-card.featured {
+      background: var(--pink);
+      color: var(--white);
+      border-color: var(--pink);
+    }
+    .price-badge {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: var(--white);
+      color: var(--pink);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .price-card-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; opacity: 0.7; }
+    .price-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.15); }
+    .price-card:not(.featured) .price-row { border-bottom-color: rgba(43,27,21,0.08); }
+    .price-row:last-child { border-bottom: none; }
+    .price-row-label { font-size: 14px; }
+    .price-row-amount { font-family: var(--serif); font-size: 26px; font-weight: 500; }
+
+    /* ── CTA ──────────────────────────────────────────────── */
+    .page-cta {
+      padding: 100px 52px;
+      background: linear-gradient(135deg, rgba(230,34,68,0.92), rgba(230,34,68,0.78)),
+                  url('images/bali-cta.jpg') center / cover;
+      color: var(--white);
+      text-align: center;
+      position: relative;
+    }
+    .page-cta h2 { font-family: var(--serif); font-size: clamp(44px, 6vw, 88px); font-weight: 500; line-height: 1; letter-spacing: -2px; margin-bottom: 18px; }
+    .page-cta p { font-size: 17px; color: rgba(255,255,255,0.82); margin-bottom: 36px; }
+
+    @media (max-width: 1024px) {
+      .overview, .itinerary-inner { grid-template-columns: 1fr; gap: 44px; }
+      .pill-grid { grid-template-columns: 1fr 1fr; }
+      .stays-grid { grid-template-columns: 1fr 1fr; }
+      .img-band-inner { grid-template-columns: 1fr 1fr; }
+      .img-band-inner img, .img-band-inner img:nth-child(2) { height: 280px; margin-top: 0; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      section { padding-left: 28px !important; padding-right: 28px !important; }
+      .overview, .img-band, .feature-strip { padding-left: 28px; padding-right: 28px; }
+    }
+    @media (max-width: 720px) {
+      .hero-content { padding: 0 24px 60px; }
+      .pill-grid, .stays-grid { grid-template-columns: 1fr; }
+      .img-band-inner { grid-template-columns: 1fr; }
+      .feature-strip { padding: 18px 24px; }
+      .feature-strip-inner { gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ───────────────────────────────────────── -->
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">Aethera</a>
+  <ul class="nav-links">
+    <li><a href="index.html#destinations">Retreats</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#itinerary">Itinerary</a></li>
+    <li><a href="#stay">Accommodation</a></li>
+    <li><a href="teachers.html">Teachers</a></li>
+    <li><a href="mailto:contact@aetherayoga.com?subject=Bali%20Retreat%20Application" class="nav-cta">Book Journey</a></li>
+  </ul>
+</nav>
+
+<!-- ── Hero ─────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Bali Retreat 2027 · Ubud, Indonesia</p>
+    <h1>Return to<br>Your Essence</h1>
+    <p class="hero-sub">A soul-nourishing yoga retreat in Bali to reconnect with your rhythm, your body, and the beauty of simply being.</p>
+    <div class="hero-actions">
+      <a href="mailto:contact@aetherayoga.com?subject=Bali%20Retreat%20Application" class="btn btn-primary">Book Your Journey</a>
+      <a href="#experience" class="btn btn-outline">Explore Experience</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ── Info Strip ────────────────────────────────────────── -->
+<div class="info-strip">
+  <div class="info-item"><div class="info-label">Dates</div><div class="info-value">May 24–31</div></div>
+  <div class="info-item"><div class="info-label">Duration</div><div class="info-value">8 Days</div></div>
+  <div class="info-item"><div class="info-label">Location</div><div class="info-value">Ubud, Bali</div></div>
+  <div class="info-item"><div class="info-label">Group Size</div><div class="info-value">16 Guests</div></div>
+</div>
+
+<!-- ── Feature Strip ─────────────────────────────────────── -->
+<div class="feature-strip">
+  <div class="feature-strip-inner">
+    <div class="feature-item"><span class="feature-icon">🌸</span><div><span class="feature-label">Yoga &amp; Movement</span><span class="feature-value">Daily practices to awaken</span></div></div>
+    <div class="feature-item"><span class="feature-icon">☾</span><div><span class="feature-label">Ritual &amp; Ceremony</span><span class="feature-value">Sacred rituals to renew</span></div></div>
+    <div class="feature-item"><span class="feature-icon">🍃</span><div><span class="feature-label">Nourishing Food</span><span class="feature-value">Vibrant local cuisine</span></div></div>
+    <div class="feature-item"><span class="feature-icon">🌊</span><div><span class="feature-label">Nature &amp; Adventure</span><span class="feature-value">Temples, waterfalls, beaches</span></div></div>
+    <div class="feature-item"><span class="feature-icon">✦</span><div><span class="feature-label">Rest &amp; Restore</span><span class="feature-value">Deep rest, serene spaces</span></div></div>
+  </div>
+</div>
+
+<!-- ── Overview ──────────────────────────────────────────── -->
+<section id="retreat">
+  <div class="overview">
+    <div class="overview-left reveal">
+      <span class="eyebrow">A Transformative Escape</span>
+      <h2 class="section-title">Bali<br>awaits you.</h2>
+      <div class="dates-pill">🗓 May 24 – May 31, 2027 · 8 Days / 7 Nights</div>
+      <p class="lead">Join us in the heart of Bali for a week of transformation, connection and renewal. Immerse yourself in daily yoga, sacred rituals, nourishing food and breathtaking nature.</p>
+      <a href="#itinerary" class="btn btn-primary" style="margin-top:8px;">View Full Itinerary →</a>
+    </div>
+    <div class="overview-cards reveal">
+      <div class="ov-card">
+        <div class="ov-icon">✦</div>
+        <div><h3>Yoga &amp; Movement</h3><p>Morning flows, breathwork and restorative evening practices to awaken and soften the body.</p></div>
+      </div>
+      <div class="ov-card">
+        <div class="ov-icon">☾</div>
+        <div><h3>Ritual &amp; Ceremony</h3><p>Sacred rituals, journaling and soul-led guidance to release, renew and remember yourself.</p></div>
+      </div>
+      <div class="ov-card">
+        <div class="ov-icon">♡</div>
+        <div><h3>Rest &amp; Restore</h3><p>Deep rest in serene surroundings, with time to integrate, receive and reconnect.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Image Band ─────────────────────────────────────────── -->
+<div class="img-band reveal">
+  <div class="img-band-inner">
+    <img src="images/bali-1.jpg" alt="Bali temple" onerror="this.style.background='linear-gradient(135deg,#E62244,#F66F9E)';this.removeAttribute('src')">
+    <img src="images/bali-2.jpg" alt="Bali nature" onerror="this.style.background='linear-gradient(135deg,#83A533,#2b1b15)';this.removeAttribute('src')">
+    <img src="images/bali-3.jpg" alt="Bali beach" onerror="this.style.background='linear-gradient(135deg,#F66F9E,#83A533)';this.removeAttribute('src')">
+  </div>
+</div>
+
+<!-- ── Experience ────────────────────────────────────────── -->
+<section class="experience-section" id="experience">
+  <div class="container">
+    <span class="eyebrow eyebrow-light">The Aethera Experience</span>
+    <h2 class="section-title" style="color:var(--white);">Reconnect. Renew.<br>Remember.</h2>
+    <p class="lead" style="color:rgba(255,255,255,0.65);margin-top:16px;">This is not just a yoga retreat. It is a sensory, spiritual and deeply human experience designed to bring you back into your body and into your life.</p>
+    <div class="pill-grid">
+      <div class="exp-pill reveal"><h3>Move</h3><p>Energizing yoga to awaken the body and align the spirit.</p></div>
+      <div class="exp-pill reveal"><h3>Ritualize</h3><p>Sacred ceremonies to release, reset and open your next chapter.</p></div>
+      <div class="exp-pill reveal"><h3>Nourish</h3><p>Delicious, wholesome food to support your nervous system.</p></div>
+      <div class="exp-pill reveal"><h3>Explore</h3><p>Temples, waterfalls, beaches and Bali's natural beauty.</p></div>
+      <div class="exp-pill reveal"><h3>Rest</h3><p>Space to integrate, restore and come home to yourself.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Itinerary ──────────────────────────────────────────── -->
+<section class="itinerary-section" id="itinerary">
+  <div class="itinerary-inner">
+    <div class="reveal">
+      <span class="eyebrow">Daily Rhythm</span>
+      <h2 class="section-title">A day in<br>the retreat.</h2>
+      <div class="deco-line"></div>
+      <p class="lead">Gentle structure. Spacious afternoons. Beautiful rituals. Every day is designed to hold you without overwhelming you.</p>
+    </div>
+    <div class="timeline reveal">
+      <div class="time-row"><div class="time">06:30</div><div class="activity"><h3>Sunrise Yoga</h3><p>Morning movement, breathwork and intention setting.</p></div></div>
+      <div class="time-row"><div class="time">08:30</div><div class="activity"><h3>Nourishing Breakfast</h3><p>Fresh tropical breakfast with local, plant-rich ingredients.</p></div></div>
+      <div class="time-row"><div class="time">11:00</div><div class="activity"><h3>Workshop or Excursion</h3><p>Water temple, waterfall, journaling or energetic practice.</p></div></div>
+      <div class="time-row"><div class="time">13:00</div><div class="activity"><h3>Lunch &amp; Free Time</h3><p>Rest, explore, journal, or simply be.</p></div></div>
+      <div class="time-row"><div class="time">16:30</div><div class="activity"><h3>Restorative Practice</h3><p>Yin yoga, meditation, sound healing or integration circle.</p></div></div>
+      <div class="time-row"><div class="time">19:30</div><div class="activity"><h3>Dinner &amp; Connection</h3><p>Evening meal, sharing circle and soft closing ritual.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Accommodation ──────────────────────────────────────── -->
+<section class="stays-section" id="stay">
+  <div class="stays-inner">
+    <div class="text-center reveal">
+      <span class="eyebrow">Rest in Paradise</span>
+      <h2 class="section-title">Boutique villas &amp;<br>sacred spaces.</h2>
+      <div class="deco-line" style="margin: 18px auto 28px;"></div>
+      <p class="lead" style="margin: 0 auto;">Stay in handpicked villas that blend modern comfort with Bali's natural beauty, serenity and tropical magic.</p>
+    </div>
+    <div class="stays-grid">
+      <article class="stay-card reveal">
+        <img src="images/bali-villa-jungle.jpg" alt="Jungle View Villa" onerror="this.style.background='linear-gradient(135deg,#83A533,#2b1b15)';this.removeAttribute('src')">
+        <div class="stay-body">
+          <h3>Jungle View Villa</h3>
+          <p>Private sanctuary surrounded by lush tropical gardens and the sounds of nature.</p>
+          <div class="stay-price">From €2,450 per person</div>
+        </div>
+      </article>
+      <article class="stay-card reveal">
+        <img src="images/bali-villa-garden.jpg" alt="Garden Suite" onerror="this.style.background='linear-gradient(135deg,#F66F9E,#E62244)';this.removeAttribute('src')">
+        <div class="stay-body">
+          <h3>Garden Suite</h3>
+          <p>Elegant suite with private terrace, garden views and beautifully curated interiors.</p>
+          <div class="stay-price">From €2,750 per person</div>
+        </div>
+      </article>
+      <article class="stay-card reveal">
+        <img src="images/bali-villa-pool.jpg" alt="Private Pool Villa" onerror="this.style.background='linear-gradient(135deg,#2b1b15,#E62244)';this.removeAttribute('src')">
+        <div class="stay-body">
+          <h3>Private Pool Villa</h3>
+          <p>Spacious villa with your own private pool, extra privacy and pure luxury.</p>
+          <div class="stay-price">From €3,050 per person</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── Teachers ───────────────────────────────────────────── -->
+<section class="teachers-section">
+  <div class="teachers-inner">
+    <div class="text-center reveal" style="margin-bottom:52px;">
+      <span class="eyebrow">Your Guides</span>
+      <h2 class="section-title">The teachers<br>leading this retreat.</h2>
+    </div>
+    <div class="teachers-grid">
+      <div class="teacher-card reveal">
+        <div class="teacher-photo"><img src="images/teacher-lisa.jpg" alt="Lisa" onerror="this.parentElement.style.background='linear-gradient(135deg,#E62244,#83A533)';this.style.display='none'"></div>
+        <div class="teacher-body">
+          <div class="teacher-name">Lisa</div>
+          <div class="teacher-creds">500-HR YTT · Ashtanga Vinyasa</div>
+          <p class="teacher-bio">Specializing in Ashtanga-style Vinyasa: precise, breath-led, and deeply personal. Lisa meets students exactly where they are — strength, alignment, stillness.</p>
+          <a href="https://www.instagram.com/yogawithlisaai/" target="_blank" rel="noopener" class="teacher-ig">@yogawithlisaai</a>
+        </div>
+      </div>
+      <div class="teacher-card reveal">
+        <div class="teacher-photo"><img src="images/teacher-sara.jpg" alt="Sara" onerror="this.parentElement.style.background='linear-gradient(135deg,#F66F9E,#E62244)';this.style.display='none'"></div>
+        <div class="teacher-body">
+          <div class="teacher-name">Sara</div>
+          <div class="teacher-creds">500-HR YTT · Kundalini &amp; Energy Work</div>
+          <p class="teacher-bio">Seven years devoted to Kundalini yoga and inner transformation. Sara holds space for others — gently guiding them back to their light.</p>
+          <a href="https://www.instagram.com/saraapelaaez/" target="_blank" rel="noopener" class="teacher-ig">@saraapelaaez</a>
+        </div>
+      </div>
+      <div class="teacher-card reveal">
+        <div class="teacher-photo"><img src="images/teacher-sandra.jpg" alt="Sandra" onerror="this.parentElement.style.background='linear-gradient(135deg,#83A533,#2b1b15)';this.style.display='none'"></div>
+        <div class="teacher-body">
+          <div class="teacher-name">Sandra</div>
+          <div class="teacher-creds">RYT-300 · Somatic &amp; Yin Yoga</div>
+          <p class="teacher-bio">Guiding students back to presence through somatic movement, breathwork, and the quiet medicine of restorative practice.</p>
+          <a href="https://www.instagram.com/naiasandy_yoga/" target="_blank" rel="noopener" class="teacher-ig">@naiasandy_yoga</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Pricing ────────────────────────────────────────────── -->
+<section class="pricing-section" id="investment">
+  <div class="pricing-inner">
+    <div class="reveal">
+      <span class="eyebrow">Investment</span>
+      <h2 class="section-title">Choose your<br>experience.</h2>
+      <div class="deco-line"></div>
+      <p class="lead">All prices per person. Accommodation, all meals and retreat programming included.</p>
+    </div>
+    <div class="pricing-grid reveal">
+      <div class="price-card featured">
+        <div class="price-badge">BEST VALUE</div>
+        <div class="price-card-label">🌸 Early Bird</div>
+        <div class="price-row"><span class="price-row-label">Jungle View Villa</span><span class="price-row-amount">€2,200</span></div>
+        <div class="price-row"><span class="price-row-label">Garden Suite</span><span class="price-row-amount">€2,500</span></div>
+        <div class="price-row"><span class="price-row-label">Private Pool Villa</span><span class="price-row-amount">€2,800</span></div>
+      </div>
+      <div class="price-card">
+        <div class="price-card-label">Regular Price</div>
+        <div class="price-row"><span class="price-row-label">Jungle View Villa</span><span class="price-row-amount">€2,450</span></div>
+        <div class="price-row"><span class="price-row-label">Garden Suite</span><span class="price-row-amount">€2,750</span></div>
+        <div class="price-row"><span class="price-row-label">Private Pool Villa</span><span class="price-row-amount">€3,050</span></div>
+      </div>
+    </div>
+    <div class="reveal" style="margin-top:36px;padding:32px;background:var(--pink-pale);border-radius:var(--radius-md);border:1px solid rgba(230,34,68,0.15);max-width:640px;">
+      <h3 style="font-family:var(--serif);font-size:26px;margin-bottom:10px;">Payment Plan</h3>
+      <p style="font-size:14px;color:rgba(43,27,21,0.68);margin-bottom:14px;">A 50% non-refundable deposit secures your space. Remaining balance due 60 days before retreat. All sales are final — we strongly recommend travel insurance.</p>
+      <a href="mailto:contact@aetherayoga.com?subject=Bali%20Retreat%20Application" class="btn btn-primary">Secure My Spot →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────────── -->
+<section class="page-cta">
+  <div class="reveal">
+    <span class="eyebrow eyebrow-light">This is your time</span>
+    <h2>Come home<br>to you.</h2>
+    <p>Step away from the noise and return to what truly matters. Your transformation awaits in Bali.</p>
+    <a href="mailto:contact@aetherayoga.com?subject=Bali%20Retreat%20Application" class="btn btn-outline">Book Your Journey →</a>
+  </div>
+</section>
+
+<!-- ── Footer ────────────────────────────────────────────── -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Aethera</div>
+      <p>Transformative yoga retreats in sacred landscapes. Costa Rica, Bali, Nepal &amp; India.</p>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/aetherayoga/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.instagram.com/yogawithlisaai/" target="_blank" rel="noopener">Lisa</a>
+        <a href="https://www.instagram.com/saraapelaaez/" target="_blank" rel="noopener">Sara</a>
+        <a href="https://www.instagram.com/naiasandy_yoga/" target="_blank" rel="noopener">Sandra</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Retreats</h4>
+      <ul>
+        <li><a href="costa-rica.html">Costa Rica 2025</a></li>
+        <li><a href="bali.html">Bali 2027</a></li>
+        <li><a href="nepal.html">Nepal 2026</a></li>
+        <li><a href="india.html">India 2026</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Aethera</h4>
+      <ul>
+        <li><a href="teachers.html">Meet the Teachers</a></li>
+        <li><a href="index.html#about">Our Story</a></li>
+        <li><a href="index.html#community">Community</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item"><strong>Email</strong>contact@aetherayoga.com</div>
+      <div class="footer-contact-item"><strong>WhatsApp</strong>+1 (858) 248-1198</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Aethera Yoga. All rights reserved.</p>
+    <div class="footer-legal"><a href="#">Terms</a><a href="#">Privacy Policy</a></div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const siblings = [...e.target.parentElement.querySelectorAll('.reveal:not(.visible)')];
+      const idx = siblings.indexOf(e.target);
+      e.target.style.transitionDelay = (idx * 0.1) + 's';
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
