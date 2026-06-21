@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bali Retreat 2027 — Aethera Yoga</title>
   <meta property="og:title" content="Aethera Bali Retreat 2027 — Return to Your Essence">
-  <meta property="og:description" content="A soul-nourishing yoga retreat in Bali. May 24–31, 2027. Ubud, Indonesia.">
+  <meta property="og:description" content="A soul-nourishing yoga retreat in Bali. April 17 – May 1, 2027. Canggu, Indonesia.">
   <meta property="og:image" content="images/bali-og.jpg">
   <link rel="stylesheet" href="style.css">
   <style>
@@ -167,7 +167,7 @@
     .experience-section .section-title { color: var(--white); }
     .pill-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 14px;
       margin-top: 48px;
     }
@@ -235,12 +235,6 @@
       padding: 100px 52px;
     }
     .stays-inner { max-width: var(--max); margin: 0 auto; }
-    .stays-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-top: 52px;
-    }
     .stay-card {
       border-radius: var(--radius-lg);
       overflow: hidden;
@@ -254,7 +248,25 @@
     .stay-body { padding: 24px; }
     .stay-body h3 { font-family: var(--serif); font-size: 28px; font-weight: 500; margin-bottom: 6px; }
     .stay-body p { font-size: 14px; color: rgba(43,27,21,0.65); }
-    .stay-price { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--pink); margin-top: 16px; }
+    .room-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 52px;
+    }
+    .grounds-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .grounds-grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+    }
+    .villa-link-wrap { text-align: center; margin-top: 40px; }
 
     /* ── Teachers ─────────────────────────────────────────── */
     .teachers-section {
@@ -262,6 +274,70 @@
       background: var(--cream-dark);
     }
     .teachers-inner { max-width: var(--max); margin: 0 auto; }
+    .teachers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .teacher-card {
+      text-align: center;
+      text-decoration: none;
+    }
+    .teacher-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: 20px;
+      background: rgba(43,27,21,0.08);
+      margin-bottom: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    .teacher-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .teacher-card:hover .teacher-photo img { transform: scale(1.04); }
+    .teacher-photo-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 80px;
+      color: rgba(43,27,21,0.2);
+      z-index: -1;
+    }
+    .teacher-name {
+      font-family: var(--serif);
+      font-size: 30px;
+      font-weight: 400;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+    .teacher-role {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--pink);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .teacher-ig {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: rgba(43,27,21,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .teacher-ig:hover { color: var(--pink); }
 
     /* ── Pricing ──────────────────────────────────────────── */
     .pricing-section {
@@ -321,7 +397,7 @@
     @media (max-width: 1024px) {
       .overview, .itinerary-inner { grid-template-columns: 1fr; gap: 44px; }
       .pill-grid { grid-template-columns: 1fr 1fr; }
-      .stays-grid { grid-template-columns: 1fr 1fr; }
+      .grounds-grid { grid-template-columns: 1fr 1fr; }
       .img-band-inner { grid-template-columns: 1fr 1fr; }
       .img-band-inner img, .img-band-inner img:nth-child(2) { height: 280px; margin-top: 0; }
       .pricing-grid { grid-template-columns: 1fr; }
@@ -330,7 +406,7 @@
     }
     @media (max-width: 720px) {
       .hero-content { padding: 0 24px 60px; }
-      .pill-grid, .stays-grid { grid-template-columns: 1fr; }
+      .pill-grid, .room-grid, .grounds-grid { grid-template-columns: 1fr; }
       .img-band-inner { grid-template-columns: 1fr; }
       .feature-strip { padding: 18px 24px; }
       .feature-strip-inner { gap: 28px; }
@@ -343,12 +419,9 @@
 <nav class="nav" id="mainNav">
   <a href="index.html" class="nav-logo">Aethera</a>
   <ul class="nav-links">
-    <li><a href="index.html#destinations">Retreats</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#itinerary">Itinerary</a></li>
-    <li><a href="#stay">Accommodation</a></li>
-    <li><a href="teachers.html">Teachers</a></li>
-    <li><a href="mailto:contact@aetherayoga.com?subject=Bali%20Retreat%20Application" class="nav-cta">Book Journey</a></li>
+    <li><a href="index.html#retreats">Retreats</a></li>
+    <li><a href="#teachers">Meet the Teachers</a></li>
+    <li><a href="mailto:contact@aetherayoga.com?subject=Bali%20Retreat%20Application" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
 
@@ -357,7 +430,7 @@
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <p class="hero-eyebrow">Bali Retreat 2027 · Ubud, Indonesia</p>
+    <p class="hero-eyebrow">Bali Retreat 2027 · Canggu, Indonesia</p>
     <h1>Return to<br>Your Essence</h1>
     <p class="hero-sub">A soul-nourishing yoga retreat in Bali to reconnect with your rhythm, your body, and the beauty of simply being.</p>
     <div class="hero-actions">
@@ -365,26 +438,22 @@
       <a href="#experience" class="btn btn-outline">Explore Experience</a>
     </div>
   </div>
-  <div class="scroll-hint">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
 </section>
 
 <!-- ── Info Strip ────────────────────────────────────────── -->
 <div class="info-strip">
-  <div class="info-item"><div class="info-label">Dates</div><div class="info-value">May 24–31</div></div>
-  <div class="info-item"><div class="info-label">Duration</div><div class="info-value">8 Days</div></div>
-  <div class="info-item"><div class="info-label">Location</div><div class="info-value">Ubud, Bali</div></div>
-  <div class="info-item"><div class="info-label">Group Size</div><div class="info-value">16 Guests</div></div>
+  <div class="info-item"><div class="info-label">Dates</div><div class="info-value">Apr 17 – May 1</div></div>
+  <div class="info-item"><div class="info-label">Duration</div><div class="info-value">15 Days</div></div>
+  <div class="info-item"><div class="info-label">Location</div><div class="info-value">Canggu, Bali</div></div>
+  <div class="info-item"><div class="info-label">Group Size</div><div class="info-value">10 Guests</div></div>
 </div>
 
 <!-- ── Feature Strip ─────────────────────────────────────── -->
 <div class="feature-strip">
   <div class="feature-strip-inner">
-    <div class="feature-item"><span class="feature-icon">🌸</span><div><span class="feature-label">Yoga &amp; Movement</span><span class="feature-value">Daily practices to awaken</span></div></div>
+    <div class="feature-item"><span class="feature-icon">🌺</span><div><span class="feature-label">Yoga &amp; Movement</span><span class="feature-value">Daily practices to awaken</span></div></div>
     <div class="feature-item"><span class="feature-icon">☾</span><div><span class="feature-label">Ritual &amp; Ceremony</span><span class="feature-value">Sacred rituals to renew</span></div></div>
-    <div class="feature-item"><span class="feature-icon">🍃</span><div><span class="feature-label">Nourishing Food</span><span class="feature-value">Vibrant local cuisine</span></div></div>
+    <div class="feature-item"><span class="feature-icon">🌿</span><div><span class="feature-label">Private Chef</span><span class="feature-value">Personalized meals, made fresh daily</span></div></div>
     <div class="feature-item"><span class="feature-icon">🌊</span><div><span class="feature-label">Nature &amp; Adventure</span><span class="feature-value">Temples, waterfalls, beaches</span></div></div>
     <div class="feature-item"><span class="feature-icon">✦</span><div><span class="feature-label">Rest &amp; Restore</span><span class="feature-value">Deep rest, serene spaces</span></div></div>
   </div>
@@ -396,7 +465,8 @@
     <div class="overview-left reveal">
       <span class="eyebrow">A Transformative Escape</span>
       <h2 class="section-title">Bali<br>awaits you.</h2>
-      <div class="dates-pill">🗓 May 24 – May 31, 2027 · 8 Days / 7 Nights</div>
+      <div class="dates-pill">🗓 April 17 – May 1, 2027 · 15 Days / 14 Nights</div>
+      <p style="font-size:14px;color:rgba(43,27,21,0.68);margin:10px 0 0;">Week 1: Content Creator Retreat · Week 2: Yoga Retreat</p>
       <p class="lead">Join us in the heart of Bali for a week of transformation, connection and renewal. Immerse yourself in daily yoga, sacred rituals, nourishing food and breathtaking nature.</p>
       <a href="#itinerary" class="btn btn-primary" style="margin-top:8px;">View Full Itinerary →</a>
     </div>
@@ -434,7 +504,6 @@
     <p class="lead" style="color:rgba(255,255,255,0.65);margin-top:16px;">This is not just a yoga retreat. It is a sensory, spiritual and deeply human experience designed to bring you back into your body and into your life.</p>
     <div class="pill-grid">
       <div class="exp-pill reveal"><h3>Move</h3><p>Energizing yoga to awaken the body and align the spirit.</p></div>
-      <div class="exp-pill reveal"><h3>Ritualize</h3><p>Sacred ceremonies to release, reset and open your next chapter.</p></div>
       <div class="exp-pill reveal"><h3>Nourish</h3><p>Delicious, wholesome food to support your nervous system.</p></div>
       <div class="exp-pill reveal"><h3>Explore</h3><p>Temples, waterfalls, beaches and Bali's natural beauty.</p></div>
       <div class="exp-pill reveal"><h3>Rest</h3><p>Space to integrate, restore and come home to yourself.</p></div>
@@ -469,72 +538,83 @@
       <span class="eyebrow">Rest in Paradise</span>
       <h2 class="section-title">Boutique villas &amp;<br>sacred spaces.</h2>
       <div class="deco-line" style="margin: 18px auto 28px;"></div>
-      <p class="lead" style="margin: 0 auto;">Stay in handpicked villas that blend modern comfort with Bali's natural beauty, serenity and tropical magic.</p>
+      <p class="lead" style="margin: 0 auto;">Stay in handpicked villas that blend modern comfort with Bali's natural beauty, serenity and tropical magic — choose between a shared room with a friend or a private room all your own.</p>
     </div>
-    <div class="stays-grid">
+    <div class="room-grid">
       <article class="stay-card reveal">
-        <img src="images/bali-villa-jungle.jpg" alt="Jungle View Villa" onerror="this.style.background='linear-gradient(135deg,#83A533,#2b1b15)';this.removeAttribute('src')">
+        <img src="images/bali-guest-villas-2026-shared-room.jpg" alt="Shared Room" onerror="this.style.background='linear-gradient(135deg,#83A533,#2b1b15)';this.removeAttribute('src')">
         <div class="stay-body">
-          <h3>Jungle View Villa</h3>
-          <p>Private sanctuary surrounded by lush tropical gardens and the sounds of nature.</p>
-          <div class="stay-price">From €2,450 per person</div>
+          <h3>Shared Room</h3>
+          <p>Two beds, perfect for friends traveling together.</p>
         </div>
       </article>
       <article class="stay-card reveal">
-        <img src="images/bali-villa-garden.jpg" alt="Garden Suite" onerror="this.style.background='linear-gradient(135deg,#F66F9E,#E62244)';this.removeAttribute('src')">
+        <img src="images/bali-guest-villas-2026-single-room.jpg" alt="Private Room" onerror="this.style.background='linear-gradient(135deg,#F66F9E,#E62244)';this.removeAttribute('src')">
         <div class="stay-body">
-          <h3>Garden Suite</h3>
-          <p>Elegant suite with private terrace, garden views and beautifully curated interiors.</p>
-          <div class="stay-price">From €2,750 per person</div>
+          <h3>Private Room</h3>
+          <p>The whole room to yourself for ultimate privacy.</p>
         </div>
       </article>
-      <article class="stay-card reveal">
-        <img src="images/bali-villa-pool.jpg" alt="Private Pool Villa" onerror="this.style.background='linear-gradient(135deg,#2b1b15,#E62244)';this.removeAttribute('src')">
-        <div class="stay-body">
-          <h3>Private Pool Villa</h3>
-          <p>Spacious villa with your own private pool, extra privacy and pure luxury.</p>
-          <div class="stay-price">From €3,050 per person</div>
-        </div>
-      </article>
+    </div>
+    <div class="grounds-grid reveal">
+      <img src="images/bali-guest-villas-2026-bathrooms.jpg" alt="Villa bathrooms" onerror="this.style.background='linear-gradient(135deg,#83A533,#2b1b15)';this.removeAttribute('src')">
+      <img src="images/gardens-and-pools-2-pool-shot2.jpg" alt="Gardens and pool" onerror="this.style.background='linear-gradient(135deg,#F66F9E,#E62244)';this.removeAttribute('src')">
+      <img src="images/bali-gardens-pool-2026-02-nice-cta-villa-shot.jpg" alt="Villa grounds" onerror="this.style.background='linear-gradient(135deg,#2b1b15,#E62244)';this.removeAttribute('src')">
+    </div>
+    <div class="villa-link-wrap reveal">
+      <a href="https://www.ambalamavilla.com/bali/villa/" target="_blank" rel="noopener" class="btn btn-outline">View the Villa Listing →</a>
     </div>
   </div>
 </section>
 
 <!-- ── Teachers ───────────────────────────────────────────── -->
-<section class="teachers-section">
+<section class="teachers-section" id="teachers">
   <div class="teachers-inner">
     <div class="text-center reveal" style="margin-bottom:52px;">
       <span class="eyebrow">Your Guides</span>
       <h2 class="section-title">The teachers<br>leading this retreat.</h2>
     </div>
     <div class="teachers-grid">
+
       <div class="teacher-card reveal">
-        <div class="teacher-photo"><img src="images/teacher-lisa.jpg" alt="Lisa" onerror="this.parentElement.style.background='linear-gradient(135deg,#E62244,#83A533)';this.style.display='none'"></div>
-        <div class="teacher-body">
-          <div class="teacher-name">Lisa</div>
-          <div class="teacher-creds">500-HR YTT · Ashtanga Vinyasa</div>
-          <p class="teacher-bio">Specializing in Ashtanga-style Vinyasa: precise, breath-led, and deeply personal. Lisa meets students exactly where they are — strength, alignment, stillness.</p>
-          <a href="https://www.instagram.com/yogawithlisaai/" target="_blank" rel="noopener" class="teacher-ig">@yogawithlisaai</a>
+        <div class="teacher-photo">
+          <img src="images/teacher-lisa.jpg" alt="Lisa" onerror="this.style.display='none'">
+          <div class="teacher-photo-placeholder">L</div>
         </div>
+        <div class="teacher-name">Lisa</div>
+        <div class="teacher-role">Lead Teacher</div>
+        <a href="https://www.instagram.com/yogawithlisaai/" target="_blank" rel="noopener" class="teacher-ig">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          @yogawithlisaai
+        </a>
       </div>
+
       <div class="teacher-card reveal">
-        <div class="teacher-photo"><img src="images/teacher-sara.jpg" alt="Sara" onerror="this.parentElement.style.background='linear-gradient(135deg,#F66F9E,#E62244)';this.style.display='none'"></div>
-        <div class="teacher-body">
-          <div class="teacher-name">Sara</div>
-          <div class="teacher-creds">500-HR YTT · Kundalini &amp; Energy Work</div>
-          <p class="teacher-bio">Seven years devoted to Kundalini yoga and inner transformation. Sara holds space for others — gently guiding them back to their light.</p>
-          <a href="https://www.instagram.com/saraapelaaez/" target="_blank" rel="noopener" class="teacher-ig">@saraapelaaez</a>
+        <div class="teacher-photo">
+          <img src="images/teacher-sara.jpg" alt="Sara" onerror="this.style.display='none'">
+          <div class="teacher-photo-placeholder">S</div>
         </div>
+        <div class="teacher-name">Sara</div>
+        <div class="teacher-role">Yoga Teacher</div>
+        <a href="https://www.instagram.com/saraapelaaez/" target="_blank" rel="noopener" class="teacher-ig">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          @saraapelaaez
+        </a>
       </div>
+
       <div class="teacher-card reveal">
-        <div class="teacher-photo"><img src="images/teacher-sandra.jpg" alt="Sandra" onerror="this.parentElement.style.background='linear-gradient(135deg,#83A533,#2b1b15)';this.style.display='none'"></div>
-        <div class="teacher-body">
-          <div class="teacher-name">Sandra</div>
-          <div class="teacher-creds">RYT-300 · Somatic &amp; Yin Yoga</div>
-          <p class="teacher-bio">Guiding students back to presence through somatic movement, breathwork, and the quiet medicine of restorative practice.</p>
-          <a href="https://www.instagram.com/naiasandy_yoga/" target="_blank" rel="noopener" class="teacher-ig">@naiasandy_yoga</a>
+        <div class="teacher-photo">
+          <img src="images/teacher-sandra.jpg" alt="Sandra" onerror="this.style.display='none'">
+          <div class="teacher-photo-placeholder">S</div>
         </div>
+        <div class="teacher-name">Sandra</div>
+        <div class="teacher-role">Yoga Teacher</div>
+        <a href="https://www.instagram.com/naiasandy_yoga/" target="_blank" rel="noopener" class="teacher-ig">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          @naiasandy_yoga
+        </a>
       </div>
+
     </div>
   </div>
 </section>
@@ -546,27 +626,25 @@
       <span class="eyebrow">Investment</span>
       <h2 class="section-title">Choose your<br>experience.</h2>
       <div class="deco-line"></div>
-      <p class="lead">All prices per person. Accommodation, all meals and retreat programming included.</p>
+      <p class="lead">All prices per person, per stay. Accommodation, all meals and retreat programming included. Choose 1 or 2 weeks.</p>
     </div>
     <div class="pricing-grid reveal">
-      <div class="price-card featured">
-        <div class="price-badge">BEST VALUE</div>
-        <div class="price-card-label">🌸 Early Bird</div>
-        <div class="price-row"><span class="price-row-label">Jungle View Villa</span><span class="price-row-amount">€2,200</span></div>
-        <div class="price-row"><span class="price-row-label">Garden Suite</span><span class="price-row-amount">€2,500</span></div>
-        <div class="price-row"><span class="price-row-label">Private Pool Villa</span><span class="price-row-amount">€2,800</span></div>
+      <div class="price-card">
+        <div class="price-card-label">Shared Room</div>
+        <div class="price-row"><span class="price-row-label">1 Week</span><span class="price-row-amount">$1,650</span></div>
+        <div class="price-row"><span class="price-row-label">2 Weeks</span><span class="price-row-amount">$3,300</span></div>
       </div>
       <div class="price-card">
-        <div class="price-card-label">Regular Price</div>
-        <div class="price-row"><span class="price-row-label">Jungle View Villa</span><span class="price-row-amount">€2,450</span></div>
-        <div class="price-row"><span class="price-row-label">Garden Suite</span><span class="price-row-amount">€2,750</span></div>
-        <div class="price-row"><span class="price-row-label">Private Pool Villa</span><span class="price-row-amount">€3,050</span></div>
+        <div class="price-card-label">Private Room</div>
+        <p style="margin:-12px 0 20px;font-size:14px;opacity:0.7;">The whole room to yourself</p>
+        <div class="price-row"><span class="price-row-label">1 Week</span><span class="price-row-amount">$3,300</span></div>
+        <div class="price-row"><span class="price-row-label">2 Weeks</span><span class="price-row-amount">$6,600</span></div>
       </div>
     </div>
     <div class="reveal" style="margin-top:36px;padding:32px;background:var(--pink-pale);border-radius:var(--radius-md);border:1px solid rgba(230,34,68,0.15);max-width:640px;">
       <h3 style="font-family:var(--serif);font-size:26px;margin-bottom:10px;">Payment Plan</h3>
       <p style="font-size:14px;color:rgba(43,27,21,0.68);margin-bottom:14px;">A 50% non-refundable deposit secures your space. Remaining balance due 60 days before retreat. All sales are final — we strongly recommend travel insurance.</p>
-      <a href="mailto:contact@aetherayoga.com?subject=Bali%20Retreat%20Application" class="btn btn-primary">Secure My Spot →</a>
+      <a href="https://www.paypal.com/ncp/payment/4RPRDYNM3L252" target="_blank" rel="noopener" class="btn btn-primary">Secure My Spot →</a>
     </div>
   </div>
 </section>
