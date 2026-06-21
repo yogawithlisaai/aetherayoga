@@ -74,30 +74,6 @@
       animation: fadeUp 0.8s 0.55s var(--ease) both;
     }
 
-    /* ── Feature strip ─────────────────────────────────────── */
-    .feature-strip {
-      background: var(--pink);
-      padding: 22px 52px;
-      overflow-x: auto;
-    }
-    .feature-strip-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      display: flex;
-      gap: 48px;
-      align-items: center;
-    }
-    .feature-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      white-space: nowrap;
-      color: var(--white);
-    }
-    .feature-icon { font-size: 20px; }
-    .feature-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; opacity: 0.72; display: block; }
-    .feature-value { font-family: var(--serif); font-size: 18px; font-weight: 500; }
-
     /* ── Overview section ─────────────────────────────────── */
     .overview {
       padding: 100px 52px;
@@ -124,6 +100,23 @@
       color: var(--pink);
       margin-bottom: 28px;
     }
+    .week-block {
+      padding-bottom: 32px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid rgba(43,27,21,0.12);
+    }
+    .week-block:last-child { padding-bottom: 0; margin-bottom: 0; border-bottom: none; }
+    .week-label {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 10px;
+    }
+    .week-block h3 { font-family: var(--serif); font-size: 30px; font-weight: 500; margin-bottom: 14px; }
+    .week-block p { font-size: 15px; line-height: 1.7; color: rgba(43,27,21,0.7); margin-bottom: 16px; }
     .overview-cards { display: grid; gap: 16px; }
     .ov-card {
       display: grid;
@@ -148,41 +141,6 @@
     .ov-card h3 { font-family: var(--serif); font-size: 26px; font-weight: 500; margin-bottom: 4px; }
     .ov-card p { font-size: 14px; color: rgba(43,27,21,0.65); }
 
-    /* ── Experience section ───────────────────────────────── */
-    .experience-section {
-      background: var(--dark);
-      color: var(--white);
-      padding: 100px 52px;
-      position: relative;
-      overflow: hidden;
-    }
-    .experience-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url('images/bali-experience.jpg') center / cover;
-      opacity: 0.14;
-    }
-    .experience-section .container { position: relative; z-index: 2; max-width: var(--max); margin: 0 auto; }
-    .experience-section .section-title { color: var(--white); }
-    .pill-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-top: 48px;
-    }
-    .exp-pill {
-      padding: 28px 20px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.14);
-      backdrop-filter: blur(10px);
-      transition: background 0.3s;
-    }
-    .exp-pill:hover { background: rgba(230,34,68,0.18); }
-    .exp-pill h3 { font-family: var(--serif); font-size: 28px; font-weight: 500; margin-bottom: 10px; color: var(--white); }
-    .exp-pill p { font-size: 13px; color: rgba(255,255,255,0.62); line-height: 1.6; }
-
     /* ── Image band ───────────────────────────────────────── */
     .img-band {
       padding: 0 52px;
@@ -206,11 +164,15 @@
     .itinerary-inner {
       max-width: var(--max);
       margin: 0 auto;
+    }
+    .itinerary-intro { max-width: 640px; margin-bottom: 56px; }
+    .itinerary-days {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 72px;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
       align-items: start;
     }
+    .itin-day-title { font-family: var(--serif); font-size: 30px; font-weight: 500; margin-bottom: 24px; }
     .timeline {
       border-radius: var(--radius-lg);
       overflow: hidden;
@@ -395,21 +357,18 @@
     .page-cta p { font-size: 17px; color: rgba(255,255,255,0.82); margin-bottom: 36px; }
 
     @media (max-width: 1024px) {
-      .overview, .itinerary-inner { grid-template-columns: 1fr; gap: 44px; }
-      .pill-grid { grid-template-columns: 1fr 1fr; }
+      .overview, .itinerary-days { grid-template-columns: 1fr; gap: 44px; }
       .grounds-grid { grid-template-columns: 1fr 1fr; }
       .img-band-inner { grid-template-columns: 1fr 1fr; }
       .img-band-inner img, .img-band-inner img:nth-child(2) { height: 280px; margin-top: 0; }
       .pricing-grid { grid-template-columns: 1fr; }
       section { padding-left: 28px !important; padding-right: 28px !important; }
-      .overview, .img-band, .feature-strip { padding-left: 28px; padding-right: 28px; }
+      .overview, .img-band { padding-left: 28px; padding-right: 28px; }
     }
     @media (max-width: 720px) {
       .hero-content { padding: 0 24px 60px; }
-      .pill-grid, .room-grid, .grounds-grid { grid-template-columns: 1fr; }
+      .room-grid, .grounds-grid { grid-template-columns: 1fr; }
       .img-band-inner { grid-template-columns: 1fr; }
-      .feature-strip { padding: 18px 24px; }
-      .feature-strip-inner { gap: 28px; }
     }
   </style>
 </head>
@@ -435,7 +394,7 @@
     <p class="hero-sub">A soul-nourishing yoga retreat in Bali to reconnect with your rhythm, your body, and the beauty of simply being.</p>
     <div class="hero-actions">
       <a href="mailto:contact@aetherayoga.com?subject=Bali%20Retreat%20Application" class="btn btn-primary">Book Your Journey</a>
-      <a href="#experience" class="btn btn-outline">Explore Experience</a>
+      <a href="#retreat" class="btn btn-outline">Explore Experience</a>
     </div>
   </div>
 </section>
@@ -448,27 +407,26 @@
   <div class="info-item"><div class="info-label">Group Size</div><div class="info-value">10 Guests</div></div>
 </div>
 
-<!-- ── Feature Strip ─────────────────────────────────────── -->
-<div class="feature-strip">
-  <div class="feature-strip-inner">
-    <div class="feature-item"><span class="feature-icon">🌺</span><div><span class="feature-label">Yoga &amp; Movement</span><span class="feature-value">Daily practices to awaken</span></div></div>
-    <div class="feature-item"><span class="feature-icon">☾</span><div><span class="feature-label">Ritual &amp; Ceremony</span><span class="feature-value">Sacred rituals to renew</span></div></div>
-    <div class="feature-item"><span class="feature-icon">🌿</span><div><span class="feature-label">Private Chef</span><span class="feature-value">Personalized meals, made fresh daily</span></div></div>
-    <div class="feature-item"><span class="feature-icon">🌊</span><div><span class="feature-label">Nature &amp; Adventure</span><span class="feature-value">Temples, waterfalls, beaches</span></div></div>
-    <div class="feature-item"><span class="feature-icon">✦</span><div><span class="feature-label">Rest &amp; Restore</span><span class="feature-value">Deep rest, serene spaces</span></div></div>
-  </div>
-</div>
-
 <!-- ── Overview ──────────────────────────────────────────── -->
 <section id="retreat">
   <div class="overview">
     <div class="overview-left reveal">
       <span class="eyebrow">A Transformative Escape</span>
       <h2 class="section-title">Bali<br>awaits you.</h2>
-      <div class="dates-pill">🗓 April 17 – May 1, 2027 · 15 Days / 14 Nights</div>
-      <p style="font-size:14px;color:rgba(43,27,21,0.68);margin:10px 0 0;">Week 1: Content Creator Retreat · Week 2: Yoga Retreat</p>
-      <p class="lead">Join us in the heart of Bali for a week of transformation, connection and renewal. Immerse yourself in daily yoga, sacred rituals, nourishing food and breathtaking nature.</p>
-      <a href="#itinerary" class="btn btn-primary" style="margin-top:8px;">View Full Itinerary →</a>
+      <div class="week-block">
+        <span class="week-label">Week 1</span>
+        <h3>Creator Universe</h3>
+        <div class="dates-pill">🗓 April 17 – 23, 2027 · 7 Days / 6 Nights</div>
+        <p>We'll transform the villa into a content universe — morning routines, wellness rituals, behind-the-scenes moments, and cinematic lifestyle storytelling. A week of collaborative content creation alongside fellow creators, coaches, and retreat leaders.</p>
+        <a href="#itinerary-creator" class="btn btn-primary" style="margin-top:8px;">View Full Itinerary →</a>
+      </div>
+      <div class="week-block">
+        <span class="week-label">Week 2</span>
+        <h3>Aethera Yoga Retreat</h3>
+        <div class="dates-pill">🗓 April 24 – 30, 2027 · 7 Days / 6 Nights</div>
+        <p>Nourish mind, body and soul for a week in one of Bali's most tranquil villas. Pause, breathe, and reconnect during daily yoga and meditation led by three trained instructors — Lisa, Sara, and Sandra.</p>
+        <a href="#itinerary-yoga" class="btn btn-primary" style="margin-top:8px;">View Full Itinerary →</a>
+      </div>
     </div>
     <div class="overview-cards reveal">
       <div class="ov-card">
@@ -496,37 +454,38 @@
   </div>
 </div>
 
-<!-- ── Experience ────────────────────────────────────────── -->
-<section class="experience-section" id="experience">
-  <div class="container">
-    <span class="eyebrow eyebrow-light">The Aethera Experience</span>
-    <h2 class="section-title" style="color:var(--white);">Reconnect. Renew.<br>Remember.</h2>
-    <p class="lead" style="color:rgba(255,255,255,0.65);margin-top:16px;">This is not just a yoga retreat. It is a sensory, spiritual and deeply human experience designed to bring you back into your body and into your life.</p>
-    <div class="pill-grid">
-      <div class="exp-pill reveal"><h3>Move</h3><p>Energizing yoga to awaken the body and align the spirit.</p></div>
-      <div class="exp-pill reveal"><h3>Nourish</h3><p>Delicious, wholesome food to support your nervous system.</p></div>
-      <div class="exp-pill reveal"><h3>Explore</h3><p>Temples, waterfalls, beaches and Bali's natural beauty.</p></div>
-      <div class="exp-pill reveal"><h3>Rest</h3><p>Space to integrate, restore and come home to yourself.</p></div>
-    </div>
-  </div>
-</section>
-
 <!-- ── Itinerary ──────────────────────────────────────────── -->
 <section class="itinerary-section" id="itinerary">
   <div class="itinerary-inner">
-    <div class="reveal">
+    <div class="itinerary-intro reveal">
       <span class="eyebrow">Daily Rhythm</span>
       <h2 class="section-title">A day in<br>the retreat.</h2>
       <div class="deco-line"></div>
       <p class="lead">Gentle structure. Spacious afternoons. Beautiful rituals. Every day is designed to hold you without overwhelming you.</p>
     </div>
-    <div class="timeline reveal">
-      <div class="time-row"><div class="time">06:30</div><div class="activity"><h3>Sunrise Yoga</h3><p>Morning movement, breathwork and intention setting.</p></div></div>
-      <div class="time-row"><div class="time">08:30</div><div class="activity"><h3>Nourishing Breakfast</h3><p>Fresh tropical breakfast with local, plant-rich ingredients.</p></div></div>
-      <div class="time-row"><div class="time">11:00</div><div class="activity"><h3>Workshop or Excursion</h3><p>Water temple, waterfall, journaling or energetic practice.</p></div></div>
-      <div class="time-row"><div class="time">13:00</div><div class="activity"><h3>Lunch &amp; Free Time</h3><p>Rest, explore, journal, or simply be.</p></div></div>
-      <div class="time-row"><div class="time">16:30</div><div class="activity"><h3>Restorative Practice</h3><p>Yin yoga, meditation, sound healing or integration circle.</p></div></div>
-      <div class="time-row"><div class="time">19:30</div><div class="activity"><h3>Dinner &amp; Connection</h3><p>Evening meal, sharing circle and soft closing ritual.</p></div></div>
+    <div class="itinerary-days">
+      <div id="itinerary-creator" class="reveal">
+        <h3 class="itin-day-title">A Day in Creator Universe</h3>
+        <div class="timeline">
+          <div class="time-row"><div class="time">06:30</div><div class="activity"><h3>Sunrise Yoga</h3><p>Morning movement, breathwork and intention setting.</p></div></div>
+          <div class="time-row"><div class="time">08:30</div><div class="activity"><h3>Nourishing Breakfast</h3><p>Fresh tropical breakfast with local, plant-rich ingredients.</p></div></div>
+          <div class="time-row"><div class="time">11:00</div><div class="activity"><h3>Creator Session</h3><p>Collaborative content creation — filming, storytelling and behind-the-scenes moments together.</p></div></div>
+          <div class="time-row"><div class="time">13:00</div><div class="activity"><h3>Lunch &amp; Free Time</h3><p>Rest, explore, journal, or simply be.</p></div></div>
+          <div class="time-row"><div class="time">16:30</div><div class="activity"><h3>Restorative Practice</h3><p>Yin yoga, meditation, sound healing or integration circle.</p></div></div>
+          <div class="time-row"><div class="time">19:30</div><div class="activity"><h3>Dinner &amp; Creator Opportunity</h3><p>Evening meal together, capturing food stories and behind-the-scenes content for your platforms.</p></div></div>
+        </div>
+      </div>
+      <div id="itinerary-yoga" class="reveal">
+        <h3 class="itin-day-title">A Day in the Yoga Retreat</h3>
+        <div class="timeline">
+          <div class="time-row"><div class="time">06:30</div><div class="activity"><h3>Sunrise Yoga</h3><p>Morning movement, breathwork and intention setting.</p></div></div>
+          <div class="time-row"><div class="time">08:30</div><div class="activity"><h3>Nourishing Breakfast</h3><p>Fresh tropical breakfast with local, plant-rich ingredients.</p></div></div>
+          <div class="time-row"><div class="time">11:00</div><div class="activity"><h3>Workshop or Excursion</h3><p>Water temple, waterfall, journaling or energetic practice.</p></div></div>
+          <div class="time-row"><div class="time">13:00</div><div class="activity"><h3>Lunch &amp; Free Time</h3><p>Rest, explore, journal, or simply be.</p></div></div>
+          <div class="time-row"><div class="time">16:30</div><div class="activity"><h3>Restorative Practice</h3><p>Yin yoga, meditation, sound healing or integration circle.</p></div></div>
+          <div class="time-row"><div class="time">19:30</div><div class="activity"><h3>Dinner &amp; Connection</h3><p>Evening meal, sharing circle and soft closing ritual.</p></div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
