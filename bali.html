@@ -839,32 +839,34 @@
       .hero-content { padding: 0 24px 60px; }
       .room-grid, .grounds-grid, .week-actions { grid-template-columns: 1fr; }
 
+      /* Tighter outer padding so the side-by-side cards get more width */
+      .overview { padding: 60px 16px; }
+      .itinerary-section { padding: 60px 16px !important; }
+      .teachers-section { padding: 60px 16px !important; }
+
       /* Week cards — keep side by side but tighten */
       .overview-weeks {
         grid-template-columns: 1fr 1fr;
         gap: 12px;
       }
-      .week-block {
-        padding: 28px 16px;
-      }
-      .week-icon {
-        width: 52px;
-        height: 52px;
-      }
-      .week-block h3 {
-        font-size: 20px;
-      }
+      .week-block { padding: 20px 12px; }
+      .week-icon { width: 48px; height: 48px; margin-bottom: 12px; }
+      .week-icon svg { width: 24px; height: 24px; }
+      .week-label { font-size: 9px; letter-spacing: 1.5px; }
+      .week-block h3 { font-size: 18px; margin-bottom: 10px; }
+      .week-block .lead,
+      .week-block p { font-size: 12px; line-height: 1.5; }
       .dates-pill {
-        font-size: 11px;
-        padding: 8px 12px;
-      }
-      .week-block .lead {
-        font-size: 13px;
+        font-size: 10px;
+        padding: 6px 10px;
+        white-space: normal;
+        text-align: center;
       }
       .week-block .btn,
       .week-block .btn-outline {
-        font-size: 11px;
-        padding: 10px 12px;
+        font-size: 10px;
+        padding: 8px 10px;
+        letter-spacing: 0.5px;
       }
 
       /* Itinerary — keep side by side but tighten */
@@ -872,15 +874,17 @@
         grid-template-columns: 1fr 1fr;
         gap: 12px;
       }
-      .itin-head { padding: 14px 14px 12px; }
-      .itin-title { font-size: 16px; }
-      .itin-row { padding: 10px 14px; gap: 8px; }
-      .itin-time { font-size: 10px; min-width: 32px; }
-      .itin-icon { width: 26px; height: 26px; flex-shrink: 0; }
-      .itin-icon i { font-size: 13px; }
-      .itin-name { font-size: 12px; }
-      .itin-desc { font-size: 11px; }
-      .itin-tag { font-size: 9px; padding: 1px 6px; }
+      .itin-head { padding: 12px 10px; }
+      .itin-badge { font-size: 9px; letter-spacing: 1px; }
+      .itin-title { font-size: 14px; margin: 4px 0; }
+      .itin-sub { font-size: 10px; }
+      .itin-row { padding: 10px 10px; gap: 6px; }
+      .itin-time { font-size: 10px; min-width: 30px; }
+      .itin-icon { width: 24px; height: 24px; flex-shrink: 0; }
+      .itin-icon i { font-size: 12px; }
+      .itin-name { font-size: 11px; }
+      .itin-desc { font-size: 10px; }
+      .itin-tag { display: none; }
 
       /* Teachers — 2 columns, last card centered on its own row */
       .teachers-grid { grid-template-columns: 1fr 1fr; }
@@ -888,6 +892,19 @@
         grid-column: 1 / -1;
         max-width: 50%;
         margin: 0 auto;
+      }
+      .teacher-card { padding-bottom: 16px; }
+      .teacher-name { font-size: 22px; }
+      .teacher-role { font-size: 9px; letter-spacing: 1px; margin-bottom: 8px; }
+      .teacher-ig {
+        font-size: 9px;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        display: block;
+        padding: 0 8px;
       }
     }
   </style>
