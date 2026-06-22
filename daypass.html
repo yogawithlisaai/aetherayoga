@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bali Day Pass — Aethera Retreat 2027</title>
+  <meta name="description" content="Join us for a day at our private Canggu villa — yoga, private chef meals, pool access, and good company. Weekend day passes available April 2027.">
+  <meta property="og:title" content="Bali Day Pass — Aethera Retreat 2027">
+  <meta property="og:description" content="Half day $49 · Full day $75. Yoga, private chef meals, pool, kombucha and community at a stunning Canggu villa.">
+  <meta property="og:image" content="images/bali-cta.jpg">
+  <meta property="og:url" content="https://aetherayoga.com/daypass.html">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont/tabler-icons.min.css">
+  <style>
+    :root {
+      --accent: var(--pink);
+      --accent-soft: var(--pink-soft);
+    }
+
+    /* Hero */
+    .dp-hero {
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .dp-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('images/bali-cta.jpg') center center / cover no-repeat;
+    }
+    .dp-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(43,27,21,0.18) 0%, rgba(43,27,21,0.82) 100%);
+    }
+    .dp-hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 52px 72px;
+      color: var(--white);
+    }
+    .dp-hero-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--pink-soft);
+      margin-bottom: 16px;
+    }
+    .dp-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(48px, 7vw, 96px);
+      font-weight: 500;
+      line-height: 0.95;
+      letter-spacing: -3px;
+      margin-bottom: 20px;
+    }
+    .dp-hero-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.82);
+      max-width: 520px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    /* Info strip */
+    .dp-strip {
+      background: var(--white);
+      box-shadow: 0 4px 32px rgba(43,27,21,0.08);
+      border-radius: 16px;
+      margin: -32px 52px 0;
+      position: relative;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 28px 40px;
+      gap: 0;
+    }
+    .dp-strip-item {
+      padding: 0 24px;
+      border-right: 1px solid rgba(43,27,21,0.08);
+    }
+    .dp-strip-item:first-child { padding-left: 0; }
+    .dp-strip-item:last-child { border-right: none; }
+    .dp-strip-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 6px;
+    }
+    .dp-strip-value {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    /* Main section */
+    .dp-main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 80px 52px;
+    }
+    .dp-intro {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .dp-intro .eyebrow { color: var(--pink); }
+    .dp-intro h2 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 500;
+      color: var(--dark);
+      margin: 10px 0 16px;
+      letter-spacing: -1.5px;
+      line-height: 1;
+    }
+    .dp-intro p {
+      font-size: 16px;
+      color: rgba(43,27,21,0.62);
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .dp-weekend-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(43,27,21,0.65);
+      background: rgba(43,27,21,0.05);
+      border: 0.5px solid rgba(43,27,21,0.12);
+      padding: 8px 18px;
+      border-radius: 40px;
+      margin-top: 20px;
+    }
+    .dp-weekend-pill i { font-size: 15px; color: var(--pink); }
+
+    /* Cards */
+    .dp-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+    .dp-card {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(43,27,21,0.1);
+      background: var(--white);
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+    .dp-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 56px rgba(230,34,68,0.14);
+    }
+    .dp-card-head {
+      padding: 32px 32px 28px;
+      text-align: center;
+    }
+    .dp-card-head.light {
+      background: linear-gradient(160deg, #fff0f4 0%, #fff8fa 100%);
+      border-bottom: 1px solid rgba(230,34,68,0.12);
+    }
+    .dp-card-head.dark {
+      background: var(--pink);
+      border-bottom: none;
+    }
+    .dp-pass-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .dp-pass-badge.on-light {
+      background: rgba(230,34,68,0.1);
+      color: var(--pink);
+    }
+    .dp-pass-badge.on-dark {
+      background: rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.9);
+    }
+    .dp-price {
+      font-family: var(--serif);
+      font-size: 64px;
+      font-weight: 500;
+      line-height: 1;
+      margin: 0 0 6px;
+    }
+    .dp-price.light { color: var(--dark); }
+    .dp-price.dark { color: var(--white); }
+    .dp-price-note {
+      font-size: 13px;
+    }
+    .dp-price-note.light { color: rgba(43,27,21,0.45); }
+    .dp-price-note.dark { color: rgba(255,255,255,0.65); }
+    .dp-time-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-top: 14px;
+    }
+    .dp-time-tag.light {
+      background: rgba(230,34,68,0.08);
+      color: var(--pink);
+    }
+    .dp-time-tag.dark {
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.9);
+    }
+    .dp-card-body { padding: 32px; }
+    .dp-includes-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(43,27,21,0.4);
+      margin: 0 0 20px;
+    }
+    .dp-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .dp-item:last-of-type { margin-bottom: 0; }
+    .dp-item i {
+      font-size: 18px;
+      color: var(--pink);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .dp-item span {
+      font-size: 14px;
+      color: var(--dark);
+      line-height: 1.5;
+    }
+    .dp-item span em {
+      font-style: normal;
+      color: rgba(43,27,21,0.5);
+      font-size: 13px;
+    }
+    .dp-divider {
+      height: 1px;
+      background: rgba(43,27,21,0.07);
+      margin: 22px 0;
+    }
+    .dp-creator-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: rgba(230,34,68,0.05);
+      border: 0.5px solid rgba(230,34,68,0.15);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 24px;
+    }
+    .dp-creator-note i {
+      font-size: 16px;
+      color: var(--pink);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .dp-creator-note span {
+      font-size: 13px;
+      color: rgba(43,27,21,0.7);
+      line-height: 1.5;
+    }
+    .dp-btn {
+      display: block;
+      width: 100%;
+      padding: 15px 24px;
+      border-radius: 40px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .dp-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .dp-btn.outline {
+      background: transparent;
+      border: 1.5px solid var(--pink);
+      color: var(--pink);
+    }
+    .dp-btn.filled {
+      background: var(--pink);
+      color: var(--white);
+    }
+    .dp-spots-note {
+      font-size: 12px;
+      color: rgba(43,27,21,0.4);
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    /* What to bring */
+    .dp-bring {
+      background: var(--cream, #F7F3EE);
+      border-radius: 20px;
+      padding: 48px;
+      margin-bottom: 64px;
+    }
+    .dp-bring h3 {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--dark);
+      margin: 0 0 28px;
+    }
+    .dp-bring-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .dp-bring-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: rgba(43,27,21,0.75);
+    }
+    .dp-bring-item i {
+      font-size: 18px;
+      color: var(--pink);
+      flex-shrink: 0;
+    }
+
+    /* Collab section */
+    .dp-collab {
+      text-align: center;
+      padding: 64px 48px;
+      border: 1px solid rgba(43,27,21,0.08);
+      border-radius: 20px;
+      background: var(--white);
+      margin-bottom: 0;
+    }
+    .dp-collab h3 {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 500;
+      color: var(--dark);
+      margin: 12px 0 16px;
+      letter-spacing: -1px;
+    }
+    .dp-collab p {
+      font-size: 15px;
+      color: rgba(43,27,21,0.6);
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .dp-collab-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 36px;
+    }
+    .dp-collab-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--dark);
+      background: rgba(43,27,21,0.04);
+      border: 0.5px solid rgba(43,27,21,0.12);
+      padding: 8px 16px;
+      border-radius: 40px;
+    }
+    .dp-collab-tag i { font-size: 15px; color: var(--pink); }
+    .dp-collab-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--dark);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .dp-collab-cta:hover { opacity: 0.85; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .dp-strip {
+        grid-template-columns: repeat(2, 1fr);
+        margin: -24px 24px 0;
+        padding: 24px;
+        gap: 20px;
+      }
+      .dp-strip-item { border-right: none; padding: 0; }
+      .dp-main { padding: 60px 24px; }
+      .dp-cards { grid-template-columns: 1fr; }
+      .dp-bring-grid { grid-template-columns: repeat(2, 1fr); }
+      .dp-hero-content { padding: 0 24px 56px; }
+      .dp-collab { padding: 40px 24px; }
+      .dp-bring { padding: 32px 24px; }
+    }
+    @media (max-width: 600px) {
+      .dp-strip { grid-template-columns: 1fr 1fr; margin: -20px 16px 0; }
+      .dp-bring-grid { grid-template-columns: 1fr; }
+      .dp-hero h1 { letter-spacing: -1.5px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">Aethera</a>
+  <ul class="nav-links">
+    <li><a href="bali.html">Bali Retreat</a></li>
+    <li><a href="index.html#retreats">All Retreats</a></li>
+    <li><a href="mailto:contact@aetherayoga.com?subject=Day%20Pass%20Inquiry" class="nav-cta">Get in touch</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="dp-hero">
+  <div class="dp-hero-bg"></div>
+  <div class="dp-hero-overlay"></div>
+  <div class="dp-hero-content">
+    <p class="dp-hero-eyebrow">Aethera Bali 2027 · Canggu, Indonesia</p>
+    <h1>Join us<br>for the day.</h1>
+    <p class="dp-hero-sub">You don't have to stay overnight to experience the magic. Come for the yoga, the food, the pool and the people.</p>
+  </div>
+</section>
+
+<!-- Info strip -->
+<div class="dp-strip">
+  <div class="dp-strip-item">
+    <p class="dp-strip-label">Location</p>
+    <p class="dp-strip-value">Canggu, Bali</p>
+  </div>
+  <div class="dp-strip-item">
+    <p class="dp-strip-label">Weekends</p>
+    <p class="dp-strip-value">Apr 19, 20, 26, 27</p>
+  </div>
+  <div class="dp-strip-item">
+    <p class="dp-strip-label">Half day from</p>
+    <p class="dp-strip-value">$49 / person</p>
+  </div>
+  <div class="dp-strip-item">
+    <p class="dp-strip-label">Full day from</p>
+    <p class="dp-strip-value">$75 / person</p>
+  </div>
+</div>
+
+<!-- Main -->
+<div class="dp-main">
+
+  <div class="dp-intro">
+    <span class="eyebrow">Day passes</span>
+    <h2>Choose your experience</h2>
+    <p>All passes include yoga, the villa pool and private chef food. Come as you are — every pass is priced per person so the food cost is covered.</p>
+    <div class="dp-weekend-pill">
+      <i class="ti ti-calendar-event" aria-hidden="true"></i>
+      Weekends only · April 19, 20, 26 & 27, 2027
+    </div>
+  </div>
+
+  <!-- Pass cards -->
+  <div class="dp-cards">
+
+    <!-- Half day -->
+    <div class="dp-card">
+      <div class="dp-card-head light">
+        <div class="dp-pass-badge on-light">Half day pass</div>
+        <p class="dp-price light">$49</p>
+        <p class="dp-price-note light">per person</p>
+        <div class="dp-time-tag light">
+          <i class="ti ti-clock" aria-hidden="true"></i>
+          6:00 AM – 1:00 PM
+        </div>
+      </div>
+      <div class="dp-card-body">
+        <p class="dp-includes-label">What's included</p>
+        <div class="dp-item">
+          <i class="ti ti-yoga" aria-hidden="true"></i>
+          <span>Morning yoga or meditation class</span>
+        </div>
+        <div class="dp-item">
+          <i class="ti ti-salad" aria-hidden="true"></i>
+          <span>Nourishing breakfast by private chef</span>
+        </div>
+        <div class="dp-item">
+          <i class="ti ti-droplet" aria-hidden="true"></i>
+          <span>Smoothies & kombucha on arrival</span>
+        </div>
+        <div class="dp-item">
+          <i class="ti ti-pool" aria-hidden="true"></i>
+          <span>Villa pool & grounds access <em>(towels provided)</em></span>
+        </div>
+        <div class="dp-item">
+          <i class="ti ti-users" aria-hidden="true"></i>
+          <span>Meet the retreat community</span>
+        </div>
+        <div class="dp-divider"></div>
+        <div class="dp-creator-note">
+          <i class="ti ti-camera" aria-hidden="true"></i>
+          <span>Beautiful spaces for content creation — come film, create and collaborate</span>
+        </div>
+        <a href="mailto:contact@aetherayoga.com?subject=Half%20Day%20Pass%20Inquiry%20%E2%80%94%20Bali%202027" class="dp-btn outline">Reserve half day →</a>
+        <p class="dp-spots-note">Limited to 4 guests per day</p>
+      </div>
+    </div>
+
+    <!-- Full day -->
+    <div class="dp-card">
+      <div class="dp-card-head dark">
+        <div class="dp-pass-badge on-dark">Full day pass</div>
+        <p class="dp-price dark">$75</p>
+        <p class="dp-price-note dark">per person</p>
+        <div class="dp-time-tag dark">
+          <i class="ti ti-clock" aria-hidden="true"></i>
+          6:00 AM – 9:00 PM
+        </div>
+      </div>
+      <div class="dp-card-body">
+        <p class="dp-includes-label">Everything in half day, plus</p>
+        <div class="dp-item">
+          <i class="ti ti-chef-hat" aria-hidden="true"></i>
+          <span>Lunch & dinner by private chef</span>
+        </div>
+        <div class="dp-item">
+          <i class="ti ti-moon" aria-hidden="true"></i>
+          <span>Evening restorative yoga or sound bath</span>
+        </div>
+        <div class="dp-item">
+          <i class="ti ti-palette" aria-hidden="true"></i>
+          <span>Evening activity <em>— art therapy, cacao ceremony or creative circle</em></span>
+        </div>
+        <div class="dp-item">
+          <i class="ti ti-music" aria-hidden="true"></i>
+          <span>Music, good energy and full community immersion</span>
+        </div>
+        <div class="dp-item">
+          <i class="ti ti-star" aria-hidden="true"></i>
+          <span>Full villa access all day</span>
+        </div>
+        <div class="dp-divider"></div>
+        <div class="dp-creator-note">
+          <i class="ti ti-sparkles" aria-hidden="true"></i>
+          <span>Best for creators — a full day of cinematic moments, meals, movement and magic</span>
+        </div>
+        <a href="mailto:contact@aetherayoga.com?subject=Full%20Day%20Pass%20Inquiry%20%E2%80%94%20Bali%202027" class="dp-btn filled">Reserve full day →</a>
+        <p class="dp-spots-note">Limited to 4 guests per day</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- What to bring -->
+  <div class="dp-bring">
+    <h3>What to bring</h3>
+    <div class="dp-bring-grid">
+      <div class="dp-bring-item">
+        <i class="ti ti-shirt" aria-hidden="true"></i>
+        <span>Comfortable yoga clothes</span>
+      </div>
+      <div class="dp-bring-item">
+        <i class="ti ti-sun" aria-hidden="true"></i>
+        <span>Reef-safe sunscreen</span>
+      </div>
+      <div class="dp-bring-item">
+        <i class="ti ti-swim" aria-hidden="true"></i>
+        <span>Swimsuit for the pool</span>
+      </div>
+      <div class="dp-bring-item">
+        <i class="ti ti-book" aria-hidden="true"></i>
+        <span>A journal if you like</span>
+      </div>
+      <div class="dp-bring-item">
+        <i class="ti ti-camera" aria-hidden="true"></i>
+        <span>Your camera — it's beautiful here</span>
+      </div>
+      <div class="dp-bring-item">
+        <i class="ti ti-mood-smile" aria-hidden="true"></i>
+        <span>An open heart</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Collab section -->
+  <div class="dp-collab">
+    <span class="eyebrow" style="color: var(--pink);">Let's collaborate</span>
+    <h3>Are you a creator, brand or facilitator?</h3>
+    <p>We'd love to work with you during the retreat. Whether you want to shoot content at the villa, host a workshop, or connect us with a local gym — reach out.</p>
+    <div class="dp-collab-tags">
+      <div class="dp-collab-tag">
+        <i class="ti ti-camera" aria-hidden="true"></i>
+        Models & creators
+      </div>
+      <div class="dp-collab-tag">
+        <i class="ti ti-palette" aria-hidden="true"></i>
+        Art therapists
+      </div>
+      <div class="dp-collab-tag">
+        <i class="ti ti-barbell" aria-hidden="true"></i>
+        Gym & wellness spaces
+      </div>
+      <div class="dp-collab-tag">
+        <i class="ti ti-building-store" aria-hidden="true"></i>
+        Bali brands & UGC
+      </div>
+      <div class="dp-collab-tag">
+        <i class="ti ti-microphone" aria-hidden="true"></i>
+        Workshop facilitators
+      </div>
+    </div>
+    <a href="mailto:contact@aetherayoga.com?subject=Collaboration%20Inquiry%20%E2%80%94%20Aethera%20Bali%202027" class="dp-collab-cta">
+      <i class="ti ti-send" aria-hidden="true"></i>
+      Get in touch
+    </a>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Aethera</div>
+      <p>Transformative yoga retreats in sacred landscapes. Bali, India, Nepal & Costa Rica — small groups, deep practice, lasting change.</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com/yogawithlisaai" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="ti ti-brand-instagram" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Retreats</h4>
+      <ul>
+        <li><a href="bali.html">Bali 2027</a></li>
+        <li><a href="india.html">India 2027</a></li>
+        <li><a href="nepal.html">Nepal 2027</a></li>
+        <li><a href="costa-rica.html">Costa Rica</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Day passes</h4>
+      <ul>
+        <li><a href="daypass.html">Bali Day Pass</a></li>
+        <li><a href="bali.html#itinerary">View schedule</a></li>
+        <li><a href="bali.html#investment">Retreat pricing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item"><strong>Email</strong>contact@aetherayoga.com</div>
+      <div class="footer-contact-item"><strong>WhatsApp</strong>+1 (858) 248-1198</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2027 Aethera Retreats. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="bali-waiver.html">Liability Waiver</a>
+      <a href="www.yogawithlisa.ai/privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  document.querySelectorAll('.reveal').forEach(el => {
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { el.classList.add('visible'); }
+    }, { threshold: 0.12 }).observe(el);
+  });
+</script>
+
+</body>
+</html>

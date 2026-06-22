@@ -837,8 +837,35 @@
     }
     @media (max-width: 720px) {
       .hero-content { padding: 0 24px 60px; }
-      .room-grid, .grounds-grid, .overview-weeks, .week-actions { grid-template-columns: 1fr; }
-      .week-block { padding: 40px 26px; }
+      .room-grid, .grounds-grid, .week-actions { grid-template-columns: 1fr; }
+
+      /* Week cards — keep side by side but tighten */
+      .overview-weeks {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .week-block {
+        padding: 28px 16px;
+      }
+      .week-icon {
+        width: 52px;
+        height: 52px;
+      }
+      .week-block h3 {
+        font-size: 20px;
+      }
+      .dates-pill {
+        font-size: 11px;
+        padding: 8px 12px;
+      }
+      .week-block .lead {
+        font-size: 13px;
+      }
+      .week-block .btn,
+      .week-block .btn-outline {
+        font-size: 11px;
+        padding: 10px 12px;
+      }
 
       /* Itinerary — keep side by side but tighten */
       .itinerary-grid {
@@ -894,10 +921,10 @@
 
 <!-- ── Info Strip ────────────────────────────────────────── -->
 <div class="info-strip">
-  <div class="info-item"><div class="info-label">Yoga &amp; Movement</div><div class="info-value">Vinyasa &amp; kundalini classes</div></div>
-  <div class="info-item"><div class="info-label">Private Chef</div><div class="info-value">All-inclusive · Plant-rich meals</div></div>
-  <div class="info-item"><div class="info-label">Beach &amp; Nature</div><div class="info-value">5 min to Mengening Beach</div></div>
-  <div class="info-item"><div class="info-label">Build Community</div><div class="info-value">Connect and grow together</div></div>
+  <div class="info-item"><div class="info-label">Yoga &amp; Meditation</div><div class="info-value">Vinyasa classes</div></div>
+  <div class="info-item"><div class="info-label">Private Chef</div><div class="info-value">Plant-rich meals</div></div>
+  <div class="info-item"><div class="info-label">Beach &amp; Nature</div><div class="info-value">Mengening Beach</div></div>
+  <div class="info-item"><div class="info-label">Build Community</div><div class="info-value">Connect and grow</div></div>
 </div>
 
 <!-- ── Overview ──────────────────────────────────────────── -->
@@ -1012,7 +1039,7 @@
       <div class="itin-col" id="itinerary-creator">
         <div class="itin-head">
           <span class="itin-badge">Week 1</span>
-          <h3 class="itin-title">A Day in Creator Universe</h3>
+          <h3 class="itin-title">Creator Universe</h3>
           <p class="itin-sub">April 17 – 23, 2027</p>
         </div>
 
@@ -1101,7 +1128,7 @@
       <div class="itin-col" id="itinerary-yoga">
         <div class="itin-head">
           <span class="itin-badge">Week 2</span>
-          <h3 class="itin-title">A Day in the Yoga Retreat</h3>
+          <h3 class="itin-title">Aethera Yoga</h3>
           <p class="itin-sub">April 24 – 30, 2027</p>
         </div>
 
@@ -1140,7 +1167,7 @@
           <div class="itin-icon"><i class="ti ti-book" aria-hidden="true"></i></div>
           <div class="itin-body">
             <p class="itin-name">Morning workshop</p>
-            <p class="itin-desc">Rotating topics: inversions, chakra philosophy, anatomy or pranayama</p>
+            <p class="itin-desc">Rotating topics: inversions, philosophy, or pranayama</p>
             <span class="itin-tag tag-move">90 min</span>
           </div>
         </div>
@@ -1159,8 +1186,8 @@
           <span class="itin-time">15:00</span>
           <div class="itin-icon"><i class="ti ti-map-pin" aria-hidden="true"></i></div>
           <div class="itin-body">
-            <p class="itin-name">Afternoon excursion or workshop</p>
-            <p class="itin-desc">Temple visit (Pura Batu Ngaus, Tanah Lot), waterfall hike or deep-dive workshop</p>
+            <p class="itin-name">Afternoon excursion</p>
+            <p class="itin-desc">Temple visit (Pura Batu Ngaus, Tanah Lot), waterfall hike</p>
             <span class="itin-tag tag-create">Rotating daily</span>
           </div>
         </div>
