@@ -80,12 +80,52 @@
       max-width: var(--max);
       margin: 0 auto;
     }
-    .overview-header { margin-bottom: 48px; }
+    .overview-header { margin-bottom: 56px; text-align: center; }
     .overview-weeks {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
+      gap: 32px;
+      align-items: stretch;
+    }
+    .week-block {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      padding: 52px 44px;
+      background: linear-gradient(180deg, #fff5f8 0%, var(--white) 72%);
+      border: 1px solid rgba(230,34,68,0.18);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 18px 50px rgba(43,27,21,0.07);
+      transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    }
+    .week-block:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 26px 64px rgba(230,34,68,0.16);
+    }
+    .week-icon {
+      width: 72px; height: 72px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: var(--pink);
+      color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 10px 26px rgba(230,34,68,0.30);
+    }
+    .week-icon svg { width: 34px; height: 34px; }
+    .week-label {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 10px;
+    }
+    .week-block h3 { font-family: var(--serif); font-size: 32px; font-weight: 500; margin-bottom: 16px; }
+    .week-rule {
+      width: 56px; height: 1px;
+      margin: 0 auto 20px;
+      background: linear-gradient(90deg, transparent, rgba(230,34,68,0.55), transparent);
     }
     .dates-pill {
       display: inline-flex;
@@ -98,19 +138,41 @@
       font-size: 13px;
       font-weight: 600;
       color: var(--pink);
+      margin-bottom: 24px;
+    }
+    .week-block p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(43,27,21,0.7);
+      text-align: left;
       margin-bottom: 28px;
+      flex-grow: 1;
     }
-    .week-label {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
+    .week-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: auto;
+    }
+    .week-actions .btn {
+      width: 100%;
+      justify-content: center;
+      padding: 15px 16px;
+      letter-spacing: 1.6px;
+      gap: 8px;
+    }
+    .btn-outline-pink {
+      background: transparent;
+      border: 1.5px solid var(--pink);
       color: var(--pink);
-      margin-bottom: 10px;
     }
-    .week-block h3 { font-family: var(--serif); font-size: 30px; font-weight: 500; margin-bottom: 14px; }
-    .week-block p { font-size: 15px; line-height: 1.7; color: rgba(43,27,21,0.7); margin-bottom: 16px; }
+    .btn-outline-pink:hover {
+      background: var(--pink);
+      color: var(--white);
+      box-shadow: 0 10px 30px rgba(230,34,68,0.22);
+    }
+    html { scroll-behavior: smooth; }
+    #itinerary, #itinerary-creator, #itinerary-yoga, #investment { scroll-margin-top: 96px; }
 
     /* ── Image band ───────────────────────────────────────── */
     .img-band {
@@ -338,7 +400,8 @@
     }
     @media (max-width: 720px) {
       .hero-content { padding: 0 24px 60px; }
-      .room-grid, .grounds-grid, .overview-weeks { grid-template-columns: 1fr; }
+      .room-grid, .grounds-grid, .overview-weeks, .week-actions { grid-template-columns: 1fr; }
+      .week-block { padding: 40px 26px; }
       .img-band-inner { grid-template-columns: 1fr; }
     }
   </style>
@@ -387,18 +450,46 @@
     </div>
     <div class="overview-weeks">
       <div class="week-block reveal">
+        <div class="week-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="18" x2="21" y2="18"/>
+            <path d="M7 18a5 5 0 0 1 10 0"/>
+            <line x1="12" y1="4.5" x2="12" y2="6.5"/>
+            <line x1="5" y1="8" x2="6.4" y2="9.4"/>
+            <line x1="19" y1="8" x2="17.6" y2="9.4"/>
+            <line x1="2.5" y1="13.5" x2="4.5" y2="13.5"/>
+            <line x1="19.5" y1="13.5" x2="21.5" y2="13.5"/>
+          </svg>
+        </div>
         <span class="week-label">Week 1</span>
         <h3>Creator Universe</h3>
+        <div class="week-rule"></div>
         <div class="dates-pill">🗓 April 17 – 23, 2027 · 7 Days / 6 Nights</div>
-        <p>We'll transform the villa into a content universe — morning routines, wellness rituals, behind-the-scenes moments, and cinematic lifestyle storytelling. A week of collaborative content creation alongside fellow creators, coaches, and retreat leaders.</p>
-        <a href="#itinerary-creator" class="btn btn-primary" style="margin-top:8px;">View Full Itinerary →</a>
+        <p>We will transform the villa into a brand universe: morning routines, wellness rituals, behind-the-scenes moments, and aligned lifestyle content. A week of collaborative content creation alongside fellow creators, entreprenuers, and global leaders. All meals will be hand prepared by an on-site personal chef.</p>
+        <div class="week-actions">
+          <a href="#itinerary-creator" class="btn btn-primary">View Full Itinerary →</a>
+          <a href="#investment" class="btn btn-outline-pink">Book Your Spot</a>
+        </div>
       </div>
       <div class="week-block reveal">
+        <div class="week-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="5" r="2"/>
+            <path d="M12 7.5c-2.6 0-4.6 2-4.6 4.6 0 1.1.5 2.1 1.6 2.6"/>
+            <path d="M12 7.5c2.6 0 4.6 2 4.6 4.6 0 1.1-.5 2.1-1.6 2.6"/>
+            <path d="M5 18.5c1.6-1.6 4.2-2.2 7-2.2s5.4.6 7 2.2"/>
+            <path d="M9 15.2c.95-.55 1.95-.82 3-.82s2.05.27 3 .82"/>
+          </svg>
+        </div>
         <span class="week-label">Week 2</span>
         <h3>Aethera Yoga Retreat</h3>
+        <div class="week-rule"></div>
         <div class="dates-pill">🗓 April 24 – 30, 2027 · 7 Days / 6 Nights</div>
-        <p>Nourish mind, body and soul for a week in one of Bali's most tranquil villas. Pause, breathe, and reconnect during daily yoga and meditation led by three trained instructors — Lisa, Sara, and Sandra.</p>
-        <a href="#itinerary-yoga" class="btn btn-primary" style="margin-top:8px;">View Full Itinerary →</a>
+        <p>Nourish mind, body and soul for a week in beautiful Canggu, Bali away from the noise in one of  most tranquil villas in the world. Pause, breathe, and reconnect during daily yoga and meditation classes led by 3 Bali-trained, 500hr certified instructors: Lisa, Sara, and Sandra. All meals will be hand prepared by an on-site personal chef. </p>
+        <div class="week-actions">
+          <a href="#itinerary-yoga" class="btn btn-primary">View Full Itinerary →</a>
+          <a href="#investment" class="btn btn-outline-pink">Book Your Spot</a>
+        </div>
       </div>
     </div>
   </div>
@@ -561,7 +652,7 @@
     </div>
     <div class="reveal" style="margin-top:36px;padding:32px;background:var(--pink-pale);border-radius:var(--radius-md);border:1px solid rgba(230,34,68,0.15);max-width:640px;">
       <h3 style="font-family:var(--serif);font-size:26px;margin-bottom:10px;">Payment Plan</h3>
-      <p style="font-size:14px;color:rgba(43,27,21,0.68);margin-bottom:14px;">A 50% non-refundable deposit secures your space. Remaining balance due 60 days before retreat. All sales are final — we strongly recommend travel insurance.</p>
+      <p style="font-size:14px;color:rgba(43,27,21,0.68);margin-bottom:14px;">A 50% non-refundable deposit secures your space. Remaining balance due 60 days before retreat. All sales are final.</p>
       <a href="https://www.paypal.com/ncp/payment/4RPRDYNM3L252" target="_blank" rel="noopener" class="btn btn-primary">Secure My Spot →</a>
     </div>
   </div>
@@ -615,7 +706,7 @@
   </div>
   <div class="footer-bottom">
     <p>© 2026 Aethera Yoga. All rights reserved.</p>
-    <div class="footer-legal"><a href="#">Terms</a><a href="#">Privacy Policy</a></div>
+    <div class="footer-legal"><a href="www.yogawithlisa.ai/terms.html">Terms</a><a href="www.yogawithlisa.ai/privacy.html">Privacy Policy</a></div>
   </div>
 </footer>
 
