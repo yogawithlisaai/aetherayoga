@@ -249,11 +249,7 @@
     <h1 class="hero-title">Himalayan<br>Stillness</h1>
     <p class="hero-sub">A transformative retreat in the heart of Nepal</p>
     <div class="hero-actions">
-      <a href="mailto:contact@aetherayoga.com?subject=Nepal%20Retreat%20Interest" class="btn-np">View Upcoming Retreats</a>
-      <a href="#about" class="btn-np-outline">
-        <svg width="16" height="16" fill="white" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-        Watch Video
-      </a>
+      <a href="#apply-modal" class="btn-np">Apply for Nepal Retreat</a>
     </div>
   </div>
 </section>
@@ -262,12 +258,10 @@
 <section class="come-home" id="about">
   <div class="come-home-inner">
     <div>
-      <svg class="mountain-graphic" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 140 L80 40 L140 140" stroke="#1e3a5f" stroke-width="1.5" fill="none" opacity="0.5"/>
-        <path d="M70 140 L120 60 L170 140" stroke="#6391bb" stroke-width="1.5" fill="none" opacity="0.4"/>
-        <circle cx="100" cy="26" r="18" stroke="#6391bb" stroke-width="1" fill="none" opacity="0.3"/>
-        <path d="M85 22 Q100 10 115 22" stroke="#6391bb" stroke-width="1" fill="none" opacity="0.3"/>
-      </svg>
+      <img src="images/nepal-temple.jpg" alt="Buddhist temple in Nepal"
+           class="mountain-graphic"
+           style="width:100%;max-width:360px;height:320px;object-fit:cover;border-radius:20px;opacity:1;"
+           onerror="this.style.background='linear-gradient(135deg,#1e3a5f,#6391bb)';this.removeAttribute('src')">
     </div>
     <div>
       <h2>Come Home<br>to Yourself</h2>
@@ -462,7 +456,7 @@
   <div class="np-cta-inner">
     <h2>Your Journey<br>Awaits</h2>
     <p>Step away. Go within. Return transformed.</p>
-    <a href="mailto:contact@aetherayoga.com?subject=Nepal%20Retreat%20Interest" class="btn-np-cta">Book Your Retreat</a>
+    <a href="#apply-modal" class="btn-np-cta">Apply for This Retreat</a>
   </div>
 </section>
 
@@ -487,6 +481,96 @@ const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
+</script>
+
+<div class="apply-modal-overlay" id="apply-modal" role="dialog"
+     aria-modal="true" aria-label="Apply for Nepal Retreat">
+  <div class="apply-modal">
+    <button class="apply-modal-close" id="applyModalClose" aria-label="Close">✕</button>
+    <div class="apply-modal-header">
+      <span style="font-family:var(--sans);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--np-light);font-weight:600;">Nepal Retreat · Coming 2026</span>
+      <h2>Express Your Interest</h2>
+      <p>Spots are limited and filling fast. Submit your interest and we'll reach out with details and next steps.</p>
+    </div>
+    <form class="apply-form" action="https://formspree.io/f/xvzjowap" method="POST">
+      <input type="hidden" name="retreat" value="Nepal 2026">
+      <div class="apply-field">
+        <label for="nf-name">Full name *</label>
+        <input type="text" id="nf-name" name="full_name" placeholder="Your full name" required>
+      </div>
+      <div class="apply-field">
+        <label for="nf-email">Email address *</label>
+        <input type="email" id="nf-email" name="email" placeholder="your@email.com" required>
+      </div>
+      <div class="apply-field">
+        <label for="nf-hear">How did you hear about us?</label>
+        <select id="nf-hear" name="how_heard">
+          <option value="" disabled selected>Select one</option>
+          <option value="Instagram">Instagram</option>
+          <option value="A friend or referral">A friend or referral</option>
+          <option value="Google search">Google search</option>
+          <option value="Aethera community">Aethera community</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="apply-field">
+        <label for="nf-intention">What draws you to a Nepal retreat? *</label>
+        <textarea id="nf-intention" name="intention" rows="3" placeholder="Tell us a little about what you're hoping to experience..." required></textarea>
+      </div>
+      <button type="submit" class="apply-submit">Submit Interest →</button>
+      <p class="apply-footer-note">We'll follow up within 48 hours with retreat details and how to secure your spot.</p>
+    </form>
+  </div>
+</div>
+
+<style>
+.apply-modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(14,33,55,0.7); z-index: 1000;
+  align-items: center; justify-content: center; padding: 20px; overflow-y: auto;
+}
+.apply-modal-overlay.open { display: flex; }
+.apply-modal {
+  background: var(--np-cream); border-radius: 20px; max-width: 540px; width: 100%;
+  padding: 48px 40px; position: relative; max-height: 90vh; overflow-y: auto;
+}
+.apply-modal-close {
+  position: absolute; top: 16px; right: 16px; background: none; border: none;
+  cursor: pointer; font-size: 20px; color: var(--np-dark); opacity: 0.5; transition: opacity 0.2s;
+}
+.apply-modal-close:hover { opacity: 1; }
+.apply-modal-header { margin-bottom: 28px; }
+.apply-modal-header h2 { font-family: var(--serif); font-size: 30px; font-weight: 400; color: var(--np-dark); margin: 8px 0 10px; }
+.apply-modal-header p { font-size: 14px; color: rgba(14,33,55,0.6); line-height: 1.5; }
+.apply-form { display: flex; flex-direction: column; gap: 18px; }
+.apply-field { display: flex; flex-direction: column; gap: 6px; }
+.apply-field label { font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--np-dark); }
+.apply-field input, .apply-field select, .apply-field textarea {
+  width: 100%; padding: 12px 16px; border: 1px solid rgba(14,33,55,0.2); border-radius: 10px;
+  background: white; font-family: var(--sans); font-size: 15px; color: var(--np-dark);
+  outline: none; transition: border-color 0.2s; box-sizing: border-box;
+}
+.apply-field input:focus, .apply-field select:focus, .apply-field textarea:focus { border-color: var(--np-light); }
+.apply-submit {
+  background: var(--np-mid); color: white; border: none; border-radius: 40px;
+  padding: 16px 32px; font-size: 13px; font-weight: 600; letter-spacing: 1px;
+  text-transform: uppercase; cursor: pointer; transition: background 0.2s;
+}
+.apply-submit:hover { background: var(--np-dark); }
+.apply-footer-note { font-size: 12px; color: rgba(14,33,55,0.45); text-align: center; margin: 0; line-height: 1.6; }
+</style>
+
+<script>
+(function() {
+  const overlay = document.getElementById('apply-modal');
+  const closeBtn = document.getElementById('applyModalClose');
+  function openModal(e) { if (e) e.preventDefault(); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeModal() { overlay.classList.remove('open'); document.body.style.overflow = ''; }
+  document.querySelectorAll('a[href="#apply-modal"]').forEach(el => el.addEventListener('click', openModal));
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+})();
 </script>
 </body>
 </html>
