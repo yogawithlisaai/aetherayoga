@@ -7,7 +7,7 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/favicon_180.png">
   <meta property="og:title" content="Aethera Nepal Retreat — Himalayan Stillness">
-  <meta property="og:description" content="A transformative retreat in the heart of Nepal. Pokhara, 1,750m altitude.">
+  <meta property="og:description" content="A transformative retreat in the heart of Nepal. Mustang, Nov 9–14, 2026.">
   <meta property="og:image" content="images/card-nepal.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Josefin+Sans:wght@200;300;400;600&display=swap" rel="stylesheet">
@@ -93,7 +93,7 @@
     /* Stats strip */
     .stats-strip { background:var(--np-cream); padding:56px; }
     .stats-inner { max-width:1200px; margin:0 auto;
-      display:grid; grid-template-columns:repeat(5,1fr); gap:2px;
+      display:grid; grid-template-columns:repeat(6,1fr); gap:2px;
       border-radius:20px; overflow:hidden; box-shadow:0 16px 50px rgba(14,33,55,0.08); }
     .stat-cell { background:white; padding:36px 24px; text-align:center; }
     .stat-icon { font-size:28px; margin-bottom:10px; opacity:.6; }
@@ -170,6 +170,20 @@
       display:flex; align-items:center; justify-content:center;
       flex-shrink:0; color:var(--np-mid); font-size:11px; font-weight:700; }
 
+    /* Prepare */
+    .prep-section { background:white; padding:80px 56px; }
+    .prep-inner { max-width:1200px; margin:0 auto; }
+    .prep-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:16px; }
+    .prep-card { background:var(--np-cream); border-radius:20px; border:1px solid rgba(14,33,55,0.06);
+      padding:28px 24px; transition:box-shadow .3s; }
+    .prep-card:hover { box-shadow:0 8px 32px rgba(14,33,55,0.08); }
+    .prep-icon { width:56px; height:56px; border-radius:50%; background:var(--np-pale);
+      display:flex; align-items:center; justify-content:center; margin-bottom:16px; font-size:24px; }
+    .prep-card h3 { font-family:var(--serif); font-size:20px; font-weight:500;
+      color:var(--np-dark); margin-bottom:10px; }
+    .prep-card p { font-family:var(--sans); font-size:13px; font-weight:300;
+      color:rgba(14,33,55,0.65); line-height:1.7; margin:0; }
+
     /* CTA */
     .np-cta { padding:100px 56px;
       background:linear-gradient(to bottom, var(--np-mid) 0%, var(--np-dark) 100%);
@@ -208,17 +222,19 @@
 
     @media(max-width:1024px){
       #navbar,.hero-content,.come-home,.stats-strip,.expect,.schedule,
-      .included-section,.np-cta,.np-footer{padding-left:32px;padding-right:32px;}
+      .included-section,.prep-section,.np-cta,.np-footer{padding-left:32px;padding-right:32px;}
       .stats-inner{grid-template-columns:repeat(3,1fr);}
+      .prep-grid{grid-template-columns:repeat(2,1fr);}
       .expect-grid{grid-template-columns:repeat(3,1fr);}
       .timeline-h{grid-template-columns:repeat(4,1fr);gap:16px;}
       .timeline-h::before{display:none;}
     }
     @media(max-width:720px){
       #navbar,.hero-content,.come-home,.stats-strip,.expect,.schedule,
-      .included-section,.np-cta,.np-footer{padding-left:20px;padding-right:20px;}
+      .included-section,.prep-section,.np-cta,.np-footer{padding-left:20px;padding-right:20px;}
       .come-home-inner,.included-inner{grid-template-columns:1fr;}
       .stats-inner{grid-template-columns:repeat(2,1fr);}
+      .prep-grid{grid-template-columns:1fr;}
       .expect-grid{grid-template-columns:1fr 1fr;}
       .timeline-h{grid-template-columns:1fr 1fr;}
       .hero-title{font-size:72px;letter-spacing:-2px;}
@@ -245,7 +261,7 @@
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Nepal Retreat · Pokhara · Coming 2026</div>
+    <div class="hero-eyebrow">Nepal Retreat · Mustang · Nov 9–14, 2026</div>
     <h1 class="hero-title">Himalayan<br>Stillness</h1>
     <p class="hero-sub">A transformative retreat in the heart of Nepal</p>
     <div class="hero-actions">
@@ -276,27 +292,33 @@
   <div class="stats-inner">
     <div class="stat-cell">
       <div class="stat-icon">⛰</div>
-      <div class="stat-val">1,750m</div>
+      <div class="stat-val">2,700m</div>
       <div class="stat-lbl">Altitude</div>
       <div class="stat-sub">Clean air. Clear mind.</div>
     </div>
     <div class="stat-cell">
       <div class="stat-icon">📍</div>
-      <div class="stat-val">Pokhara</div>
+      <div class="stat-val">Mustang</div>
       <div class="stat-lbl">Nepal</div>
-      <div class="stat-sub">Lakeside serenity.</div>
+      <div class="stat-sub">Windswept high desert.</div>
     </div>
     <div class="stat-cell">
       <div class="stat-icon">🌙</div>
-      <div class="stat-val">6 Nights</div>
-      <div class="stat-lbl">7 Days</div>
-      <div class="stat-sub">A week to reset and realign.</div>
+      <div class="stat-val">5 Nights</div>
+      <div class="stat-lbl">6 Days</div>
+      <div class="stat-sub">Nov 9 – 14, 2026</div>
     </div>
     <div class="stat-cell">
       <div class="stat-icon">🧘</div>
       <div class="stat-val">12</div>
       <div class="stat-lbl">Guests Max</div>
       <div class="stat-sub">Intimate groups for deep connection.</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-icon">💶</div>
+      <div class="stat-val">€750</div>
+      <div class="stat-lbl">Per Person</div>
+      <div class="stat-sub">All meals included.</div>
     </div>
     <div class="stat-cell">
       <div class="stat-icon">♡</div>
@@ -407,7 +429,7 @@
     <div class="included">
       <h2>What's Included</h2>
       <ul class="included-list">
-        <li><span class="check">✓</span>6 nights boutique accommodation</li>
+        <li><span class="check">✓</span>5 nights boutique accommodation</li>
         <li><span class="check">✓</span>All meals (local &amp; organic)</li>
         <li><span class="check">✓</span>Daily yoga &amp; meditation</li>
         <li><span class="check">✓</span>Guided excursions &amp; workshops</li>
@@ -424,13 +446,13 @@
 <section id="teachers" style="background:var(--np-cream);padding:80px 56px;">
   <div style="max-width:1200px;margin:0 auto;">
     <span class="section-eyebrow">Your Guides</span>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:900px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:28px;max-width:1160px;margin:0 auto;">
       <div style="text-align:center;">
         <div style="width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;margin-bottom:16px;background:rgba(30,58,95,0.1);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:48px;color:var(--np-light);">
-          <img src="images/teacher-lisa.jpg" alt="Lisa" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+          <img src="images/teacher-ash.jpg" alt="Ashwani" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
         </div>
-        <div style="font-family:var(--serif);font-size:24px;color:var(--np-dark);margin-bottom:4px;">Lisa</div>
-        <a href="https://www.instagram.com/yogawithlisaai/" target="_blank" rel="noopener" style="font-family:var(--sans);font-size:11px;color:var(--np-light);text-decoration:none;letter-spacing:1px;">@yogawithlisaai</a>
+        <div style="font-family:var(--serif);font-size:24px;color:var(--np-dark);margin-bottom:4px;">Ashwani</div>
+        <a href="https://www.instagram.com/a4ariess/" target="_blank" rel="noopener" style="font-family:var(--sans);font-size:11px;color:var(--np-light);text-decoration:none;letter-spacing:1px;">@a4ariess</a>
       </div>
       <div style="text-align:center;">
         <div style="width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;margin-bottom:16px;background:rgba(30,58,95,0.1);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:48px;color:var(--np-light);">
@@ -446,6 +468,71 @@
         <div style="font-family:var(--serif);font-size:24px;color:var(--np-dark);margin-bottom:4px;">Sandra</div>
         <a href="https://www.instagram.com/naiasandy_yoga/" target="_blank" rel="noopener" style="font-family:var(--sans);font-size:11px;color:var(--np-light);text-decoration:none;letter-spacing:1px;">@naiasandy_yoga</a>
       </div>
+      <div style="text-align:center;">
+        <div style="width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;margin-bottom:16px;background:rgba(30,58,95,0.1);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:48px;color:var(--np-light);">
+          <img src="images/teacher-lisa.jpg" alt="Lisa" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+        </div>
+        <div style="font-family:var(--serif);font-size:24px;color:var(--np-dark);margin-bottom:4px;">Lisa</div>
+        <a href="https://www.instagram.com/yogawithlisaai/" target="_blank" rel="noopener" style="font-family:var(--sans);font-size:11px;color:var(--np-light);text-decoration:none;letter-spacing:1px;">@yogawithlisaai</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Prepare -->
+<section class="prep-section" id="prepare">
+  <div class="prep-inner">
+    <span class="section-eyebrow">Before You Arrive</span>
+    <div class="prep-grid">
+
+      <div class="prep-card">
+        <div class="prep-icon">🛂</div>
+        <h3>Visa</h3>
+        <p>Nepal issues a visa on arrival for most nationalities at Kathmandu airport: $30 for 15 days
+        or $50 for 30 days, plus one passport photo. Your passport should be valid for 6+ months.
+        Confirm your specific requirements with your country's Nepali embassy before booking.</p>
+      </div>
+
+      <div class="prep-card">
+        <div class="prep-icon">📄</div>
+        <h3>Permits</h3>
+        <p>Lower Mustang (Jomsom &amp; Kagbeni) falls within the Annapurna Conservation Area, so no
+        special restricted-area permit is required. We arrange your Annapurna Conservation Area
+        Permit (ACAP) — just bring two extra passport photos and your passport.</p>
+      </div>
+
+      <div class="prep-card">
+        <div class="prep-icon">💉</div>
+        <h3>Health &amp; altitude</h3>
+        <p>Jomsom and Kagbeni sit around 2,700–2,800m, noticeably higher than Kathmandu. Drink plenty
+        of water and take it easy on arrival. Hepatitis A and Typhoid vaccines are commonly recommended
+        for Nepal — consult your doctor 6–8 weeks before travel, especially if you have heart or lung concerns.</p>
+      </div>
+
+      <div class="prep-card">
+        <div class="prep-icon">🎒</div>
+        <h3>What to pack</h3>
+        <p>Mustang is a high-altitude desert with strong afternoon winds and big swings between sun
+        and shade. Bring warm layers (fleece or down), a buff or scarf for wind and dust, sturdy closed
+        shoes, sunscreen, sunglasses and a headlamp.</p>
+      </div>
+
+      <div class="prep-card">
+        <div class="prep-icon">💶</div>
+        <h3>Money &amp; spending</h3>
+        <p>All meals are included in your €750 retreat price. Bring Nepali Rupees (NPR) for personal
+        spending — ATMs are reliable in Pokhara but scarce once you're in Jomsom or Kagbeni, so
+        withdraw what you'll need before heading up.</p>
+      </div>
+
+      <div class="prep-card">
+        <div class="prep-icon">📶</div>
+        <h3>Getting there &amp; connectivity</h3>
+        <p>We fly Kathmandu → Pokhara → Jomsom, a short scenic mountain flight usually operating only
+        in the early morning due to afternoon winds. Local SIM cards are cheap in Kathmandu or Pokhara;
+        signal in Mustang is intermittent — a good excuse to unplug.</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -488,7 +575,7 @@ window.addEventListener('scroll', () => {
   <div class="apply-modal">
     <button class="apply-modal-close" id="applyModalClose" aria-label="Close">✕</button>
     <div class="apply-modal-header">
-      <span style="font-family:var(--sans);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--np-light);font-weight:600;">Nepal Retreat · Coming 2026</span>
+      <span style="font-family:var(--sans);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--np-light);font-weight:600;">Nepal Retreat · Nov 9–14, 2026</span>
       <h2>Express Your Interest</h2>
       <p>Spots are limited and filling fast. Submit your interest and we'll reach out with details and next steps.</p>
     </div>
