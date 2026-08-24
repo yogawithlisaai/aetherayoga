@@ -60,36 +60,42 @@
       max-width: var(--max);
       margin: 0 auto 100px;
       display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 72px;
+      grid-template-columns: 280px 1fr;
+      gap: 56px;
       align-items: start;
     }
     .teacher-profile:nth-child(even) { direction: rtl; }
     .teacher-profile:nth-child(even) > * { direction: ltr; }
+    .teacher-profile-photo-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
     .teacher-profile-photo {
-      border-radius: var(--radius-lg);
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
       overflow: hidden;
       position: relative;
+      flex-shrink: 0;
     }
     .teacher-profile-photo img {
       width: 100%;
-      height: 600px;
+      height: 100%;
       object-fit: cover;
     }
     .teacher-photo-fallback {
       width: 100%;
-      height: 600px;
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: var(--serif);
-      font-size: 80px;
+      font-size: 64px;
       color: rgba(255,255,255,0.6);
     }
     .teacher-photo-tag {
-      position: absolute;
-      bottom: 22px;
-      left: 22px;
       background: var(--pink);
       color: var(--white);
       padding: 8px 18px;
@@ -98,6 +104,8 @@
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
+      text-align: center;
+      white-space: nowrap;
     }
     .teacher-profile-body {}
     .teacher-profile-name {
@@ -203,14 +211,15 @@
     .work-cta p { font-size: 16px; color: rgba(43,27,21,0.65); margin-bottom: 36px; max-width: 440px; margin-left: auto; margin-right: auto; }
 
     @media (max-width: 1024px) {
-      .teacher-profile { grid-template-columns: 1fr; gap: 44px; }
+      .teacher-profile { grid-template-columns: 1fr; gap: 28px; justify-items: center; text-align: center; }
       .teacher-profile:nth-child(even) { direction: ltr; }
+      .teacher-tags, .teacher-profile-bio { text-align: left; }
       .teachers-full { padding: 72px 28px; }
       .page-hero-content { padding: 140px 28px 60px; }
       .philosophy-section, .work-cta { padding-left: 28px; padding-right: 28px; }
     }
     @media (max-width: 720px) {
-      .teacher-profile-photo img, .teacher-photo-fallback { height: 420px; }
+      .teacher-profile-photo { width: 200px; height: 200px; }
       .teacher-profile-name { font-size: 52px; }
     }
   </style>
@@ -242,9 +251,11 @@
 
   <!-- Lisa -->
   <div class="teacher-profile reveal">
-    <div class="teacher-profile-photo">
-      <img src="images/teacher-lisa.jpg" alt="Lisa — Ashtanga Vinyasa Teacher" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="teacher-photo-fallback" style="display:none;background:linear-gradient(135deg,#E62244,#83A533);">L</div>
+    <div class="teacher-profile-photo-col">
+      <div class="teacher-profile-photo">
+        <img src="images/teacher-lisa.jpg" alt="Lisa — Ashtanga Vinyasa Teacher" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="teacher-photo-fallback" style="display:none;background:linear-gradient(135deg,#E62244,#83A533);">L</div>
+      </div>
       <span class="teacher-photo-tag">Costa Rica · Bali · India</span>
     </div>
     <div class="teacher-profile-body">
@@ -272,9 +283,11 @@
 
   <!-- Sara -->
   <div class="teacher-profile reveal">
-    <div class="teacher-profile-photo">
-      <img src="images/teacher-sara.jpg" alt="Sara — Kundalini Yoga Teacher" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="teacher-photo-fallback" style="display:none;background:linear-gradient(135deg,#F66F9E,#E62244);">S</div>
+    <div class="teacher-profile-photo-col">
+      <div class="teacher-profile-photo">
+        <img src="images/teacher-sara.jpg" alt="Sara — Kundalini Yoga Teacher" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="teacher-photo-fallback" style="display:none;background:linear-gradient(135deg,#F66F9E,#E62244);">S</div>
+      </div>
       <span class="teacher-photo-tag">Costa Rica · Bali · Nepal</span>
     </div>
     <div class="teacher-profile-body">
@@ -301,9 +314,11 @@
 
   <!-- Sandra -->
   <div class="teacher-profile reveal">
-    <div class="teacher-profile-photo">
-      <img src="images/teacher-sandra.jpg" alt="Sandra — Somatic & Yin Yoga Teacher" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="teacher-photo-fallback" style="display:none;background:linear-gradient(135deg,#83A533,#2b1b15);">S</div>
+    <div class="teacher-profile-photo-col">
+      <div class="teacher-profile-photo">
+        <img src="images/teacher-sandra.jpg" alt="Sandra — Somatic & Yin Yoga Teacher" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="teacher-photo-fallback" style="display:none;background:linear-gradient(135deg,#83A533,#2b1b15);">S</div>
+      </div>
       <span class="teacher-photo-tag">Bali · Nepal · India</span>
     </div>
     <div class="teacher-profile-body">
