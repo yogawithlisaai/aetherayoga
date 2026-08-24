@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <!-- Light mode gradient: deeper, reads on white -->
+    <linearGradient id="gL" x1="30%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0%" stop-color="#FF82C5"/>
+      <stop offset="100%" stop-color="#C4076B"/>
+    </linearGradient>
+    <!-- Dark mode gradient: lighter, reads on black -->
+    <linearGradient id="gD" x1="30%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0%" stop-color="#FFB8D9"/>
+      <stop offset="100%" stop-color="#F0439A"/>
+    </linearGradient>
+  </defs>
+  <style>
+    #aLight { display: block; }
+    #aDark  { display: none; }
+    @media (prefers-color-scheme: dark) {
+      #aLight { display: none; }
+      #aDark  { display: block; }
+    }
+  </style>
+  <!-- Light mode A -->
+  <text id="aLight" x="50" y="92" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="95" fill="url(#gL)">A</text>
+  <!-- Dark mode A -->
+  <text id="aDark" x="50" y="92" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="95" fill="url(#gD)">A</text>
+</svg>

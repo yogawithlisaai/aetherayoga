@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <!-- Stronger gradient for light browser chrome (reads well on white) -->
+    <linearGradient id="g" x1="30%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0%" stop-color="#FF82C5"/>
+      <stop offset="100%" stop-color="#C4076B"/>
+    </linearGradient>
+  </defs>
+  <text x="50" y="92" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="95" fill="url(#g)">A</text>
+</svg>
