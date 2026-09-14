@@ -705,5 +705,22 @@
   });
 </script>
 
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var ref = params.get('ref');
+  if (ref) {
+    try { sessionStorage.setItem('aethera_ref', ref); } catch (e) {}
+  }
+  var stored = null;
+  try { stored = sessionStorage.getItem('aethera_ref'); } catch (e) {}
+  if (stored) {
+    var clean = stored.replace(/[^a-zA-Z0-9-]/g, '').slice(0, 40);
+    var field = document.getElementById('referred_by');
+    if (field) field.value = clean;
+  }
+})();
+</script>
+
 </body>
 </html>

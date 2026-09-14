@@ -1723,6 +1723,8 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         </label>
       </div>
 
+      <input type="hidden" name="referred_by" id="referred_by">
+
       <button type="submit" class="apply-submit">
         Submit Application →
       </button>
@@ -1761,6 +1763,23 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeModal();
   });
+})();
+</script>
+
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var ref = params.get('ref');
+  if (ref) {
+    try { sessionStorage.setItem('aethera_ref', ref); } catch (e) {}
+  }
+  var stored = null;
+  try { stored = sessionStorage.getItem('aethera_ref'); } catch (e) {}
+  if (stored) {
+    var clean = stored.replace(/[^a-zA-Z0-9-]/g, '').slice(0, 40);
+    var field = document.getElementById('referred_by');
+    if (field) field.value = clean;
+  }
 })();
 </script>
 </body>
