@@ -292,6 +292,22 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 8px;
 }
 .footer-contact-item strong { color: rgba(255,255,255,0.4); display: block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2px; }
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 6px;
+  padding: 11px 20px;
+  background: var(--white);
+  color: var(--dark);
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.whatsapp-btn:hover { transform: translateY(-2px); opacity: 0.88; color: var(--dark); }
+.whatsapp-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
 .newsletter-row { display: flex; gap: 8px; margin-top: 18px; }
 .newsletter-input {
   flex: 1;

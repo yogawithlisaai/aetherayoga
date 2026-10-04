@@ -441,6 +441,7 @@
   transition: color 0.2s;
 }
 .teacher-ig:hover { color: var(--pink); }
+.teacher-links { display: flex; flex-direction: column; align-items: center; gap: 8px; }
 
 /* ── Community CTA ─────────────────────────────────── */
 .community-cta {
@@ -652,6 +653,22 @@
   color: rgba(236,234,235,0.35);
   margin-bottom: 2px;
 }
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 6px;
+  padding: 11px 20px;
+  background: var(--cream);
+  color: var(--dark);
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.whatsapp-btn:hover { transform: translateY(-2px); opacity: 0.88; color: var(--dark); }
+.whatsapp-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
 .footer-newsletter-row {
   display: flex;
   gap: 0;
@@ -924,7 +941,7 @@
         <span class="section-label">Meet the Teachers</span>
         <h2>The guides<br>on your journey</h2>
       </div>
-      <a href="teachers.html" class="hero-cta" style="color:var(--dark);border-color:rgba(43,27,21,0.3);">All Teachers →</a>
+      <a href="teachers.html" class="hero-cta" style="color:var(--dark);border-color:rgba(43,27,21,0.3);">Read More →</a>
     </div>
     <div class="teachers-grid">
 
@@ -935,10 +952,16 @@
         </div>
         <div class="teacher-name">Lisa</div>
         <div class="teacher-role">Lead Teacher</div>
-        <a href="https://www.instagram.com/yogawithlisaai/" target="_blank" rel="noopener" class="teacher-ig">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-          @yogawithlisaai
-        </a>
+        <div class="teacher-links">
+          <a href="https://www.instagram.com/yogawithlisarose/" target="_blank" rel="noopener" class="teacher-ig">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            @yogawithlisarose
+          </a>
+          <a href="https://www.yogawithlisa.com" target="_blank" rel="noopener" class="teacher-ig">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            www.yogawithlisa.com
+          </a>
+        </div>
       </div>
 
       <div class="teacher-card">
@@ -1022,7 +1045,7 @@
       <h4>Aethera</h4>
       <ul>
         <li><a href="teachers.html">Our Teachers</a></li>
-        <li><a href="https://www.instagram.com/yogawithlisaai/" target="_blank">Lisa</a></li>
+        <li><a href="https://www.instagram.com/yogawithlisarose/" target="_blank">Lisa</a></li>
         <li><a href="https://www.instagram.com/saraapelaaez/" target="_blank">Sara</a></li>
         <li><a href="https://www.instagram.com/naiasandy_yoga/" target="_blank">Sandra</a></li>
       </ul>
@@ -1033,7 +1056,11 @@
         <strong>Email</strong>contact@aetherayoga.com
       </div>
       <div class="contact-item">
-        <strong>WhatsApp</strong>+1 (858) 248-1198
+        <strong>WhatsApp</strong>
+        <a href="https://wa.me/18582481198" target="_blank" rel="noopener" class="whatsapp-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.83 14.07c-.24.68-1.39 1.32-1.92 1.4-.49.08-1.11.11-1.79-.11-.41-.13-.94-.3-1.62-.59-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.54-1.16-2.94 0-1.4.73-2.08 1-2.37.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.17.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.3.02.49-.1.19-.15.3-.29.46-.14.17-.3.37-.43.5-.14.14-.29.29-.12.57.17.28.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.34 1.46.28.14.44.12.6-.07.17-.19.72-.84.91-1.13.19-.28.38-.24.64-.14.26.1 1.66.78 1.95.93.28.14.47.21.54.33.07.12.07.68-.17 1.37z"/></svg>
+          Chat on WhatsApp
+        </a>
       </div>
       <div class="footer-newsletter-row">
         <input type="email" placeholder="Your email">
