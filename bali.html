@@ -17,6 +17,7 @@
   <meta property="og:url" content="https://aetherayoga.com/bali.html">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont/tabler-icons.min.css">
   <link rel="stylesheet" href="style.css">
+  <script src="https://www.paypal.com/sdk/js?client-id=BAAIjp9h7fKo25GAnYHt0gHqbZv_R4v58eSubL32Mro9119jvfKbriuC244k0uUsdl4YkSQzP-oFElLGN4&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
   <style>
     /* ── Bali page accent overrides ──────────────────────── */
     :root {
@@ -1372,7 +1373,19 @@
     <div class="reveal" style="margin-top:36px;padding:32px;background:var(--pink-pale);border-radius:var(--radius-md);border:1px solid rgba(230,34,68,0.15);max-width:640px;">
       <h3 style="font-family:var(--serif);font-size:26px;margin-bottom:10px;">Payment Plan</h3>
       <p style="font-size:14px;color:rgba(43,27,21,0.68);margin-bottom:14px;">A 50% non-refundable deposit secures your space. Remaining balance due 60 days before retreat. All sales are final.</p>
-      <a href="https://www.paypal.com/ncp/payment/4RPRDYNM3L252" target="_blank" rel="noopener" class="btn btn-primary">Secure My Spot →</a>
+      <ul style="font-size:14px;color:rgba(43,27,21,0.68);margin:0 0 20px;padding-left:18px;line-height:1.7;">
+        <li>Shared Room, 1 Week — deposit <strong>$825</strong></li>
+        <li>Shared Room, 2 Weeks — deposit <strong>$1,650</strong></li>
+        <li>Private Room, 1 Week — deposit <strong>$1,650</strong></li>
+        <li>Private Room, 2 Weeks — deposit <strong>$3,300</strong></li>
+      </ul>
+      <p style="font-size:13px;color:rgba(43,27,21,0.5);margin-bottom:14px;">Enter the deposit amount for your chosen option at checkout.</p>
+      <div id="paypal-container-KLBWN6FZESW9G"></div>
+      <script>
+        paypal.HostedButtons({
+          hostedButtonId: "KLBWN6FZESW9G",
+        }).render("#paypal-container-KLBWN6FZESW9G")
+      </script>
     </div>
   </div>
 </section>
