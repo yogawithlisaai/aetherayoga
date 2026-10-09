@@ -1683,6 +1683,13 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
       </div>
 
       <div class="apply-field">
+        <label for="af-referrer">Who referred you?
+          <span class="apply-optional">(optional)</span></label>
+        <input type="text" id="af-referrer" name="referred_by_name"
+               placeholder="Name of the friend or teacher who referred you">
+      </div>
+
+      <div class="apply-field">
         <label for="af-excited">What are you most excited about? *</label>
         <textarea id="af-excited" name="most_excited" rows="3"
           placeholder="What draws you to this retreat?"
