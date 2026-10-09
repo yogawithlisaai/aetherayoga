@@ -1808,6 +1808,15 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 <script>
 (function() {
+  // Personal referral links: aetherayoga.com/bali.html?ref=<code>
+  // Add new referrers here as "code": "Full Name".
+  var REFERRERS = {
+    'lisa': 'Lisa Eshun-Wilson',
+    'erica': 'Erica Yingling',
+    'sara': 'Sara Pelaez de la Rocha',
+    'sandra': 'Sandra Lillo'
+  };
+
   var params = new URLSearchParams(window.location.search);
   var ref = params.get('ref');
   if (ref) {
@@ -1819,6 +1828,18 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     var clean = stored.replace(/[^a-zA-Z0-9-]/g, '').slice(0, 40);
     var field = document.getElementById('referred_by');
     if (field) field.value = clean;
+
+    var referrerName = REFERRERS[clean.toLowerCase()];
+    if (referrerName) {
+      var nameField = document.getElementById('af-referrer');
+      if (nameField && !nameField.value) nameField.value = referrerName;
+
+      var overlay = document.getElementById('apply-modal');
+      if (overlay) {
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    }
   }
 })();
 </script>
