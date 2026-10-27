@@ -183,7 +183,7 @@
       box-shadow: 0 10px 30px rgba(230,34,68,0.22);
     }
     html { scroll-behavior: smooth; }
-    #itinerary, #itinerary-creator, #itinerary-yoga, #investment, #faq { scroll-margin-top: 96px; }
+    #itinerary, #itinerary-creator, #itinerary-yoga, #investment, #faq, #aerial-training { scroll-margin-top: 96px; }
 
     /* ── What's included ──────────────────────────────────── */
     .included-section {
@@ -572,6 +572,39 @@
       font-size: 18px;
       color: var(--pink);
       flex-shrink: 0;
+    }
+
+    /* ── Aerial YTT ───────────────────────────────────────── */
+    .aerial-section { padding: 100px 52px; background: var(--dark); color: var(--white); }
+    .aerial-inner {
+      max-width: var(--max); margin: 0 auto;
+      display: grid; grid-template-columns: 0.85fr 1fr; gap: 64px; align-items: center;
+    }
+    .aerial-photo {
+      border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4 / 5;
+      background: linear-gradient(135deg, #F66F9E, #E62244);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    }
+    .aerial-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .aerial-copy .section-title { color: var(--white); }
+    .aerial-copy .lead { color: rgba(255,255,255,0.78); max-width: 520px; margin-bottom: 28px; }
+    .aerial-chips { list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .aerial-chips li {
+      display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px;
+      border: 1px solid rgba(246,111,158,0.45); border-radius: 999px;
+      font-size: 13px; font-weight: 600; color: var(--white);
+    }
+    .aerial-chips .ti { font-size: 16px; color: var(--pink-soft); }
+    .aerial-note { margin-top: 18px; font-size: 13px; color: rgba(255,255,255,0.5); }
+    .aerial-note a { color: var(--pink-soft); text-decoration: underline; }
+    @media (max-width: 860px) {
+      .aerial-inner { grid-template-columns: 1fr; gap: 36px; }
+      .aerial-photo { max-width: 420px; }
+    }
+    @media (max-width: 600px) {
+      .aerial-section { padding: 60px 24px !important; }
+      .aerial-photo { max-width: none; aspect-ratio: 1 / 1; }
+      .aerial-copy .btn { width: 100%; justify-content: center; }
     }
 
     /* ── Prepare ──────────────────────────────────────────── */
@@ -1490,6 +1523,29 @@
           hostedButtonId: "KLBWN6FZESW9G",
         }).render("#paypal-container-KLBWN6FZESW9G")
       </script>
+    </div>
+  </div>
+</section>
+
+<!-- ── Aerial Yoga Teacher Training ───────────────────────── -->
+<section class="aerial-section" id="aerial-training">
+  <div class="aerial-inner">
+    <div class="aerial-photo reveal">
+      <img src="images/teacher-sandra.jpg" alt="Sandra practicing aerial yoga in a suspended hammock" onerror="this.style.display='none'">
+    </div>
+    <div class="aerial-copy reveal">
+      <span class="eyebrow eyebrow-light">Add-on Training</span>
+      <h2 class="section-title">Learn to fly.<br>Then teach it.</h2>
+      <div class="deco-line"></div>
+      <p class="lead">Take your practice off the mat with our 50-hour Aerial Yoga Teacher Training, led by Sandra, an E-RYT 500 with Yoga Alliance. Learn to set up and use the hammock safely, build aerial flows and restorative suspended poses, and cue inversions with confidence. You'll leave Bali with a certificate of completion and the skills to bring aerial yoga to your own students.</p>
+      <ul class="aerial-chips">
+        <li><i class="ti ti-clock" aria-hidden="true"></i>50 hours</li>
+        <li><i class="ti ti-award" aria-hidden="true"></i>Led by an E-RYT 500</li>
+        <li><i class="ti ti-certificate" aria-hidden="true"></i>Certificate to teach</li>
+        <li><i class="ti ti-users" aria-hidden="true"></i>Small group</li>
+      </ul>
+      <a href="pdf/Naiasandy_Aethera_Dossier.pdf" target="_blank" rel="noopener" class="btn btn-primary">Learn More →</a>
+      <p class="aerial-note">Questions? Email <a href="mailto:contact@aetherayoga.com?subject=Aerial%20Yoga%20Teacher%20Training">contact@aetherayoga.com</a></p>
     </div>
   </div>
 </section>
