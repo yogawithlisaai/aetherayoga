@@ -92,7 +92,13 @@
 <!-- ── Navigation ───────────────────────────────────────── -->
 <nav class="nav" id="mainNav">
   <a href="index.html" class="nav-logo">Aethera</a>
-  <ul class="nav-links">
+  <div class="nav-mobile-actions">
+    <a href="#apply-modal" class="nav-cta nav-cta-mobile">Apply</a>
+    <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <ul class="nav-links" id="navLinks">
     <li><a href="index.html#retreats">Retreats</a></li>
     <li><a href="#teachers">Meet the Teachers</a></li>
     <li><a href="#apply-modal" class="nav-cta">Apply</a></li>
@@ -176,7 +182,7 @@
   </div>
   <div class="footer-bottom">
     <p>© 2026 Aethera Yoga. All rights reserved.</p>
-    <div class="footer-legal"><a href="www.yogawithlisa.ai/terms.html">Terms</a><a href="www.yogawithlisa.ai/privacy.html">Privacy Policy</a></div>
+    <div class="footer-legal"><a href="terms.html">Terms</a><a href="privacypolicy.html">Privacy Policy</a></div>
   </div>
 </footer>
 
@@ -184,6 +190,27 @@
 // Keep the fixed nav legible over the light thank-you background.
 const nav = document.getElementById('mainNav');
 nav.classList.add('scrolled');
+</script>
+<script>
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  if (!toggle || !links) return;
+  function closeMenu(){
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+  }
+  toggle.addEventListener('click', function(){
+    var isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeMenu();
+  });
+})();
 </script>
 </body>
 </html>

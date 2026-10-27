@@ -83,6 +83,7 @@
   position: absolute;
   bottom: 40px;
   left: 56px;
+  transform: none;
   z-index: 3;
   display: flex;
   align-items: center;
@@ -772,6 +773,28 @@
   transition: background 0.2s, transform 0.2s;
 }
 .nav-cta:hover { background: var(--dark) !important; transform: translateY(-1px); }
+.nav-mobile-actions { display: none; align-items: center; gap: 10px; }
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.nav-toggle span {
+  width: 22px;
+  height: 2px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+#navbar.scrolled .nav-toggle span { background: var(--dark); }
 
 @media (max-width: 1024px) {
   #navbar, .hero-content, .intro, .destinations, .philosophy-banner,
@@ -786,8 +809,55 @@
   .dest-grid { grid-template-columns: 1fr; }
   .teachers-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
-  .hero-title { font-size: 72px; letter-spacing: -2px; }
-  .nav-links { display: none; }
+  .hero { min-height: 100vh; min-height: 100svh; }
+  .hero-title { font-size: clamp(52px, 17vw, 72px); letter-spacing: -2px; }
+  .scroll-hint { left: 20px; }
+  .intro, .philosophy-banner, .teachers-section, .community-cta, .cta-band { padding-top: 60px; padding-bottom: 60px; }
+  .destinations { padding-bottom: 60px; }
+  .stat-grid { gap: 1px; }
+  .stat-box { padding: 24px 16px; }
+  .stat-num { font-size: 38px; margin-bottom: 4px; }
+  .stat-label { font-size: 10px; letter-spacing: 1.5px; }
+  .dest-card { min-height: 360px; }
+  .dest-tag { font-size: 11px; }
+  .teachers-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .newsletter-form { flex-direction: column; border-radius: 20px; }
+  .newsletter-form input { padding: 16px 20px; }
+  .newsletter-form button { padding: 16px 20px; width: 100%; }
+  .footer-newsletter-row { flex-direction: column; border-radius: 16px; }
+  .footer-newsletter-row input { padding: 14px 16px; }
+  .footer-newsletter-row button { padding: 14px 16px; width: 100%; font-size: 11px; }
+  .nav-mobile-actions { display: flex; }
+  .nav-toggle { display: flex; }
+  .nav-cta-mobile { padding: 10px 20px; font-size: 11px; }
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--cream);
+    padding: 8px 20px 24px;
+    box-shadow: 0 16px 36px rgba(43,27,21,0.14);
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    z-index: 199;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { width: 100%; }
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 48px;
+    color: var(--dark) !important;
+    font-size: 13px;
+  }
+  .nav-links .nav-cta { display: none; }
+  .social-link, .footer-col h4, .contact-item strong { font-size: 11px; }
 }
 </style>
 </head>
@@ -796,7 +866,13 @@
 <!-- ── Navigation ──────────────────────────────────────── -->
 <nav id="navbar">
   <a href="index.html" class="nav-logo">Aethera</a>
-  <ul class="nav-links">
+  <div class="nav-mobile-actions">
+    <a href="mailto:contact@aetherayoga.com" class="nav-cta nav-cta-mobile">Contact</a>
+    <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <ul class="nav-links" id="navLinks">
     <li><a href="#retreats">Retreats</a></li>
     <li><a href="#teachers">Meet the Teachers</a></li>
     <li><a href="mailto:contact@aetherayoga.com" class="nav-cta">Contact</a></li>
@@ -1082,6 +1158,27 @@ window.addEventListener('scroll', () => {
     var field = document.getElementById('referred_by');
     if (field) field.value = clean;
   }
+})();
+</script>
+<script>
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  if (!toggle || !links) return;
+  function closeMenu(){
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+  }
+  toggle.addEventListener('click', function(){
+    var isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeMenu();
+  });
 })();
 </script>
 </body>

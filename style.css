@@ -125,6 +125,28 @@ a { color: inherit; text-decoration: none; }
   transition: background 0.2s, transform 0.2s !important;
 }
 .nav-cta:hover { background: var(--dark) !important; transform: translateY(-1px); }
+.nav-mobile-actions { display: none; align-items: center; gap: 10px; }
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.nav-toggle span {
+  width: 22px;
+  height: 2px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+.nav.scrolled .nav-toggle span { background: var(--dark); }
 
 /* ── Buttons ─────────────────────────────────────────────── */
 .btn {
@@ -464,7 +486,36 @@ a { color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 720px) {
-  .nav-links { display: none; }
+  .nav-mobile-actions { display: flex; }
+  .nav-toggle { display: flex; }
+  .nav-cta-mobile { padding: 10px 20px; font-size: 11px !important; }
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 76px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--cream);
+    padding: 8px 24px 24px;
+    box-shadow: 0 16px 36px rgba(43,27,21,0.14);
+    max-height: calc(100vh - 76px);
+    overflow-y: auto;
+    z-index: 199;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { width: 100%; }
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 48px;
+    color: var(--dark) !important;
+    font-size: 13px;
+  }
+  .nav-links .nav-cta { display: none; }
   .teachers-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .info-strip { grid-template-columns: 1fr; }
@@ -472,4 +523,7 @@ a { color: inherit; text-decoration: none; }
   .info-item:last-child { border-bottom: none; }
   .footer-bottom { flex-direction: column; gap: 14px; text-align: center; }
   .site-footer { padding: 52px 24px 32px; }
+  .scroll-hint { font-size: 11px; }
+  .footer-contact-item strong { font-size: 11px; }
+  .info-label { font-size: 11px; }
 }

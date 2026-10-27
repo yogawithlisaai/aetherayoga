@@ -433,6 +433,7 @@
       .dp-strip { grid-template-columns: 1fr 1fr; margin: -20px 16px 0; }
       .dp-bring-grid { grid-template-columns: 1fr; }
       .dp-hero h1 { letter-spacing: -1.5px; }
+      .dp-strip-label, .dp-pass-badge, .dp-includes-label { font-size: 11px; }
     }
   </style>
 </head>
@@ -440,7 +441,13 @@
 
 <nav class="nav" id="mainNav">
   <a href="index.html" class="nav-logo">Aethera</a>
-  <ul class="nav-links">
+  <div class="nav-mobile-actions">
+    <a href="mailto:contact@aetherayoga.com?subject=Day%20Pass%20Inquiry" class="nav-cta nav-cta-mobile">Get in touch</a>
+    <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <ul class="nav-links" id="navLinks">
     <li><a href="bali.html">Bali Retreat</a></li>
     <li><a href="index.html#retreats">All Retreats</a></li>
     <li><a href="mailto:contact@aetherayoga.com?subject=Day%20Pass%20Inquiry" class="nav-cta">Get in touch</a></li>
@@ -693,7 +700,7 @@
     <p>&copy; 2027 Aethera Retreats. All rights reserved.</p>
     <div class="footer-legal">
       <a href="bali-waiver.html">Liability Waiver</a>
-      <a href="www.yogawithlisa.ai/privacy.html">Privacy Policy</a>
+      <a href="privacypolicy.html">Privacy Policy</a>
     </div>
   </div>
 </footer>
@@ -725,6 +732,27 @@
     var field = document.getElementById('referred_by');
     if (field) field.value = clean;
   }
+})();
+</script>
+<script>
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  if (!toggle || !links) return;
+  function closeMenu(){
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+  }
+  toggle.addEventListener('click', function(){
+    var isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeMenu();
+  });
 })();
 </script>
 
