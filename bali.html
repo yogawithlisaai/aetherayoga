@@ -183,7 +183,7 @@
       box-shadow: 0 10px 30px rgba(230,34,68,0.22);
     }
     html { scroll-behavior: smooth; }
-    #itinerary, #itinerary-creator, #itinerary-yoga, #investment, #faq, #aerial-training { scroll-margin-top: 96px; }
+    #itinerary, #itinerary-creator, #itinerary-yoga, #investment, #faq, #aerial { scroll-margin-top: 96px; }
 
     /* ── What's included ──────────────────────────────────── */
     .included-section {
@@ -1528,7 +1528,7 @@
 </section>
 
 <!-- ── Aerial Yoga Teacher Training ───────────────────────── -->
-<section class="aerial-section" id="aerial-training">
+<section class="aerial-section" id="aerial">
   <div class="aerial-inner">
     <div class="aerial-photo reveal">
       <img src="images/teacher-sandra.jpg" alt="Sandra practicing aerial yoga in a suspended hammock" onerror="this.style.display='none'">
@@ -2190,6 +2190,14 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
           All sales are final. Payment details will be shared after
           your application is reviewed.</p>
         </div>
+      </div>
+
+      <div class="apply-field apply-checkbox">
+        <input type="checkbox" id="af-aerial-interest" name="aerial_training_interest"
+               value="yes">
+        <label for="af-aerial-interest">We're also hosting an aerial
+          yoga teacher training. Tick the box if you're interested and
+          we'll send you the info.</label>
       </div>
 
       <div class="apply-field apply-checkbox">

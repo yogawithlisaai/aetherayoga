@@ -235,14 +235,14 @@
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 .dest-card {
-  border-radius: 24px;
+  border-radius: 20px;
   overflow: hidden;
   position: relative;
-  min-height: 480px;
+  min-height: 260px;
   display: flex;
   align-items: flex-end;
   text-decoration: none;
@@ -265,7 +265,7 @@
 .dest-card-content {
   position: relative;
   z-index: 2;
-  padding: 32px 28px;
+  padding: 20px 18px;
   color: white;
   width: 100%;
 }
@@ -273,43 +273,68 @@
   display: inline-block;
   font-family: var(--sans);
   font-size: 10px;
-  letter-spacing: 2.5px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   opacity: 0.8;
 }
 .dest-name {
   font-family: var(--serif);
-  font-size: 34px;
+  font-size: 24px;
   font-weight: 400;
-  line-height: 1.0;
-  margin-bottom: 10px;
-  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
 }
 .dest-desc {
   font-family: var(--sans);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.6;
+  line-height: 1.5;
   color: rgba(255,255,255,0.78);
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 .dest-link {
   font-family: var(--sans);
-  font-size: 11px;
-  letter-spacing: 2px;
+  font-size: 10px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   font-weight: 600;
   color: white;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 .dest-card.cr   .dest-tag { color: #a8d8a0; }
 .dest-card.bali .dest-tag { color: var(--soft-pink); }
 .dest-card.np   .dest-tag { color: #a8c8e8; }
 .dest-card.in   .dest-tag { color: #e8c8a0; }
+
+.dest-dots {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+.dest-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(43,27,21,0.22);
+  cursor: pointer;
+  transition: background 0.2s ease, width 0.2s ease;
+}
+.dest-dot.active {
+  background: var(--pink);
+  width: 20px;
+  border-radius: 4px;
+}
 
 /* ── Philosophy banner ─────────────────────────────── */
 .philosophy-banner {
@@ -806,7 +831,27 @@
   #navbar, .hero-content, .intro, .destinations, .philosophy-banner,
   .teachers-section, .community-cta, .cta-band, .site-footer { padding-left: 20px; padding-right: 20px; }
   .intro-inner, .community-inner { grid-template-columns: 1fr; gap: 44px; }
-  .dest-grid { grid-template-columns: 1fr; }
+  .dest-grid {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 14px;
+    margin: 0 -20px;
+    padding: 0 20px 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .dest-grid::-webkit-scrollbar { display: none; }
+  .dest-card {
+    flex: 0 0 72%;
+    scroll-snap-align: center;
+  }
+  .dest-card:hover,
+  .dest-card:hover .dest-card-bg {
+    transform: none;
+  }
+  .dest-dots { display: flex; }
   .teachers-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .hero { min-height: 100vh; min-height: 100svh; }
@@ -818,7 +863,7 @@
   .stat-box { padding: 24px 16px; }
   .stat-num { font-size: 38px; margin-bottom: 4px; }
   .stat-label { font-size: 10px; letter-spacing: 1.5px; }
-  .dest-card { min-height: 360px; }
+  .dest-card { min-height: 280px; }
   .dest-tag { font-size: 11px; }
   .teachers-header { flex-direction: column; align-items: flex-start; gap: 20px; }
   .newsletter-form { flex-direction: column; border-radius: 20px; }
@@ -942,9 +987,42 @@
 <section class="destinations" id="retreats">
   <div class="destinations-header">
     <span class="section-label">Our Retreats</span>
-    <h2>Four sacred destinations</h2>
+    <h2>Find your journey</h2>
   </div>
   <div class="dest-grid">
+
+    <a href="bali.html" class="dest-card bali">
+      <div class="dest-card-bg" style="background-image:url('images/card-bali.jpg'); background-color:#3a1a2a;"></div>
+      <div class="dest-card-overlay"></div>
+      <div class="dest-card-content">
+        <span class="dest-tag">Bali · Yoga Retreat</span>
+        <h3 class="dest-name">Island Flow Retreat</h3>
+        <p class="dest-desc">Sacred temples, ocean breezes, and soulful connection.</p>
+        <span class="dest-link">View Retreat →</span>
+      </div>
+    </a>
+
+    <a href="bali.html" class="dest-card bali">
+      <div class="dest-card-bg" style="background-image:url('images/card-bali-creators.jpg'); background-color:#4a1f2f;"></div>
+      <div class="dest-card-overlay"></div>
+      <div class="dest-card-content">
+        <span class="dest-tag">Bali · Content Creators</span>
+        <h3 class="dest-name">Content Creators Retreat</h3>
+        <p class="dest-desc">Yoga, clean eating, and brand building for creators.</p>
+        <span class="dest-link">View Retreat →</span>
+      </div>
+    </a>
+
+    <a href="bali.html#aerial" class="dest-card bali">
+      <div class="dest-card-bg" style="background-image:url('images/card-aerial-sandra.jpg'); background-color:#2a1a1a; background-position:center top;"></div>
+      <div class="dest-card-overlay"></div>
+      <div class="dest-card-content">
+        <span class="dest-tag">Bali · Teacher Training</span>
+        <h3 class="dest-name">Aerial Yoga Training</h3>
+        <p class="dest-desc">A 50-hour aerial yoga teacher training led by Sandra.</p>
+        <span class="dest-link">Learn More →</span>
+      </div>
+    </a>
 
     <a href="nepal.html" class="dest-card np">
       <div class="dest-card-bg" style="background-image:url('images/card-nepal.jpg'); background-color:#1a2a3a;"></div>
@@ -953,17 +1031,6 @@
         <span class="dest-tag">Nepal</span>
         <h3 class="dest-name">Himalayan Stillness</h3>
         <p class="dest-desc">Majestic peaks, ancient wisdom, and inner stillness.</p>
-        <span class="dest-link">View Retreat →</span>
-      </div>
-    </a>
-
-    <a href="bali.html" class="dest-card bali">
-      <div class="dest-card-bg" style="background-image:url('images/card-bali.jpg'); background-color:#3a1a2a;"></div>
-      <div class="dest-card-overlay"></div>
-      <div class="dest-card-content">
-        <span class="dest-tag">Bali</span>
-        <h3 class="dest-name">Island Flow Retreat</h3>
-        <p class="dest-desc">Sacred temples, ocean breezes, and soulful connection.</p>
         <span class="dest-link">View Retreat →</span>
       </div>
     </a>
@@ -991,6 +1058,7 @@
     </a>
 
   </div>
+  <div class="dest-dots" id="destDots" role="tablist" aria-label="Retreat cards"></div>
 </section>
 
 <!-- ── Philosophy ─────────────────────────────────────── -->
@@ -1179,6 +1247,52 @@ window.addEventListener('scroll', () => {
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape') closeMenu();
   });
+})();
+</script>
+<script>
+(function(){
+  var grid = document.querySelector('.dest-grid');
+  var dotsWrap = document.getElementById('destDots');
+  if (!grid || !dotsWrap) return;
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.dest-card'));
+  if (!cards.length) return;
+
+  cards.forEach(function(card, i){
+    var dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'dest-dot' + (i === 0 ? ' active' : '');
+    var nameEl = card.querySelector('.dest-name');
+    dot.setAttribute('aria-label', 'Go to ' + (nameEl ? nameEl.textContent : 'card ' + (i + 1)));
+    dot.addEventListener('click', function(){
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      card.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
+    });
+    dotsWrap.appendChild(dot);
+  });
+
+  var dots = Array.prototype.slice.call(dotsWrap.querySelectorAll('.dest-dot'));
+
+  function updateActive(){
+    var center = grid.scrollLeft + grid.clientWidth / 2;
+    var closest = 0;
+    var closestDist = Infinity;
+    cards.forEach(function(card, i){
+      var mid = card.offsetLeft + card.offsetWidth / 2;
+      var dist = Math.abs(mid - center);
+      if (dist < closestDist) { closestDist = dist; closest = i; }
+    });
+    dots.forEach(function(d, i){ d.classList.toggle('active', i === closest); });
+  }
+
+  var ticking = false;
+  grid.addEventListener('scroll', function(){
+    if (!ticking) {
+      window.requestAnimationFrame(function(){ updateActive(); ticking = false; });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  window.addEventListener('resize', updateActive);
 })();
 </script>
 </body>
